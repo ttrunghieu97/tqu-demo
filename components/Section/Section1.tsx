@@ -1,31 +1,92 @@
-import { wisp } from "@/lib/wisp";
-import Image from "next/image";
-import Link from "next/link";
-import { Card, CardContent } from "@/components/ui/card";
-import { CalendarDays } from "lucide-react";
+"use client"
 
-interface DateFormat {
-  iso: string;
-  localized: string;
+import { useState, useEffect } from "react"
+import { wisp } from "@/lib/wisp"
+import type { Author as WispAuthor } from "@wisp-cms/client"
+import Image from "next/image"
+import Link from "next/link"
+import { Card, CardContent } from "@/components/ui/card"
+import { CalendarDays } from "lucide-react"
+import { Button } from "@/components/ui/button"
+
+// Use the Wisp CMS Author type instead of our custom one
+interface Post {
+  id: string
+  createdAt: Date
+  teamId: string
+  description: string | null
+  title: string
+  slug: string
+  image: string | null
+  authorId: string
+  updatedAt: Date
+  publishedAt: Date | null
+  author: WispAuthor
+  tags: {
+    id: string
+    name: string
+  }[]
 }
 
-export default async function BlogPostsGrid() {
-  const result = await wisp.getPosts({ limit: 6 });
+interface DateFormat {
+  iso: string
+  localized: string
+}
 
-  // Helper function to format dates
+export default function BlogPostsGrid() {
+  const [posts, setPosts] = useState<Post[]>([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [currentPage, setCurrentPage] = useState(1)
+  const postsPerPage = 6
+
   const formatDate = (date: Date | string | undefined): DateFormat | null => {
-    if (!date) return null;
+    if (!date) return null
     try {
-      // Convert to Date object if string is provided
-      const dateObj = typeof date === 'string' ? new Date(date) : date;
+      const dateObj = typeof date === 'string' ? new Date(date) : date
       return {
         iso: dateObj.toISOString(),
         localized: dateObj.toLocaleString()
-      };
+      }
     } catch {
-      return null;
+      return null
     }
-  };
+  }
+
+  useEffect(() => {
+    const fetchInitialPosts = async () => {
+      setIsLoading(true)
+      try {
+        const result = await wisp.getPosts({
+          page: 1,
+          limit: postsPerPage
+        })
+        setPosts(result.posts as Post[])
+      } catch (error) {
+        console.error("Error fetching initial posts:", error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    fetchInitialPosts()
+  }, [])
+
+  const loadMorePosts = async () => {
+    setIsLoading(true)
+    try {
+      const nextPage = currentPage + 1
+      const result = await wisp.getPosts({
+        page: nextPage,
+        limit: postsPerPage
+      })
+      setPosts(prevPosts => [...prevPosts, ...(result.posts as Post[])])
+      setCurrentPage(nextPage)
+    } catch (error) {
+      console.error("Error loading more posts:", error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -33,14 +94,13 @@ export default async function BlogPostsGrid() {
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-10">
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
         </svg>
-
-        <h2 className="text-4xl font-extrabold  uppercase text-red-600">Tin tức - Sự kiện</h2>
+        <h2 className="text-4xl font-extrabold uppercase text-red-600">Tin tức - Sự kiện</h2>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-5">
-        {result.posts.map((post) => {
-          const date = formatDate(post.publishedAt || post.updatedAt);
-          const author = post.author;
+        {posts.map((post) => {
+          const date = formatDate(post.publishedAt || post.updatedAt)
+          const author = post.author
 
           return (
             <Card key={post.id} className="group hover:shadow-lg transition-shadow duration-300">
@@ -89,7 +149,7 @@ export default async function BlogPostsGrid() {
                           />
                         ) : (
                           <Image
-                            src="/img/logo.png" // Fallback image
+                            src="/img/logo.png"
                             alt="Default Avatar"
                             width={16}
                             height={16}
@@ -112,19 +172,20 @@ export default async function BlogPostsGrid() {
                 </p>
               </CardContent>
             </Card>
-
-          );
+          )
         })}
-
-      </div>
-      <div className="flex justify-center mt-0">
-        <Link href="/tintuc/chung/">
-          <button className="mt-2 px-4 py-2 border border-red-500 dark:border-red-400 text-red-500 dark:text-red-400 rounded-full hover:bg-red-500 dark:hover:bg-red-400 hover:text-white transition-colors">
-            Xem tất cả
-          </button>
-        </Link>
       </div>
 
+      <div className="flex justify-center mt-6">
+        <Button
+          onClick={loadMorePosts}
+          disabled={isLoading}
+          className="mt-2 px-4 py-2 border border-red-500 dark:border-red-400 text-red-500 dark:text-red-400 rounded-full hover:bg-red-500 dark:hover:bg-red-400 hover:text-white transition-colors"
+          variant="outline"
+        >
+          {isLoading ? "Đang tải..." : "Xem thêm"}
+        </Button>
+      </div>
     </div>
-  );
+  )
 }
