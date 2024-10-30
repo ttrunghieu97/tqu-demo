@@ -5,7 +5,7 @@ import { FaFacebook, FaYoutube, FaTwitter, FaLinkedin, FaInstagram, FaTiktok } f
 
 export default function Footer() {
   return (
-    <footer className="bg-[#800000] text-white py-12">
+    <footer className="bg-yellow-400 text-black pt-3">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
           <div className="lg:col-span-2">
@@ -65,41 +65,41 @@ export default function Footer() {
 
           {/* General Information */}
           <div className="lg:col-span-1">
-            <h3 className="font-bold text-yellow-500 mb-4">THÔNG TIN CHUNG</h3>
+            <h3 className="font-bold text-red-600 mb-4">THÔNG TIN CHUNG</h3>
             <ul className="space-y-2">
-              <li><Link href="#" className="hover:text-yellow-200">Lịch sử hình thành</Link></li>
-              <li><Link href="#" className="hover:text-yellow-200">Sứ mệnh - Tầm nhìn - Giá trị cốt lõi</Link></li>
-              <li><Link href="#" className="hover:text-yellow-200">Triết lý giáo dục</Link></li>
+              <li><Link href="#" className="hover:text-red-200">Lịch sử hình thành</Link></li>
+              <li><Link href="#" className="hover:text-red-200">Sứ mệnh - Tầm nhìn - Giá trị cốt lõi</Link></li>
+              <li><Link href="#" className="hover:text-red-200">Triết lý giáo dục</Link></li>
             </ul>
-            <h3 className="font-bold text-yellow-500 mt-8 mb-4 uppercase">đảng - đoàn thể</h3>
+            <h3 className="font-bold text-red-500 mt-8 mb-4 uppercase">đảng - đoàn thể</h3>
             <ul className="space-y-2">
-              <li><Link href="#" className="hover:text-yellow-200">Đảng bộ TTrU</Link></li>
-              <li><Link href="#" className="hover:text-yellow-200">Công đoàn TTrU</Link></li>
-              <li><Link href="#" className="hover:text-yellow-200">Đoàn trườngTTrU</Link></li>
+              <li><Link href="#" className="hover:text-red-200">Đảng bộ TTrU</Link></li>
+              <li><Link href="#" className="hover:text-red-200">Công đoàn TTrU</Link></li>
+              <li><Link href="#" className="hover:text-red-200">Đoàn trườngTTrU</Link></li>
             </ul>
 
           </div>
 
           {/* Admissions */}
           <div className="lg:col-span-1">
-            <h3 className="font-bold text-yellow-500 mb-4">TUYỂN SINH</h3>
+            <h3 className="font-bold text-red-500 mb-4">TUYỂN SINH</h3>
             <ul className="space-y-2">
-              <li><Link href="#" className="hover:text-yellow-200">Thông tin tuyển sinh</Link></li>
-              <li><Link href="#" className="hover:text-yellow-200">Đăng ký tuyển sinh</Link></li>
-              <li><Link href="#" className="hover:text-yellow-200">Tư vấn tuyển sinh</Link></li>
-              <li><Link href="#" className="hover:text-yellow-200">Tư vấn tuyển sinh</Link></li>
+              <li><Link href="#" className="hover:text-red-200">Thông tin tuyển sinh</Link></li>
+              <li><Link href="#" className="hover:text-red-200">Đăng ký tuyển sinh</Link></li>
+              <li><Link href="#" className="hover:text-red-200">Tư vấn tuyển sinh</Link></li>
+              <li><Link href="#" className="hover:text-red-200">Tư vấn tuyển sinh</Link></li>
             </ul>
 
-            <h3 className="font-bold text-yellow-500 mt-8 mb-4 uppercase">Hệ đào tạo</h3>
+            <h3 className="font-bold text-red-500 mt-8 mb-4 uppercase">Hệ đào tạo</h3>
             <ul className="space-y-2">
-              <li><Link href="#" className="hover:text-yellow-200">Cao đẳng</Link></li>
-              <li><Link href="#" className="hover:text-yellow-200">Đại học </Link></li>
-              <li><Link href="#" className="hover:text-yellow-200">Sau Đại học </Link></li>
+              <li><Link href="#" className="hover:text-red-200">Cao đẳng</Link></li>
+              <li><Link href="#" className="hover:text-red-200">Đại học </Link></li>
+              <li><Link href="#" className="hover:text-red-200">Sau Đại học </Link></li>
             </ul>
           </div>
 
           <div className="lg:col-span-2">
-            <h3 className="font-bold text-yellow-500 mb-4 uppercase text-center"> bản đồ chỉ dẫn</h3>
+            <h3 className="font-bold text-red-500 mb-4 uppercase text-center"> bản đồ chỉ dẫn</h3>
             <ul className="space-y-2">
               <div className="flex-1">
                 <div className="w-full h-48">
@@ -115,8 +115,15 @@ export default function Footer() {
               </div>
             </ul>
           </div>
+
         </div>
+
       </div>
+      <div className="border-t border-green-700 my-2"></div>
+      <div className="container mx-auto text-center text-xs">
+        <p>© {new Date().getFullYear()} ttrunghieu97 </p>
+      </div>
+
     </footer>
   )
 }

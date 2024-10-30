@@ -16,7 +16,7 @@ export default function Navigation() {
 
 	useEffect(() => {
 		const handleScroll = () => {
-			setIsSticky(window.scrollY > 0)
+			setIsSticky(window.scrollY > 175)
 		}
 
 		window.addEventListener('scroll', handleScroll)
@@ -35,7 +35,7 @@ export default function Navigation() {
 		>
 
 
-			<nav className="sticky top-0 z-50 w-full bg-yellow-500">
+			<nav className="sticky top-0 z-50 w-full bg-yellow-500 font-sans">
 				<div className="mx-auto max-w-7xl">
 					<NavigationMenu >
 						<NavigationMenuList >
@@ -343,7 +343,7 @@ const ListItem = React.forwardRef<
 			<a
 				ref={ref}
 				className={cn(
-					"block select-none rounded-md p-3 hover:bg-green-50 focus:bg-green-50",
+					"block select-none rounded-md p-3 hover:bg-green-500 focus:bg-green-50",
 					className
 				)}
 				{...props}
