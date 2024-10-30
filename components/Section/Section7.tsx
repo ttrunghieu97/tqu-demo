@@ -1,3 +1,5 @@
+// components/Section/Section7.tsx
+
 'use client';
 
 import React, { useEffect, useState } from 'react';
@@ -28,37 +30,37 @@ const YouTubeVideoFetcher = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const channelId = 'UCLtll0roAIliWEQkb9JC-gA';
-  const apiKey = 'AIzaSyD4OEHoXw8JXZZWZ5ZXC6shAO9Xg5CjFrM';
-
-  const fetchLatestVideos = async () => {
-    try {
-      const response = await fetch(
-        `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&order=date&part=snippet,id&maxResults=5`
-      );
-
-      if (!response.ok) {
-        throw new Error('Failed to fetch videos');
-      }
-
-      const data = await response.json();
-      const videoItems: YouTubeVideo[] = data.items
-        .filter((item: { id: { kind: string; }; }) => item.id.kind === 'youtube#video')
-        .map((item: { id: { videoId: unknown; }; snippet: { title: unknown; thumbnails: { high: { url: unknown; }; }; }; }) => ({
-          id: item.id.videoId,
-          title: item.snippet.title,
-          thumbnail: item.snippet.thumbnails.high.url,
-        }));
-
-      setVideos(videoItems);
-    } catch (error) {
-      setError(error instanceof Error ? error.message : 'Unknown error');
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const fetchLatestVideos = async () => {
+      const channelId = 'UCLtll0roAIliWEQkb9JC-gA';
+      const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
+
+      try {
+        const response = await fetch(
+          `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&order=date&part=snippet,id&maxResults=5`
+        );
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch videos');
+        }
+
+        const data = await response.json();
+        const videoItems: YouTubeVideo[] = data.items
+          .filter((item: { id: { kind: string } }) => item.id.kind === 'youtube#video')
+          .map((item: { id: { videoId: string }; snippet: { title: string; thumbnails: { high: { url: string } } } }) => ({
+            id: item.id.videoId,
+            title: item.snippet.title,
+            thumbnail: item.snippet.thumbnails.high.url,
+          }));
+
+        setVideos(videoItems);
+      } catch (error) {
+        setError(error instanceof Error ? error.message : 'Unknown error');
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchLatestVideos();
   }, []);
 

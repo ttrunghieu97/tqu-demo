@@ -14,22 +14,62 @@ interface CarouselItemProps {
 
 const carouselItems: CarouselItemProps[] = [
   {
-    headline: "Răng - Hàm - Mặt",
+    headline: "Giáo dục Mầm non",
     image: "https://vttu.edu.vn/wp-content/uploads/2023/03/NGANHYKhoa-480x360.jpg",
     link: "/article/react-carousel-part-1"
   },
   {
-    headline: "Y khoa",
+    headline: "Giáo dục Tiểu học",
     image: "https://vttu.edu.vn/wp-content/uploads/2023/03/POST-YK-1-1-480x360.jpg",
     link: "/article/appending-currency-sign"
   },
   {
-    headline: "3",
+    headline: "Sư phạm Toán học",
     image: "https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
     link: "/article/react-carousel-part-2"
   },
   {
-    headline: "4",
+    headline: "Sư phạm ngữ văn",
+    image: "https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+    link: "/article/react-carousel-part-2"
+  },
+  {
+    headline: "Sư phạm Khoa học tự nhiên",
+    image: "https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+    link: "/article/react-carousel-part-2"
+  },
+  {
+    headline: "Quản lý văn hoá ",
+    image: "https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+    link: "/article/react-carousel-part-2"
+  },
+  {
+    headline: "Kế toán ",
+    image: "https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+    link: "/article/react-carousel-part-2"
+  },
+  {
+    headline: "Công nghệ thông tin",
+    image: "https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+    link: "/article/react-carousel-part-2"
+  },
+  {
+    headline: "Dược học",
+    image: "https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+    link: "/article/react-carousel-part-2"
+  },
+  {
+    headline: "Điều dưỡng ",
+    image: "https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+    link: "/article/react-carousel-part-2"
+  },
+  {
+    headline: "Công tác xã hội ",
+    image: "https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+    link: "/article/react-carousel-part-2"
+  },
+  {
+    headline: "Quản trị dịch vụ du lịch và lữ hành",
     image: "https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
     link: "/article/react-carousel-part-2"
   },

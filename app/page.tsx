@@ -7,6 +7,11 @@ import Section7 from '@/components/Section/Section7';
 import Partner from '@/components/Section/Partner';
 import Footer from '@/components/Footer/Footer';
 import SEO from '@/components/seo';
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Trường Đại Học Tân Trào',
+}
 
 export default function Home() {
   return (

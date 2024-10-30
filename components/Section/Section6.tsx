@@ -14,22 +14,32 @@ interface CarouselItemProps {
 
 const carouselItems: CarouselItemProps[] = [
   {
-    headline: "Răng - Hàm - Mặt",
+    headline: "Quản lý Kinh tế",
     image: "https://vttu.edu.vn/wp-content/uploads/2023/03/NGANHYKhoa-480x360.jpg",
     link: "/article/react-carousel-part-1"
   },
   {
-    headline: "Y khoa",
+    headline: "Lý luận bộ môn Toán",
     image: "https://vttu.edu.vn/wp-content/uploads/2023/03/POST-YK-1-1-480x360.jpg",
     link: "/article/appending-currency-sign"
   },
   {
-    headline: "3",
+    headline: "Giáo dục học (Tiểu học)",
     image: "https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
     link: "/article/react-carousel-part-2"
   },
   {
-    headline: "4",
+    headline: "Sinh học",
+    image: "https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+    link: "/article/react-carousel-part-2"
+  },
+  {
+    headline: "Lý luận văn học",
+    image: "https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+    link: "/article/react-carousel-part-2"
+  },
+  {
+    headline: "Khoa học cây trồng",
     image: "https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
     link: "/article/react-carousel-part-2"
   },
