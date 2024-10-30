@@ -102,7 +102,8 @@ export default async function BlogPost({ params }: PageProps) {
           {new Intl.DateTimeFormat("en-US", {
             dateStyle: 'long'
           }).format(publicationDate)}
-        </time>      </div>
+        </time>
+      </div>
       {tags.length > 0 && (
         <div className="flex flex-wrap gap-2 mt-4">
           {tags.map((tag) => (

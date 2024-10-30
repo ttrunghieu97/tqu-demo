@@ -264,6 +264,7 @@ export default function Section7() {
           />
         ))}
       </div>
+
     </div>
   );
 }
