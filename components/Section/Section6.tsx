@@ -9,7 +9,7 @@ import Autoplay from "embla-carousel-autoplay"
 interface CarouselItemProps {
   headline: string
   image: string
-  link: string  // Added the link property to the interface
+  link: string
 }
 
 const carouselItems: CarouselItemProps[] = [

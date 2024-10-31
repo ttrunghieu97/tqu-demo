@@ -1,101 +1,116 @@
-import { wisp } from "@/lib/wisp";
-import Image from "next/image";
-import Link from "next/link";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { CalendarDays } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { ChevronLeft, ChevronRight, MessageSquare } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
 
-interface DateFormat {
-  iso: string;
-  localized: string;
-}
-
-export default async function BlogPostsGrid() {
-  const result = await wisp.getPosts({ limit: 6 });
-
-  // Helper function to format dates
-  const formatDate = (date: Date | string | undefined): DateFormat | null => {
-    if (!date) return null;
-    try {
-      // Convert to Date object if string is provided
-      const dateObj = typeof date === 'string' ? new Date(date) : date;
-      return {
-        iso: dateObj.toISOString(),
-        localized: dateObj.toLocaleString()
-      };
-    } catch {
-      return null;
-    }
-  };
+export default function Section2() {
+  const sections = [
+    {
+      title: "Sự kiện sắp diễn ra",
+      items: [
+        {
+          image: "/placeholder.svg",
+          title: "Hội thi Văn nghệ và Đại sứ Sinh viên VTTU lần 3, năm 2025",
+          date: "09/10/2024",
+          comments: 0,
+        },
+      ],
+    },
+    {
+      title: "Hoạt động VTTU",
+      items: [
+        {
+          image: "/placeholder.svg",
+          title: "Lễ ký kết hợp tác với Trường Đại học Udon Thani Rajabhat (Thái Lan)",
+          date: "19/10/2024",
+        },
+        {
+          image: "/placeholder.svg",
+          title: "Trang trọng và nhiều cảm xúc tại Lễ Tuyên thệ Y khoa và Phát bằng tốt nghiệp năm 2024",
+          date: "22/09/2024",
+          comments: 0,
+        },
+      ],
+    },
+    {
+      title: "Hội nghị - Hội thảo",
+      items: [
+        {
+          image: "/placeholder.svg",
+          title: "Hội thảo hướng nghiệp ĐỊNH HƯỚNG THỰC TẠI – PHÁT TRIỂN TƯƠNG LAI",
+          date: "24/06/2024",
+        },
+        {
+          image: "/placeholder.svg",
+          title: "Tuần sinh hoạt Công dân – Sinh viên ngành Dược học Lần 1, năm 2024",
+          date: "08/06/2024",
+        },
+      ],
+    },
+    {
+      title: "Các cuộc thi",
+      items: [
+        {
+          image: "/placeholder.svg",
+          title: "Lễ Bế mạc Hội thao VTTU 2024",
+          date: "25/04/2024",
+        },
+        {
+          image: "/placeholder.svg",
+          title: "Giải chạy việt dã VTTU – WE ARE ONE (Chúng ta là một) lần I, năm 2024",
+          date: "26/03/2024",
+        },
+      ],
+    },
+  ]
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {result.posts.map((post) => {
-          const date = formatDate(post.publishedAt || post.updatedAt);
-
-          return (
-            <Card key={post.id} className="group hover:shadow-lg transition-shadow duration-300">
-              <Link href={`/${post.slug}`}>
-                <div className="relative aspect-[16/9] overflow-hidden rounded-t-lg">
-                  {post.image ? (
-                    <Image
-                      alt={post.title}
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      src={post.image}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-muted flex items-center justify-center">
-                      <Image
-                        src="/img/logo.png"
-                        alt="Default"
-                        width={64}
-                        height={64}
-                        className="opacity-50"
-                      />
+    <div className="container mx-auto grid gap-6 py-8 md:grid-cols-2">
+      {sections.map((section) => (
+        <Card key={section.title}>
+          <CardHeader className="bg-yellow-500 py-2">
+            <CardTitle className="flex items-center justify-center gap-2 text-white">
+              <ChevronRight className="h-4 w-4" />
+              <span>{section.title}</span>
+              <ChevronLeft className="h-4 w-4" />
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="p-4">
+            <div className="space-y-4">
+              {section.items.map((item) => (
+                <div key={item.title} className="flex gap-4">
+                  <Image
+                    src={item.image}
+                    alt=""
+                    className="h-24 w-32 rounded object-cover"
+                    width={128}
+                    height={96}
+                  />
+                  <div className="space-y-1">
+                    <Link href="#" className="font-medium hover:text-[#8B1818]">
+                      {item.title}
+                    </Link>
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                      <span>{item.date}</span>
+                      {typeof item.comments !== "undefined" && (
+                        <span className="flex items-center gap-1">
+                          <MessageSquare className="h-4 w-4" />
+                          {item.comments}
+                        </span>
+                      )}
                     </div>
-                  )}
-                </div>
-              </Link>
-
-              <CardContent className="p-6">
-                {date && (
-                  <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-3">
-                    <CalendarDays className="h-4 w-4" />
-                    <time dateTime={date.iso}>
-                      {date.localized}
-                    </time>
                   </div>
-                )}
-
-                <Link href={`/${post.slug}`} className="block group-hover:text-primary transition-colors">
-                  <h2 className="font-bold text-xl mb-3 line-clamp-2">
-                    {post.title}
-                  </h2>
-                </Link>
-
-                <p className="text-muted-foreground line-clamp-3 text-sm">
-                  {post.description}
-                </p>
-              </CardContent>
-
-              <CardFooter className="px-6 pb-6 pt-0">
-                <div className="flex flex-wrap gap-2">
-                  {post.tags.map((tag) => (
-                    <span
-                      key={tag.id}
-                      className="inline-flex items-center px-3 py-1 rounded-full text-xs bg-secondary text-secondary-foreground"
-                    >
-                      #{tag.name}
-                    </span>
-                  ))}
                 </div>
-              </CardFooter>
-            </Card>
-          );
-        })}
-      </div>
+              ))}
+            </div>
+            <div className="mt-4 text-right">
+              <Link href="#" className="text-sm text-[#8B1818] hover:underline">
+                Xem thêm
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
+      ))}
     </div>
-  );
+  )
 }

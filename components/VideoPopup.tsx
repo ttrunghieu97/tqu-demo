@@ -3,7 +3,7 @@ import React from 'react';
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  videoUrl?: string; // optional, can be undefined
+  videoUrl?: string;
 }
 
 const VideoPopUp: React.FC<ModalProps> = ({ isOpen, onClose, videoUrl }) => {

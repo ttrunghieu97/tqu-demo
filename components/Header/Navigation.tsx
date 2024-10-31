@@ -48,11 +48,11 @@ export default function Navigation() {
 									<ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-2">
 										<li>
 											<div className="mb-2 text-lg font-bold">Tỉnh Tuyên Quang</div>
-											<ListItem href="/gioi-thieu/thong-tin-chung" title="Thông tin chung" />
+											<ListItem href="/chung" title="Thông tin chung" />
 										</li>
 										<li>
 											<div className="mb-2 text-lg font-bold">Trường ĐH Tân Trào</div>
-											<ListItem href="/gioi-thieu/gioi-thieu-chung" title="Giới thiệu chung" />
+											<ListItem href="/gioi-thieu-chung" title="Giới thiệu chung" />
 											<ListItem href="/ttu/triet-li" title="Triết lí giáo dục" />
 											<ListItem href="/ttu/ban-giam-hieu" title="Ban Giám hiệu" />
 											<ListItem href="/ttu/hoi-dong" title="Hội đồng trường" />
@@ -177,7 +177,6 @@ export default function Navigation() {
 									</ul>
 								</NavigationMenuContent>
 							</NavigationMenuItem>
-							{/* ///////////////////////////////// */}
 							{/*NCKH - HTQT */}
 							<NavigationMenuItem>
 								<NavigationMenuTrigger className="text-red-800 text-1xl bg-yellow-500 uppercase font-extrabold">
@@ -206,7 +205,6 @@ export default function Navigation() {
 									</ul>
 								</NavigationMenuContent>
 							</NavigationMenuItem>
-							{/* ///////////////////////////////// */}
 							{/*Tin tức */}
 							<NavigationMenuItem>
 								<NavigationMenuTrigger className="text-red-800 text-1xl bg-yellow-500 uppercase font-extrabold">
@@ -237,7 +235,6 @@ export default function Navigation() {
 									</ul>
 								</NavigationMenuContent>
 							</NavigationMenuItem>
-							{/* ///////////////////////////////// */}
 							{/*Công tác HSSV */}
 							<NavigationMenuItem>
 								<NavigationMenuTrigger className="text-red-800 text-1xl bg-yellow-500 uppercase font-extrabold">
@@ -273,7 +270,6 @@ export default function Navigation() {
 									</ul>
 								</NavigationMenuContent>
 							</NavigationMenuItem>
-							{/* ///////////////////////////////// */}
 							{/*Tài nguyên */}
 							<NavigationMenuItem>
 								<NavigationMenuTrigger className="text-red-800 text-1xl bg-yellow-500 uppercase font-extrabold">
@@ -314,7 +310,7 @@ export default function Navigation() {
 									</ul>
 								</NavigationMenuContent>
 							</NavigationMenuItem>
-							{/* ///////////////////////////////// */}
+
 							{/*Công tác HSSV */}
 							<NavigationMenuItem>
 								<NavigationMenuTrigger className="text-red-800 text-1xl bg-yellow-500 uppercase font-extrabold">
@@ -323,7 +319,7 @@ export default function Navigation() {
 									</a>
 								</NavigationMenuTrigger>
 							</NavigationMenuItem>
-							{/* ///////////////////////////////// */}
+
 						</NavigationMenuList>
 					</NavigationMenu>
 				</div>

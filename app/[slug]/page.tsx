@@ -74,7 +74,6 @@ export default async function BlogPost({ params }: PageProps) {
     notFound();
   }
 
-  // Extract slug from post
   const { slug } = post;
   const { posts } = await wisp.getRelatedPosts({ slug, limit: 7 }); // Fetch 7 related posts
 

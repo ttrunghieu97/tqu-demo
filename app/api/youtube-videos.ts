@@ -1,4 +1,3 @@
-// app/api/youtube-videos.ts
 import type { NextApiRequest, NextApiResponse } from "next";
 
 interface YouTubeVideo {
@@ -6,8 +5,6 @@ interface YouTubeVideo {
   title: string;
   thumbnail: string;
 }
-
-// Define the structure of the YouTube API response
 interface YouTubeApiResponse {
   items: Array<{
     id: { kind: string; videoId: string };
@@ -18,14 +15,13 @@ interface YouTubeApiResponse {
   }>;
 }
 
-// Biến lưu cache trong bộ nhớ
 let cachedVideos: YouTubeVideo[] | null = null;
 let lastFetched = 0;
-const CACHE_DURATION = 2 * 60 * 60 * 1000; // 2 tiếng (tính theo milliseconds)
+const CACHE_DURATION = 2 * 60 * 60 * 1000;
 
 const fetchLatestVideos = async (): Promise<YouTubeVideo[]> => {
   const channelId = "UCLtll0roAIliWEQkb9JC-gA";
-  const apiKey = process.env.YOUTUBE_API_KEY; // Lấy API key từ biến môi trường
+  const apiKey = process.env.YOUTUBE_API_KEY;
 
   if (!apiKey) {
     throw new Error("API key is not defined");

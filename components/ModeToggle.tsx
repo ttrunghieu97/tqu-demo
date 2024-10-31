@@ -8,7 +8,6 @@ import { Sun, Moon } from "lucide-react"
 export default function ModeToggle() {
     const { theme, setTheme } = useTheme()
 
-    // Toggle the theme when the switch is clicked
     const handleThemeChange = (checked: boolean) => {
         setTheme(checked ? "dark" : "light")
     }

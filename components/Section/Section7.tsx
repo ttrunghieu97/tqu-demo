@@ -1,5 +1,3 @@
-// components/Section/Section7.tsx
-
 'use client';
 
 import React, { useEffect, useState } from 'react';

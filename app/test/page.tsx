@@ -1,7 +1,11 @@
+
+import BlogPostsGrid from "@/components/khoa-su-pham/Header";
+
+
+
+
 export default function Test() {
   return (
-    <div>
-      <h1>Đây là trang test</h1>
-    </div>
+    <BlogPostsGrid />
   );
 }
