@@ -8,6 +8,9 @@ const nextConfig = {
       "images.unsplash.com",
       "img.youtube.com",
       "i.ytimg.com",
+      "scontent.fhph1-1.fna.fbcdn.net",
+      "lh3.googleusercontent.com",
+      "daihoctantrao.edu.vn",
     ],
   },
 };

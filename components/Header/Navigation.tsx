@@ -48,7 +48,7 @@ export default function Navigation() {
 									<ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-2">
 										<li>
 											<div className="mb-2 text-lg font-bold">Tỉnh Tuyên Quang</div>
-											<ListItem href="/chung" title="Thông tin chung" />
+											<ListItem href="/gioi-thieu/thong-tin-chung" title="Thông tin chung" />
 										</li>
 										<li>
 											<div className="mb-2 text-lg font-bold">Trường ĐH Tân Trào</div>

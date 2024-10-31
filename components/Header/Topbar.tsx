@@ -11,6 +11,7 @@ export default function Topbar() {
                     <Link href="#" className="hover:underline">Người học</Link>
                     <Link href="#" className="hover:underline">Cán bộ giảng viên</Link>
                     <Link href="#" className="hover:underline">Cựu sinh viên</Link>
+                    <Link href="#" className="hover:underline">Lịch tuần</Link>
                     <ModeToggle />
                 </nav>
             </div>
