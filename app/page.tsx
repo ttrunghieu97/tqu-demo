@@ -45,10 +45,10 @@ export default function Home() {
         <Header />
         <div className="grid place-items-center">
           <Image
-            src="https://vttu.edu.vn/wp-content/uploads/2024/10/Asset-24.jpg"
+            src="/img/banner/home-banner.png"
             alt="Description of image"
-            width={2000}
-            height={2000}
+            width={3000}
+            height={3000}
             priority
           />
         </div>
