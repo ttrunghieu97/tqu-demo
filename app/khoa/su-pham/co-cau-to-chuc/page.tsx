@@ -17,8 +17,7 @@ import {
 import Link from "next/link"
 import Image from "next/image"
 import Header from "@/components/khoa-su-pham/Header"
-import Navigation from "@/components/khoa-su-pham/Navigation"
-import Footer from '@/components/Footer/Footer'
+import Footer from '@/components/Footer'
 
 const AiFillHome = lazy(() => import('react-icons/ai').then(mod => ({ default: mod.AiFillHome })))
 
@@ -346,9 +345,8 @@ const lecturers = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background dark:bg-gray-900 text-black dark:text-white"> {/* Add dark mode classes */}
       <Header />
-      <Navigation />
       <div className="container mx-auto px-4 py-6">
         <nav className="flex items-center space-x-2 text-sm mb-8">
           <Link href="/" className="text-muted-foreground hover:text-primary">
@@ -387,7 +385,7 @@ export default function Home() {
               key={index}
               className="transition-all duration-300 ease-in-out 
                 hover:shadow-lg hover:bg-accent
-                bg-white p-4 rounded-md"
+                bg-white dark:bg-gray-800 p-4 rounded-md" // Adjust background for dark mode
             >
               <CardContent className="p-10">
                 <div className="flex flex-col md:flex-row gap-12 items-center md:items-start">
@@ -397,7 +395,7 @@ export default function Home() {
                       alt={lecturer.name}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className="object-cover rounded-lg"
+                      className="object-cover object-top rounded-lg"
                       loading="lazy"
                     />
                   </div>

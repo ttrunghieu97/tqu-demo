@@ -2,8 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { wisp } from "@/lib/khoa-su-pham";
 import Header from '@/components/khoa-su-pham/Header';
-import Navigation from '@/components/khoa-su-pham/Navigation';
-import Footer from '@/components/Footer/Footer';
+import Footer from '@/components/Footer';
 import { RelatedPosts } from '@/components/khoa-su-pham/RelatedPosts';
 type Author = {
   name: string | null;
@@ -91,7 +90,6 @@ export default async function BlogPost({ params }: PageProps) {
   return (
     <>
       <Header />
-      <Navigation />
       <article className="container prose lg:prose-xl dark:prose-invert mx-auto lg:prose-h1:text-4xl mb-10 lg:mt-20 break-words [&_img]:mx-auto">
         <h1 className='text-4xl font-bold text-center mb-2'>{title}</h1>
         {description && (
