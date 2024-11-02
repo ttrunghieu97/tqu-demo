@@ -33,7 +33,7 @@ interface DateFormat {
   localized: string
 }
 
-export default function BlogPostsGrid() {
+export default function Suphampost() {
   const [posts, setPosts] = useState<Post[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)

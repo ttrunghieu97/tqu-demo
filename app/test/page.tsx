@@ -1,5 +1,5 @@
 
-import BlogPostsGrid from "@/components/khoa-su-pham/Header";
+import BlogPostsGrid from "@/components/khoa/su-pham/Header";
 
 
 

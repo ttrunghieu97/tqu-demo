@@ -95,7 +95,7 @@ export default function Header() {
       </div>
       <nav className={`bg-white dark:bg-gray-800 shadow-lg transition-all duration-300 ${isSticky ? 'fixed top-0 left-0 w-full z-50' : ''}`}>
         <div className="container mx-auto">
-          <div className="flex items-center justify-center h-16"> {/* Change 'justify-centre' to 'justify-center' */}
+          <div className="flex items-center justify-center h-16">
             <div className="flex items-center">
               <div className="hidden md:block">
                 <ul className="ml-10 flex items-baseline space-x-4">

@@ -138,18 +138,18 @@ export default function Header() {
 											<div className="py-1 grid grid-cols-2" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
 												<div>
 													<div className='font-bold text-center'>Tuyển sinh</div>
-													<DropdownItem href="/tuyen-sinh/he-cao-dang">Hệ Cao đẳng</DropdownItem>
-													<DropdownItem href="/tuyen-sinh/he-dai-hoc">Hệ Đại học</DropdownItem>
-													<DropdownItem href="/tuyen-sinh/sau-dai-hoc">Sau Đại học</DropdownItem>
-													<DropdownItem href="/tuyen-sinh/tai-chuc">Tại chức - VLVH - Liên kết</DropdownItem>
+													<DropdownItem href="#">Hệ Cao đẳng</DropdownItem>
+													<DropdownItem href="#">Hệ Đại học</DropdownItem>
+													<DropdownItem href="#">Sau Đại học</DropdownItem>
+													<DropdownItem href="#">Tại chức - VLVH - Liên kết</DropdownItem>
 												</div>
 												<div>
 													<div className='font-bold text-center'>Đào tạo</div>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Đăng kí học tín chỉ</DropdownItem>
-													<DropdownItem href="/dao-tao/ke-hoach">Kế hoạch chuyên môn</DropdownItem>
-													<DropdownItem href="/dao-tao/ma-nganh">Mã ngành và VB liên quan</DropdownItem>
-													<DropdownItem href="/dao-tao/chuong-trinh">Chương trình đào tạo</DropdownItem>
-													<DropdownItem href="/dao-tao/thoi-khoa-bieu">Thời khóa biểu</DropdownItem>
+													<DropdownItem href="#">Đăng kí học tín chỉ</DropdownItem>
+													<DropdownItem href="#">Kế hoạch chuyên môn</DropdownItem>
+													<DropdownItem href="#">Mã ngành và VB liên quan</DropdownItem>
+													<DropdownItem href="#">Chương trình đào tạo</DropdownItem>
+													<DropdownItem href="#">Thời khóa biểu</DropdownItem>
 												</div>
 											</div>
 										</div>
@@ -164,39 +164,39 @@ export default function Header() {
 											<div className="py-1 grid grid-cols-6 gap-4" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
 												<div>
 													<div className='font-bold text-center'>Giới thiệu ĐBCL</div>
-													<DropdownItem href="/tuyen-sinh/he-cao-dang">Chức năng - Nhiệm vụ</DropdownItem>
-													<DropdownItem href="/tuyen-sinh/he-dai-hoc">Hệ thống ĐBLC</DropdownItem>
-													<DropdownItem href="/tuyen-sinh/he-dai-hoc">Liên hệ ĐBLC</DropdownItem>
+													<DropdownItem href="#">Chức năng - Nhiệm vụ</DropdownItem>
+													<DropdownItem href="#">Hệ thống ĐBLC</DropdownItem>
+													<DropdownItem href="#">Liên hệ ĐBLC</DropdownItem>
 												</div>
 												<div>
 													<div className='font-bold text-center'>Khảo thí</div>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Quy định khảo thí</DropdownItem>
-													<DropdownItem href="/dao-tao/ke-hoach">Hướng dẫn khảo thí</DropdownItem>
-													<DropdownItem href="/dao-tao/ma-nganh">Văn bản học phần</DropdownItem>
+													<DropdownItem href="#">Quy định khảo thí</DropdownItem>
+													<DropdownItem href="#">Hướng dẫn khảo thí</DropdownItem>
+													<DropdownItem href="#">Văn bản học phần</DropdownItem>
 												</div>
 												<div>
 													<div className='font-bold text-center'>Đảm bảo CLGD</div>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Chiến lược - Chính sách</DropdownItem>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Quy định - Hướng dẫn</DropdownItem>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Kế hoạch - Khảo sát</DropdownItem>
+													<DropdownItem href="#">Chiến lược - Chính sách</DropdownItem>
+													<DropdownItem href="#">Quy định - Hướng dẫn</DropdownItem>
+													<DropdownItem href="#">Kế hoạch - Khảo sát</DropdownItem>
 												</div>
 												<div>
 													<div className='font-bold text-center'>Công khai CLGD</div>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Công khai hàng năm</DropdownItem>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Văn bản pháp quy</DropdownItem>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Văn bằng - Chứng chỉ</DropdownItem>
+													<DropdownItem href="#">Công khai hàng năm</DropdownItem>
+													<DropdownItem href="#">Văn bản pháp quy</DropdownItem>
+													<DropdownItem href="#">Văn bằng - Chứng chỉ</DropdownItem>
 												</div>
 												<div>
 													<div className='font-bold text-center'>Chuẩn đầu ra</div>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Các ngành Đại học</DropdownItem>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Các ngành Cao đẳng</DropdownItem>
+													<DropdownItem href="#">Các ngành Đại học</DropdownItem>
+													<DropdownItem href="#">Các ngành Cao đẳng</DropdownItem>
 												</div>
 												<div>
 													<div className='font-bold text-center'>Thanh tra nội bộ</div>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">VB pháp quy</DropdownItem>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Kế hoạch thanh tra</DropdownItem>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Báo báo thanh tra</DropdownItem>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Hồ Sơ thanh tra</DropdownItem>
+													<DropdownItem href="#">VB pháp quy</DropdownItem>
+													<DropdownItem href="#">Kế hoạch thanh tra</DropdownItem>
+													<DropdownItem href="#">Báo báo thanh tra</DropdownItem>
+													<DropdownItem href="#">Hồ Sơ thanh tra</DropdownItem>
 												</div>
 											</div>
 										</div>
@@ -210,37 +210,37 @@ export default function Header() {
 											<div className="py-1 grid grid-cols-5 gap-4" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
 												<div>
 													<div className='font-bold text-center'>Đơn vị trực thuộc</div>
-													<DropdownItem href="/tuyen-sinh/he-cao-dang">Trường PT Tuyên Quang</DropdownItem>
+													<DropdownItem href="#">Trường PT Tuyên Quang</DropdownItem>
 												</div>
 												<div>
 													<div className='font-bold text-center'>Các đoàn thể</div>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Công Đoàn</DropdownItem>
-													<DropdownItem href="/dao-tao/ke-hoach">Ban vì tiến bộ phụ nữ</DropdownItem>
-													<DropdownItem href="/dao-tao/ma-nganh">Đoàn thanh niên - Hội sinh viên</DropdownItem>
+													<DropdownItem href="#">Công Đoàn</DropdownItem>
+													<DropdownItem href="#">Ban vì tiến bộ phụ nữ</DropdownItem>
+													<DropdownItem href="#">Đoàn thanh niên - Hội sinh viên</DropdownItem>
 												</div>
 												<div>
 													<div className='font-bold text-center'>Khoa chuyên môn</div>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Khoa sư phạm</DropdownItem>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Khoa Văn hóa - Du lịch</DropdownItem>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Khoa Y - Dược</DropdownItem>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Khoa Chính trị $ TLGD</DropdownItem>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Khoa Kinh tế & Quản trị KD</DropdownItem>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Khoa Nông - Lâm - Ngư nghiệp</DropdownItem>
+													<DropdownItem href="/khoa/su-pham">Khoa sư phạm</DropdownItem>
+													<DropdownItem href="/khoa/van-hoa-du-lich">Khoa Văn hóa - Du lịch</DropdownItem>
+													<DropdownItem href="/khoa/y-duoc">Khoa Y - Dược</DropdownItem>
+													<DropdownItem href="/khoa/CT-TLGD">Khoa Chính trị & TLGD</DropdownItem>
+													<DropdownItem href="/khoa/KT-QTKD">Khoa Kinh tế & Quản trị KD</DropdownItem>
+													<DropdownItem href="/khoa/nong-lam-ngu">Khoa Nông - Lâm - Ngư nghiệp</DropdownItem>
 												</div>
 												<div>
 													<div className='font-bold text-center'>Phòng - Ban</div>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Văn Phòng</DropdownItem>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Phòng QLCL & Thanh tra</DropdownItem>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Phòng QLCL & Hợp tác QL</DropdownItem>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Phòng Đào tạo</DropdownItem>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Phòng Kế hoạch - Tài vụ</DropdownItem>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Phòng Quản lí sinh viên</DropdownItem>
+													<DropdownItem href="#">Văn Phòng</DropdownItem>
+													<DropdownItem href="#">Phòng QLCL & Thanh tra</DropdownItem>
+													<DropdownItem href="#">Phòng QLCL & Hợp tác QL</DropdownItem>
+													<DropdownItem href="#">Phòng Đào tạo</DropdownItem>
+													<DropdownItem href="#">Phòng Kế hoạch - Tài vụ</DropdownItem>
+													<DropdownItem href="#">Phòng Quản lí sinh viên</DropdownItem>
 												</div>
 												<div>
 													<div className='font-bold text-center'>Bộ môn - Trung tâm</div>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">TT TH-TV và PTNN</DropdownItem>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">TT TN & Chuyển giao CN</DropdownItem>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">TT Thể dục - Thể thao</DropdownItem>
+													<DropdownItem href="#">TT TH-TV và PTNN</DropdownItem>
+													<DropdownItem href="#">TT TN & Chuyển giao CN</DropdownItem>
+													<DropdownItem href="#">TT Thể dục - Thể thao</DropdownItem>
 												</div>
 											</div>
 										</div>
@@ -253,20 +253,20 @@ export default function Header() {
 											<div className="py-1 grid grid-cols-2" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
 												<div>
 													<div className='font-bold text-center'>Khoa học công nghệ</div>
-													<DropdownItem href="/tuyen-sinh/he-cao-dang">Biểu mẫu NCKH</DropdownItem>
-													<DropdownItem href="/tuyen-sinh/he-cao-dang">Bài báo ISI/Scopus</DropdownItem>
-													<DropdownItem href="/tuyen-sinh/he-cao-dang">Bài báo trong nước và quốc tế</DropdownItem>
-													<DropdownItem href="/tuyen-sinh/he-cao-dang">Hội nghị - Hội thảo</DropdownItem>
-													<DropdownItem href="/tuyen-sinh/he-cao-dang">Đề tài - Dự án</DropdownItem>
-													<DropdownItem href="/tuyen-sinh/he-cao-dang">GT/TLTK/Sách chuyên khoa</DropdownItem>
-													<DropdownItem href="/tuyen-sinh/he-cao-dang">Thông báo khoa học</DropdownItem>
+													<DropdownItem href="#">Biểu mẫu NCKH</DropdownItem>
+													<DropdownItem href="#">Bài báo ISI/Scopus</DropdownItem>
+													<DropdownItem href="#">Bài báo trong nước và quốc tế</DropdownItem>
+													<DropdownItem href="#">Hội nghị - Hội thảo</DropdownItem>
+													<DropdownItem href="#">Đề tài - Dự án</DropdownItem>
+													<DropdownItem href="#">GT/TLTK/Sách chuyên khoa</DropdownItem>
+													<DropdownItem href="#">Thông báo khoa học</DropdownItem>
 												</div>
 												<div>
 													<div className='font-bold text-center'>Hợp tác quốc tế</div>
-													<DropdownItem href="/dao-tao/dang-ki-hoc">Hoạt động hợp tác quốc tế</DropdownItem>
-													<DropdownItem href="/dao-tao/ke-hoach">Các chương trình liên kết</DropdownItem>
-													<DropdownItem href="/dao-tao/ke-hoach">Khảo sát các đoàn vào</DropdownItem>
-													<DropdownItem href="/dao-tao/ke-hoach">Hội thảo khoa học quốc tế</DropdownItem>
+													<DropdownItem href="#">Hoạt động hợp tác quốc tế</DropdownItem>
+													<DropdownItem href="#">Các chương trình liên kết</DropdownItem>
+													<DropdownItem href="#">Khảo sát các đoàn vào</DropdownItem>
+													<DropdownItem href="#">Hội thảo khoa học quốc tế</DropdownItem>
 												</div>
 											</div>
 										</div>
