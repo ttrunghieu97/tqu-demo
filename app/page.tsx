@@ -1,12 +1,4 @@
-import Header from '@/components/Header';
-import BlogPostsGrid from '@/components/Home/BlogPostsGrid';
-import Section5 from '@/components/Home/Section5';
-import Section6 from '@/components/Home/Section6';
-import Section7 from '@/components/Home/Section7';
-import Partner from '@/components/Home/Partner';
-import Footer from '@/components/Footer';
 import type { Metadata } from 'next';
-import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Trường Đại Học Tân Trào',
@@ -37,28 +29,9 @@ export const metadata: Metadata = {
     ],
   },
 };
+// app/page.tsx
+import { redirect } from 'next/navigation';
 
 export default function Home() {
-  return (
-    <>
-      <main>
-        <Header />
-        <div className="grid place-items-center">
-          <Image
-            src="/img/banner/home-banner.png"
-            alt="Description of image"
-            width={3000}
-            height={3000}
-            priority
-          />
-        </div>
-        <BlogPostsGrid />
-        <Section5 />
-        <Section6 />
-        <Section7 />
-        <Partner />
-        <Footer />
-      </main>
-    </>
-  );
+  redirect('/home');
 }

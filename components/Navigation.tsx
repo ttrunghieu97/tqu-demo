@@ -3,10 +3,14 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Moon, Sun, Menu, X } from 'lucide-react'
-import menuData, { DepartmentType } from '../data/Header'
 
 interface NavigationProps {
-	department: DepartmentType;
+	items: MainMenuItems; // Change to MainMenuItems
+}
+
+interface MainMenuItems {
+	universityName: string; // University name should be part of the main menu items
+	items: MenuItem[];
 }
 
 interface NavItemProps {
@@ -19,9 +23,8 @@ interface DropdownItemProps {
 	children: React.ReactNode
 }
 
-// Define MenuItem interface
 interface MenuItem {
-	type: 'simple' | 'dropdown' | 'title'
+	type: 'simple' | 'dropdown' | 'title' // Added 'title' type
 	label: string
 	href?: string
 	columns?: number
@@ -48,8 +51,8 @@ const DropdownItem = ({ href, children }: DropdownItemProps) => (
 	</Link>
 )
 
-const Header: React.FC<NavigationProps> = ({ department }) => {
-	const { universityName, items: menuItems } = menuData[department];
+const Navigation: React.FC<NavigationProps> = ({ items }) => {
+	const { universityName, items: menuItems } = items; // Destructure universityName and items
 	const [isOpen, setIsOpen] = useState(false)
 	const [darkMode, setDarkMode] = useState(false)
 	const [isSticky, setIsSticky] = useState(false)
@@ -105,12 +108,12 @@ const Header: React.FC<NavigationProps> = ({ department }) => {
 				</button>
 				<div className={`absolute left-1/2 transform -translate-x-1/2 mt-2 ${item.columns && item.columns > 2 ? 'w-[1000px]' : 'w-96'} rounded-md shadow-lg bg-white dark:bg-gray-700 ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300`}>
 					<div className={`py-1 grid grid-cols-${item.columns || 2} gap-4`} role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-						{item.items?.map((column, idx: number) => (
+						{item.items?.map((column, idx) => (
 							<div key={idx}>
 								{column.title && (
 									<div className="font-bold text-center">{column.title}</div>
 								)}
-								{column.links.map((link: { label: string; href: string }, linkIdx: number) => (
+								{column.links.map((link, linkIdx) => (
 									<DropdownItem key={linkIdx} href={link.href}>
 										{link.label}
 									</DropdownItem>
@@ -168,7 +171,7 @@ const Header: React.FC<NavigationProps> = ({ department }) => {
 				</div>
 			</div>
 
-			<nav className={`bg-white dark:bg-black shadow-lg transition-all duration-300 ${isSticky ? 'fixed top-0 left-0 w-full z-50' : ''}`}>
+			<nav className={`bg-white dark:bg-gray-800 shadow-lg transition-all duration-300 ${isSticky ? 'fixed top-0 left-0 w-full z-50' : ''}`}>
 				<div className="container mx-auto whitespace-nowrap">
 					<div className="flex items-center justify-center h-16">
 						<div className="flex items-center">
@@ -215,4 +218,4 @@ const Header: React.FC<NavigationProps> = ({ department }) => {
 	)
 }
 
-export default Header
+export default Navigation

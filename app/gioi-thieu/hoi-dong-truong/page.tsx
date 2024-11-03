@@ -1,25 +1,15 @@
 'use client'
 
-import { Suspense, lazy } from 'react'
 import { Mail, Phone } from "lucide-react"
 import {
   Card,
   CardContent,
 } from "@/components/ui/card"
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
-import Link from "next/link"
 import Image from "next/image"
 import Header from "@/components/Header"
 import Footer from '@/components/Footer'
+import AutoBreadcrumbs from '@/components/AutoBreadcrumb'
 
-const AiFillHome = lazy(() => import('react-icons/ai').then(mod => ({ default: mod.AiFillHome })))
 
 const lecturers = [
   {
@@ -104,41 +94,10 @@ const lecturers = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-background dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-      <Header />
+      <Header department='Home' />
       <div className="container mx-auto px-4 py-6">
         <nav className="flex items-center space-x-2 text-sm mb-8">
-          <Link href="/" className="text-muted-foreground dark:text-gray-400 hover:text-primary dark:hover:text-blue-400">
-            <Suspense fallback={<div className="w-4 h-4" />}>
-              <AiFillHome className="h-4 w-4" />
-            </Suspense>
-          </Link>
-          <Breadcrumb>
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink href="/" className="dark:text-gray-400">
-                  Trang chủ
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink href="" className="dark:text-gray-400">
-                  Giới thiệu
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink href="" className="dark:text-gray-400">
-                  Tỉnh Tuyên Quang
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage className="dark:text-gray-400">
-                  Hội đồng trường
-                </BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
+          <AutoBreadcrumbs />
         </nav>
 
         <h1 className="text-3xl md:text-4xl font-bold text-center mb-12 uppercase dark:text-white">

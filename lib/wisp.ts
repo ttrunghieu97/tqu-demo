@@ -4,8 +4,11 @@ import {
   GetPostResult,
 } from "@wisp-cms/client";
 
-export const wisp = buildWispClient({
-  blogId: "cm2978c2v0000117nhvudgliz",
-});
+// Function to create a Wisp client with a dynamic blogId
+export const createWispClient = (blogId: string) => {
+  return buildWispClient({
+    blogId,
+  });
+};
 
 export type { GetPostsResult, GetPostResult };

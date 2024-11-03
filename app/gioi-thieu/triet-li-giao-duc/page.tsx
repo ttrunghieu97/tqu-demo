@@ -1,51 +1,16 @@
 'use client'
 
-import { Suspense, lazy } from 'react'
-import Link from "next/link"
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
 import Header from '@/components/Header'
 import Footer from "@/components/Footer"
-
-const AiFillHome = lazy(() => import('react-icons/ai').then(mod => ({ default: mod.AiFillHome })))
+import AutoBreadcrumbs from '@/components/AutoBreadcrumb'
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <Header department='Home' />
       <div className="container mx-auto px-4 py-6">
         <nav className="flex items-center space-x-2 text-sm mb-8">
-          <Link href="/" className="text-muted-foreground hover:text-primary">
-            <Suspense fallback={<div className="w-4 h-4" />}>
-              <AiFillHome className="h-4 w-4" />
-            </Suspense>
-          </Link>
-          <Breadcrumb>
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink href="/">Trang chủ</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink href="">Giới thiệu</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink href="">Tỉnh Tuyên Quang</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage>Triết lí giáo dục</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
-        </nav>
+          <AutoBreadcrumbs />        </nav>
         <h1 className="text-3xl md:text-4xl font-bold text-center mb-12 ">
           <span> TRIẾT LÝ GIÁO DỤC</span>
         </h1>

@@ -19,7 +19,7 @@ export const RelatedPosts: FunctionComponent<{
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-7">
         {posts.slice(0, 7).map((post) => (
           <div className="bg-muted overflow-hidden rounded-lg" key={post.id}>
-            <Link href={`/${post.slug}`}>
+            <Link href={`/post.slug/${post.slug}`}>
               <AspectRatio ratio={16 / 9} className="w-full">
                 <Image
                   src={post.image || "/img/logo.png"}
