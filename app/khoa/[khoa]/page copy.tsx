@@ -5,19 +5,20 @@ import BlogPostsGrid from '@/components/BlogPostsGrid';
 import Header from '@/components/Header';
 import { useEffect } from 'react';
 import AutoBreadcrumbs from '@/components/AutoBreadcrumb';
+import { DepartmentType } from '@/data/Header';
 
-type DepartmentName = 'supham' | 'vhdl' | 'yduoc' | 'cttl' | 'ktqt' | 'nln';
+type DepartmentName = 'supham' | 'vanhoadulich' | 'yduoc' | 'chinhtritamli' | 'kinhtequantri' | 'nonglamngu';
 
 type DepartmentInfo = {
   title: string;
   description: string;
   logoSrc: string;
-  department: "sp"
-  | "vhdl"
+  department: "supham"
+  | "vanhoadulich"
   | "yduoc"
-  | "cttl"
-  | "ktqt"
-  | "nln";
+  | "chinhtritamli"
+  | "kinhtequantri"
+  | "nonglamngu";
   blogId: string;
 };
 
@@ -26,42 +27,42 @@ const departmentInfo: Record<DepartmentName, DepartmentInfo> = {
     title: "Khoa Sư Phạm",
     description: "Chào mừng đến với Khoa Sư Phạm",
     logoSrc: '/path/to/supham-logo.png',
-    department: 'sp',
+    department: 'supham',
     blogId: 'cm2wt8r2e0000pqq6sl0b22by',
   },
-  vhdl: {
+  vanhoadulich: {
     title: "Khoa Văn hóa - Du lịch",
     description: "Chào mừng đến với Khoa Văn hóa - Du lịch",
     logoSrc: '/path/to/vhdl-logo.png',
-    department: 'vhdl',
-    blogId: 'cm2wt8r2e0000pqq6sl0b22by',
+    department: 'vanhoadulich',
+    blogId: 'cm31jk0jo0000ijti1e11ipmi',
   },
   yduoc: {
     title: "Khoa Y Dược",
     description: "Chào mừng đến với Khoa Y Dược",
     logoSrc: '/path/to/yduoc-logo.png',
     department: 'yduoc',
-    blogId: 'cm2wt8r2e0000pqq6sl0b22by',
+    blogId: 'cm31j1fmt0002jp0j9xrshae4',
   },
-  cttl: {
+  chinhtritamli: {
     title: "Khoa Công Nghệ Thông Tin",
     description: "Chào mừng đến với Khoa Công Nghệ Thông Tin",
-    logoSrc: '/path/to/cttl-logo.png',
-    department: 'cttl',
-    blogId: 'cm2wt8r2e0000pqq6sl0b22by',
+    logoSrc: '/path/to/chinhtritamli-logo.png',
+    department: 'chinhtritamli',
+    blogId: 'cm31j3m4n0000102ejl5rblzt',
   },
-  ktqt: {
+  kinhtequantri: {
     title: "Khoa Kinh Tế Quốc Tế",
     description: "Chào mừng đến với Khoa Kinh Tế Quốc Tế",
-    logoSrc: '/path/to/ktqt-logo.png',
-    department: 'ktqt',
+    logoSrc: '/path/to/kinhtequantri-logo.png',
+    department: 'kinhtequantri',
     blogId: 'cm2wt8r2e0000pqq6sl0b22by',
   },
-  nln: {
+  nonglamngu: {
     title: "Khoa Nông Lâm",
     description: "Chào mừng đến với Khoa Nông Lâm",
     logoSrc: '/path/to/nonglam-logo.png',
-    department: 'nln',
+    department: 'nonglamngu',
     blogId: 'cm2wt8r2e0000pqq6sl0b22by',
   },
 };

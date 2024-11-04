@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Moon, Sun, Menu, X } from 'lucide-react'
-import menuData, { DepartmentType } from '../data/Header'
+import menuData, { DepartmentName } from '../data/Header'
 
 interface NavigationProps {
-	department: DepartmentType;
+	department: DepartmentName;
 }
 
 interface NavItemProps {

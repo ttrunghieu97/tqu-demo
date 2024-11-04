@@ -1,12 +1,18 @@
-export type DepartmentType =
+export type DepartmentName =
   | "Home"
-  | "sp"
-  | "vhdl"
+  | "supham"
+  | "vanhoadulich"
   | "yduoc"
-  | "cttl"
-  | "ktqt"
-  | "nln";
+  | "chinhtritamli"
+  | "kinhtechinhtri"
+  | "nonglamngu";
 
+interface DepartmentInfo {
+  title: string;
+  description: string;
+  logoSrc: string;
+  blogId: string;
+}
 interface MenuItem {
   type: "simple" | "dropdown" | "title";
   label: string;
@@ -21,14 +27,18 @@ interface MenuItem {
   }[];
 }
 
-interface MenuData {
+interface MenuData extends DepartmentInfo {
   universityName: string;
   items: MenuItem[];
 }
 
-const menuData: Record<DepartmentType, MenuData> = {
+const menuData: Record<DepartmentName, MenuData> = {
   Home: {
     universityName: "Tân Trào University",
+    title: "Trang Chủ",
+    description: "Welcome to Tân Trào University",
+    logoSrc: "/path/to/home-logo.png",
+    blogId: "cm2978c2v0000117nhvudgliz", // Add your specific blogId here
     items: [
       {
         type: "dropdown",
@@ -375,8 +385,12 @@ const menuData: Record<DepartmentType, MenuData> = {
   ////////////////////////////////////
 
   /////////////////////////////////
-  sp: {
+  supham: {
     universityName: "Khoa Sư Phạm",
+    title: "Khoa Sư Phạm",
+    description: "Chào mừng đến với Khoa Sư Phạm",
+    logoSrc: "/path/to/supham-logo.png",
+    blogId: "cm2wt8r2e0000pqq6sl0b22by",
     items: [
       {
         type: "simple",
@@ -395,8 +409,13 @@ const menuData: Record<DepartmentType, MenuData> = {
       },
     ],
   },
-  vhdl: {
+  vanhoadulich: {
     universityName: "Khoa Nông Lâm",
+    title: "Khoa Sư Phạm",
+    description: "Chào mừng đến với Khoa Sư Phạm",
+    logoSrc: "/path/to/supham-logo.png",
+    blogId: "cm31jk0jo0000ijti1e11ipmi",
+
     items: [
       {
         type: "simple",
@@ -418,6 +437,11 @@ const menuData: Record<DepartmentType, MenuData> = {
 
   yduoc: {
     universityName: "Khoa Nông Lâm",
+    title: "Khoa Sư Phạm",
+    description: "Chào mừng đến với Khoa Sư Phạm",
+    logoSrc: "/path/to/supham-logo.png",
+    blogId: "cm31j1fmt0002jp0j9xrshae4",
+
     items: [
       {
         type: "simple",
@@ -436,8 +460,13 @@ const menuData: Record<DepartmentType, MenuData> = {
       },
     ],
   },
-  cttl: {
+  chinhtritamli: {
     universityName: "Khoa Nông Lâm",
+    title: "Khoa Sư Phạm",
+    description: "Chào mừng đến với Khoa Sư Phạm",
+    logoSrc: "/path/to/supham-logo.png",
+    blogId: "cm31j3m4n0000102ejl5rblzt",
+
     items: [
       {
         type: "simple",
@@ -456,8 +485,13 @@ const menuData: Record<DepartmentType, MenuData> = {
       },
     ],
   },
-  ktqt: {
+  kinhtechinhtri: {
     universityName: "Khoa Nông Lâm",
+    title: "Khoa Sư Phạm",
+    description: "Chào mừng đến với Khoa Sư Phạm",
+    logoSrc: "/path/to/supham-logo.png",
+    blogId: "cm2wt8r2e0000pqq6sl0b22by",
+
     items: [
       {
         type: "simple",
@@ -476,8 +510,12 @@ const menuData: Record<DepartmentType, MenuData> = {
       },
     ],
   },
-  nln: {
+  nonglamngu: {
     universityName: "Khoa Nông Lâm",
+    title: "Khoa Sư Phạm",
+    description: "Chào mừng đến với Khoa Sư Phạm",
+    logoSrc: "/path/to/supham-logo.png",
+    blogId: "cm2wt8r2e0000pqq6sl0b22by",
     items: [
       {
         type: "simple",

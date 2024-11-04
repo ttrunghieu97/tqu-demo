@@ -8,6 +8,7 @@ import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { CalendarDays } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { usePathname } from 'next/navigation';
 
 // Define the Post interface
 interface Post {
@@ -43,6 +44,7 @@ export default function BlogPostsGrid({ blogId }: BlogPostsGridProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
+  const pathname = usePathname(); // Get the current pathname
 
   const formatDate = (date: Date | string | undefined): DateFormat | null => {
     if (!date) return null;
@@ -113,7 +115,7 @@ export default function BlogPostsGrid({ blogId }: BlogPostsGridProps) {
 
           return (
             <Card key={post.id} className="group hover:shadow-lg transition-shadow duration-300">
-              <Link href={`/tin-tuc-su-kien/${post.slug}`}>
+              <Link href={`${pathname}/${post.slug}`}>
                 <div className="relative aspect-[16/9] overflow-hidden rounded-t-lg">
                   {post.image ? (
                     <Image

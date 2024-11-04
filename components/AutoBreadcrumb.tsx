@@ -15,6 +15,7 @@ import {
 export default function AutoBreadcrumbs() {
   const pathname = usePathname()
   const segments = pathname.split('/').filter(segment => segment !== '')
+
   return (
     <div className='container mx-auto mt-5 font-bold text-2xl'>
       <Breadcrumb>
@@ -22,6 +23,7 @@ export default function AutoBreadcrumbs() {
           <BreadcrumbItem>
             <AiFillHome className="h-4 w-4" />
             <BreadcrumbLink>
+              {/* Link component must be used without nesting another <a> */}
               <Link href="/"> Trang chủ</Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
@@ -29,7 +31,9 @@ export default function AutoBreadcrumbs() {
           {segments.map((segment, index) => {
             const href = `/${segments.slice(0, index + 1).join('/')}`
             const isLast = index === segments.length - 1
-            const title = segment.charAt(0).toUpperCase() + segment.slice(1)
+
+            // Custom title for 'vanhoadulich'
+            const title = segment === 'vanhoadulich' ? 'Văn Hóa & Du Lịch' : segment.charAt(0).toUpperCase() + segment.slice(1)
 
             return (
               <BreadcrumbItem key={href}>
@@ -38,6 +42,7 @@ export default function AutoBreadcrumbs() {
                 ) : (
                   <>
                     <BreadcrumbLink>
+                      {/* Ensure that <Link> wraps the text, not another <a> */}
                       <Link href={href}>{title}</Link>
                     </BreadcrumbLink>
                     <BreadcrumbSeparator />
