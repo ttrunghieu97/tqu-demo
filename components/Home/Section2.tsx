@@ -1,116 +1,150 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ChevronLeft, ChevronRight, MessageSquare } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
-
-export default function Section2() {
-  const sections = [
-    {
-      title: "Sự kiện sắp diễn ra",
-      items: [
-        {
-          image: "/placeholder.svg",
-          title: "Hội thi Văn nghệ và Đại sứ Sinh viên VTTU lần 3, năm 2025",
-          date: "09/10/2024",
-          comments: 0,
-        },
-      ],
-    },
-    {
-      title: "Hoạt động VTTU",
-      items: [
-        {
-          image: "/placeholder.svg",
-          title: "Lễ ký kết hợp tác với Trường Đại học Udon Thani Rajabhat (Thái Lan)",
-          date: "19/10/2024",
-        },
-        {
-          image: "/placeholder.svg",
-          title: "Trang trọng và nhiều cảm xúc tại Lễ Tuyên thệ Y khoa và Phát bằng tốt nghiệp năm 2024",
-          date: "22/09/2024",
-          comments: 0,
-        },
-      ],
-    },
-    {
-      title: "Hội nghị - Hội thảo",
-      items: [
-        {
-          image: "/placeholder.svg",
-          title: "Hội thảo hướng nghiệp ĐỊNH HƯỚNG THỰC TẠI – PHÁT TRIỂN TƯƠNG LAI",
-          date: "24/06/2024",
-        },
-        {
-          image: "/placeholder.svg",
-          title: "Tuần sinh hoạt Công dân – Sinh viên ngành Dược học Lần 1, năm 2024",
-          date: "08/06/2024",
-        },
-      ],
-    },
-    {
-      title: "Các cuộc thi",
-      items: [
-        {
-          image: "/placeholder.svg",
-          title: "Lễ Bế mạc Hội thao VTTU 2024",
-          date: "25/04/2024",
-        },
-        {
-          image: "/placeholder.svg",
-          title: "Giải chạy việt dã VTTU – WE ARE ONE (Chúng ta là một) lần I, năm 2024",
-          date: "26/03/2024",
-        },
-      ],
-    },
-  ]
-
+import { Button } from '@/components/ui/button';
+import BlogPostsGrid from '../../components/BlogPostsGrid2';
+import Link from 'next/link';
+export default function Component() {
   return (
-    <div className="container mx-auto grid gap-6 py-8 md:grid-cols-2">
-      {sections.map((section) => (
-        <Card key={section.title}>
-          <CardHeader className="bg-yellow-500 py-2">
-            <CardTitle className="flex items-center justify-center gap-2 text-white">
-              <ChevronRight className="h-4 w-4" />
-              <span>{section.title}</span>
-              <ChevronLeft className="h-4 w-4" />
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="p-4">
-            <div className="space-y-4">
-              {section.items.map((item) => (
-                <div key={item.title} className="flex gap-4">
-                  <Image
-                    src={item.image}
-                    alt=""
-                    className="h-24 w-32 rounded object-cover"
-                    width={128}
-                    height={96}
-                  />
-                  <div className="space-y-1">
-                    <Link href="#" className="font-medium hover:text-[#8B1818]">
-                      {item.title}
+    <>
+      <div className="bg-gray-100 min-h-screen py-12">
+        <div className="container mx-auto px-4">
+          <div className="space-y-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Sự kiện */}
+              <section className="bg-white rounded-lg shadow-md overflow-hidden">
+                <h2 className="text-2xl font-bold bg-red-800 text-white p-4 text-center">
+                  ► Sự kiện ◄
+                </h2>
+                <div className="p-4">
+                  <BlogPostsGrid blogId='cm2vu7j1a000013uh3duu7rm6' />
+                  <div className="flex justify-center items-center">
+                    <Link href="href">
+                      <Button className="bg-gradient-to-r from-red-500 to-yellow-500 text-white py-2 px-6 rounded-lg hover:from-yellow-500 hover:to-red-500 transition-all duration-300">
+                        Xem thêm
+                      </Button>
                     </Link>
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                      <span>{item.date}</span>
-                      {typeof item.comments !== "undefined" && (
-                        <span className="flex items-center gap-1">
-                          <MessageSquare className="h-4 w-4" />
-                          {item.comments}
-                        </span>
-                      )}
-                    </div>
                   </div>
                 </div>
-              ))}
+              </section>
+              {/* Hoạt động */}
+              <section className="bg-white rounded-lg shadow-md overflow-hidden">
+                <h2 className="text-2xl font-bold bg-red-800 text-white p-4 text-center">
+                  ► Hoạt động ◄
+                </h2>
+                <div className="p-4">
+                  {/* <BlogPostsGrid blogId='cm2978c2v0000117nhvudgliz' tag='hoat-dong' /> */}
+                  <div className="flex justify-center items-center">
+                    <Link href="href">
+                      <Button className="bg-gradient-to-r from-red-500 to-yellow-500 text-white py-2 px-6 rounded-lg hover:from-yellow-500 hover:to-red-500 transition-all duration-300">
+                        Xem thêm
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </section>
             </div>
-            <div className="mt-4 text-right">
-              <Link href="#" className="text-sm text-[#8B1818] hover:underline">
-                Xem thêm
-              </Link>
+            {/* Hội nghị hội thảo */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <section className="bg-white rounded-lg shadow-md overflow-hidden">
+                <h2 className="text-2xl font-bold bg-red-800 text-white p-4 text-center">
+                  ► Hội nghị - Hội thảo ◄
+                </h2>
+                <div className="p-4">
+                  {/* <BlogPostsGrid blogId='cm2978c2v0000117nhvudgliz' /> */}
+                  <div className="flex justify-center items-center">
+                    <Link href="href">
+                      <Button className="bg-gradient-to-r from-red-500 to-yellow-500 text-white py-2 px-6 rounded-lg hover:from-yellow-500 hover:to-red-500 transition-all duration-300">
+                        Xem thêm
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </section>
+              {/* Các cuộc thi */}
+              <section className="bg-white rounded-lg shadow-md overflow-hidden">
+                <h2 className="text-2xl font-bold bg-red-800 text-white p-4 text-center">
+                  ► Các cuộc thi ◄
+                </h2>
+                <div className="p-4">
+                  {/* <BlogPostsGrid blogId='cm2978c2v0000117nhvudgliz' /> */}
+                  <div className="flex justify-center items-center">
+                    <Link href="href">
+                      <Button className="bg-gradient-to-r from-red-500 to-yellow-500 text-white py-2 px-6 rounded-lg hover:from-yellow-500 hover:to-red-500 transition-all duration-300">
+                        Xem thêm
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </section>
+              {/* Nhà trường */}
+              <section className="bg-white rounded-lg shadow-md overflow-hidden">
+                <h2 className="text-2xl font-bold bg-red-800 text-white p-4 text-center">
+                  ► Nhà trường ◄
+                </h2>
+                <div className="p-4">
+                  {/* <BlogPostsGrid blogId='cm2978c2v0000117nhvudgliz' /> */}
+                  <div className="flex justify-center items-center">
+                    <Link href="href">
+                      <Button className="bg-gradient-to-r from-red-500 to-yellow-500 text-white py-2 px-6 rounded-lg hover:from-yellow-500 hover:to-red-500 transition-all duration-300">
+                        Xem thêm
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </section>
+              {/* Đảng bộ */}
+              <section className="bg-white rounded-lg shadow-md overflow-hidden">
+                <h2 className="text-2xl font-bold bg-red-800 text-white p-4 text-center">
+                  ► Đảng Bộ ◄
+                </h2>
+                <div className="p-4">
+                  {/* <BlogPostsGrid blogId='cm2978c2v0000117nhvudgliz' /> */}
+                  <div className="flex justify-center items-center">
+                    <Link href="href">
+                      <Button className="bg-gradient-to-r from-red-500 to-yellow-500 text-white py-2 px-6 rounded-lg hover:from-yellow-500 hover:to-red-500 transition-all duration-300">
+                        Xem thêm
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </section>
+              {/* Đoàn Trường */}
+              <section className="bg-white rounded-lg shadow-md overflow-hidden">
+                <h2 className="text-2xl font-bold bg-red-800 text-white p-4 text-center">
+                  ► Đoàn Trường ◄
+                </h2>
+                <div className="p-4">
+                  {/* <BlogPostsGrid blogId='cm2978c2v0000117nhvudgliz' /> */}
+                  <div className="flex justify-center items-center">
+                    <Link href="href">
+                      <Button className="bg-gradient-to-r from-red-500 to-yellow-500 text-white py-2 px-6 rounded-lg hover:from-yellow-500 hover:to-red-500 transition-all duration-300">
+                        Xem thêm
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </section>
+              {/* Công Đoàn */}
+              <section className="bg-white rounded-lg shadow-md overflow-hidden">
+                <h2 className="text-2xl font-bold bg-red-800 text-white p-4 text-center">
+                  ► Công Đoàn ◄
+                </h2>
+                <div className="p-4">
+                  {/* <BlogPostsGrid blogId='cm2978c2v0000117nhvudgliz' /> */}
+                  <div className="flex justify-center items-center">
+                    <Link href="href">
+                      <Button className="bg-gradient-to-r from-red-500 to-yellow-500 text-white py-2 px-6 rounded-lg hover:from-yellow-500 hover:to-red-500 transition-all duration-300">
+                        Xem thêm
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </section>
+              {/* end 4 trang đầu  */}
+
             </div>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
-  )
+          </div>
+        </div>
+      </div>
+
+    </>
+  );
 }

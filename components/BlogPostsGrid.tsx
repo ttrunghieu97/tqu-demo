@@ -10,7 +10,6 @@ import { CalendarDays } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { usePathname } from 'next/navigation';
 
-// Define the Post interface
 interface Post {
   id: string;
   createdAt: Date;
@@ -34,17 +33,17 @@ interface DateFormat {
   localized: string;
 }
 
-// Add a blogId prop
 interface BlogPostsGridProps {
   blogId: string;
+  tag?: string;
 }
 
-export default function BlogPostsGrid({ blogId }: BlogPostsGridProps) {
+export default function BlogPostsGrid({ blogId, tag }: BlogPostsGridProps) {
   const [posts, setPosts] = useState<Post[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
-  const pathname = usePathname(); // Get the current pathname
+  const pathname = usePathname();
 
   const formatDate = (date: Date | string | undefined): DateFormat | null => {
     if (!date) return null;
@@ -61,13 +60,14 @@ export default function BlogPostsGrid({ blogId }: BlogPostsGridProps) {
 
   useEffect(() => {
     const fetchInitialPosts = async () => {
-      const wisp = createWispClient(blogId); // Use the blogId prop
+      const wisp = createWispClient(blogId);
 
       setIsLoading(true);
       try {
         const result = await wisp.getPosts({
           page: 1,
           limit: postsPerPage,
+          tags: tag ? [tag] : undefined,
         });
         setPosts(result.posts as Post[]);
       } catch (error) {
@@ -78,10 +78,10 @@ export default function BlogPostsGrid({ blogId }: BlogPostsGridProps) {
     };
 
     fetchInitialPosts();
-  }, [blogId]); // Add blogId as a dependency
+  }, [blogId, tag]);
 
   const loadMorePosts = async () => {
-    const wisp = createWispClient(blogId); // Use the blogId prop
+    const wisp = createWispClient(blogId);
 
     setIsLoading(true);
     try {
@@ -89,6 +89,7 @@ export default function BlogPostsGrid({ blogId }: BlogPostsGridProps) {
       const result = await wisp.getPosts({
         page: nextPage,
         limit: postsPerPage,
+        tags: tag ? [tag] : undefined,
       });
       setPosts((prevPosts) => [...prevPosts, ...(result.posts as Post[])]);
       setCurrentPage(nextPage);
@@ -100,15 +101,8 @@ export default function BlogPostsGrid({ blogId }: BlogPostsGridProps) {
   };
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="bg-gradient-to-r from-yellow-500 to-white text-white p-2 font-extrabold font-sans flex items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-10">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
-        </svg>
-        <h2 className="text-4xl font-extrabold uppercase text-red-600">Tin tức - Sự kiện</h2>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-5">
+    <div className="container mx-auto px-4 py-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {posts.map((post) => {
           const date = formatDate(post.publishedAt || post.updatedAt);
           const author = post.author;

@@ -15,33 +15,33 @@ interface CarouselItemProps {
 const carouselItems: CarouselItemProps[] = [
   {
     headline: "Quản lý Kinh tế",
-    image: "https://vttu.edu.vn/wp-content/uploads/2023/03/NGANHYKhoa-480x360.jpg",
-    link: "/article/react-carousel-part-1"
+    image: "/img/saudaihoc/Quản lý Kinh tế.jpg",
+    link: ""
   },
   {
     headline: "Lý luận bộ môn Toán",
-    image: "https://vttu.edu.vn/wp-content/uploads/2023/03/POST-YK-1-1-480x360.jpg",
-    link: "/article/appending-currency-sign"
+    image: "/img/saudaihoc/Toán học.jpeg",
+    link: ""
   },
   {
     headline: "Giáo dục học (Tiểu học)",
-    image: "https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-    link: "/article/react-carousel-part-2"
+    image: "/img/saudaihoc/Giáo dục học (Tiểu học).jpg",
+    link: ""
   },
   {
     headline: "Sinh học",
-    image: "https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-    link: "/article/react-carousel-part-2"
+    image: "/img/saudaihoc/Sinh học.jpg",
+    link: ""
   },
   {
     headline: "Lý luận văn học",
-    image: "https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-    link: "/article/react-carousel-part-2"
+    image: "/img/saudaihoc/Lý luận văn học.jpg",
+    link: ""
   },
   {
     headline: "Khoa học cây trồng",
-    image: "https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-    link: "/article/react-carousel-part-2"
+    image: "/img/saudaihoc/Khoa học cây trồng.jpg",
+    link: ""
   },
 ]
 
@@ -72,7 +72,7 @@ export default function Section6() {
     <main className="bg-yellow-300 mx-auto py-8">
       <div className='container mx-auto'>
 
-        <h2 className="text-4xl font-extrabold  uppercase text-red-600 mb-5 ">ngành đào tạo sau đại học</h2>
+        <h2 className="text-4xl font-extrabold  uppercase text-red-600 mb-5 font-sans text-center">ngành đào tạo sau đại học</h2>
 
 
         <Carousel

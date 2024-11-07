@@ -4,7 +4,7 @@ export type DepartmentName =
   | "vanhoadulich"
   | "yduoc"
   | "chinhtritamli"
-  | "kinhtechinhtri"
+  | "kinhtequantri"
   | "nonglamngu";
 
 interface DepartmentInfo {
@@ -34,10 +34,10 @@ interface MenuData extends DepartmentInfo {
 
 const menuData: Record<DepartmentName, MenuData> = {
   Home: {
-    universityName: "Tân Trào University",
+    universityName: "Tan Trao University",
     title: "Trang Chủ",
     description: "Welcome to Tân Trào University",
-    logoSrc: "/path/to/home-logo.png",
+    logoSrc: "",
     blogId: "cm2978c2v0000117nhvudgliz", // Add your specific blogId here
     items: [
       {
@@ -242,7 +242,7 @@ const menuData: Record<DepartmentName, MenuData> = {
           {
             title: "Khoa chuyên môn",
             links: [
-              { label: "Khoa Sư Phạm", href: "/khoa/sp" },
+              { label: "Khoa Sư Phạm", href: "/khoa/supham" },
               { label: "Khoa Văn hóa - Du lịch", href: "/khoa/vhdl" },
               { label: "Khoa Y - Dược", href: "/khoa/yduoc" },
               { label: "Khoa Chính trị và TLGD", href: "/khoa/cttl" },
@@ -302,7 +302,7 @@ const menuData: Record<DepartmentName, MenuData> = {
         columns: 1,
         items: [
           {
-            title: "Tin tức",
+            title: "",
             links: [
               {
                 label: "Tin tức - Sự kiện",
@@ -328,7 +328,7 @@ const menuData: Record<DepartmentName, MenuData> = {
         columns: 1,
         items: [
           {
-            title: "Công tác HSSV",
+            title: "",
             links: [
               {
                 label: "Hoạt động ngoại khóa",
@@ -357,7 +357,7 @@ const menuData: Record<DepartmentName, MenuData> = {
         columns: 1,
         items: [
           {
-            title: "Tài nguyên",
+            title: "",
             links: [
               {
                 label: "Thủ tục hành chính",
@@ -389,31 +389,31 @@ const menuData: Record<DepartmentName, MenuData> = {
     universityName: "Khoa Sư Phạm",
     title: "Khoa Sư Phạm",
     description: "Chào mừng đến với Khoa Sư Phạm",
-    logoSrc: "/path/to/supham-logo.png",
+    logoSrc: "",
     blogId: "cm2wt8r2e0000pqq6sl0b22by",
     items: [
       {
         type: "simple",
         label: "Cơ cấu tổ chức",
-        href: "/khoa/su-pham/co-cau-to-chuc",
+        href: "/khoa/supham/co-cau-to-chuc",
       },
       {
         type: "simple",
         label: "Tuyển sinh",
-        href: "/khoa/su-pham/tuyen-sinh",
+        href: "/khoa/supham/tuyen-sinh",
       },
       {
         type: "simple",
         label: "NCKH",
-        href: "/khoa/su-pham/nckh",
+        href: "/khoa/supham/nckh",
       },
     ],
   },
   vanhoadulich: {
-    universityName: "Khoa Nông Lâm",
+    universityName: "Khoa Văn hóa & Du lịch",
     title: "Khoa Sư Phạm",
-    description: "Chào mừng đến với Khoa Sư Phạm",
-    logoSrc: "/path/to/supham-logo.png",
+    description: "Chào mừng đến với Khoa Văn hóa & Du lịch",
+    logoSrc: "",
     blogId: "cm31jk0jo0000ijti1e11ipmi",
 
     items: [
@@ -436,10 +436,10 @@ const menuData: Record<DepartmentName, MenuData> = {
   },
 
   yduoc: {
-    universityName: "Khoa Nông Lâm",
-    title: "Khoa Sư Phạm",
-    description: "Chào mừng đến với Khoa Sư Phạm",
-    logoSrc: "/path/to/supham-logo.png",
+    universityName: "Khoa Y Dược",
+    title: "Khoa Y Dược",
+    description: "Chào mừng đến với Khoa Y Dược",
+    logoSrc: "",
     blogId: "cm31j1fmt0002jp0j9xrshae4",
 
     items: [
@@ -461,10 +461,10 @@ const menuData: Record<DepartmentName, MenuData> = {
     ],
   },
   chinhtritamli: {
-    universityName: "Khoa Nông Lâm",
-    title: "Khoa Sư Phạm",
-    description: "Chào mừng đến với Khoa Sư Phạm",
-    logoSrc: "/path/to/supham-logo.png",
+    universityName: "Khoa Chính trị & Tâm lí giáo dục",
+    title: "Khoa Chính trị & Tâm lí giáo dục",
+    description: "Chào mừng Khoa Chính trị & Tâm lí giáo dục",
+    logoSrc: "",
     blogId: "cm31j3m4n0000102ejl5rblzt",
 
     items: [
@@ -485,11 +485,11 @@ const menuData: Record<DepartmentName, MenuData> = {
       },
     ],
   },
-  kinhtechinhtri: {
-    universityName: "Khoa Nông Lâm",
-    title: "Khoa Sư Phạm",
-    description: "Chào mừng đến với Khoa Sư Phạm",
-    logoSrc: "/path/to/supham-logo.png",
+  kinhtequantri: {
+    universityName: "Khoa Kinh tế & Quản trị kinh doanh",
+    title: "Khoa Kinh tế & Quản trị kinh doanh",
+    description: "Chào mừng đến với Khoa Kinh tế & Quản trị kinh doanh",
+    logoSrc: "",
     blogId: "cm2wt8r2e0000pqq6sl0b22by",
 
     items: [
@@ -511,10 +511,10 @@ const menuData: Record<DepartmentName, MenuData> = {
     ],
   },
   nonglamngu: {
-    universityName: "Khoa Nông Lâm",
-    title: "Khoa Sư Phạm",
-    description: "Chào mừng đến với Khoa Sư Phạm",
-    logoSrc: "/path/to/supham-logo.png",
+    universityName: "Khoa Nông Lâm Ngư nghiệp",
+    title: "Khoa Nông Lâm Ngư nghiệp",
+    description: "Chào mừng đến với Khoa Nông Lâm Ngư nghiệp",
+    logoSrc: "",
     blogId: "cm2wt8r2e0000pqq6sl0b22by",
     items: [
       {

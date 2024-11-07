@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { type CarouselApi } from "@/components/ui/carousel";
@@ -9,6 +10,8 @@ import { ArrowLeftIcon, ArrowRightIcon, PlayIcon } from '@radix-ui/react-icons';
 import VideoPopUp from '@/components/VideoPopup';
 import Autoplay from "embla-carousel-autoplay";
 import { VideoIcon, ImageIcon, SunIcon } from 'lucide-react';
+import { createWispClient } from "@/lib/wisp";
+import type { Author as WispAuthor } from "@wisp-cms/client";
 
 interface YouTubeVideo {
   id: string;
@@ -21,6 +24,25 @@ interface CarouselItemType {
   videoUrl?: string;
   caption?: string;
   image?: string;
+  slug?: string;
+}
+
+interface Post {
+  id: string;
+  createdAt: Date;
+  teamId: string;
+  description: string | null;
+  title: string;
+  slug: string;
+  image: string | null;
+  authorId: string;
+  updatedAt: Date;
+  publishedAt: Date | null;
+  author: WispAuthor;
+  tags: {
+    id: string;
+    name: string;
+  }[];
 }
 
 const YouTubeVideoFetcher = () => {
@@ -75,7 +97,7 @@ function CustomCarousel({ title, items, icon: Icon }: {
   const [isModalOpen, setModalOpen] = useState(false);
   const [modalVideoUrl, setModalVideoUrl] = useState<string | null>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!api) return;
 
     setCurrent(api.selectedScrollSnap());
@@ -85,9 +107,6 @@ function CustomCarousel({ title, items, icon: Icon }: {
       setModalVideoUrl(null);
     });
   }, [api]);
-
-  const goToPrevious = () => api?.scrollTo(current - 1);
-  const goToNext = () => api?.scrollTo(current + 1);
 
   return (
     <Card className="w-full h-full flex flex-col overflow-hidden">
@@ -113,7 +132,7 @@ function CustomCarousel({ title, items, icon: Icon }: {
                         setModalVideoUrl(`https://www.youtube.com/embed/${item.videoUrl}`);
                       }}>
                         <Image
-                          src={item.thumbnail || 'placeholder.jpg'}
+                          src={item.thumbnail || '/placeholder.svg?height=400&width=600'}
                           alt={item.caption || `Video ${index + 1}`}
                           fill
                           className="object-cover"
@@ -125,12 +144,14 @@ function CustomCarousel({ title, items, icon: Icon }: {
                         </div>
                       </div>
                     ) : (
-                      <Image
-                        src={item.image || '/placeholder.svg?height=400&width=600'}
-                        alt={item.caption || `Slide ${index + 1}`}
-                        fill
-                        className="object-cover"
-                      />
+                      <Link href={item.slug ? `/sinh-vien-tieu-bieu/${item.slug}` : '#'} className="block h-full">
+                        <Image
+                          src={item.image || '/placeholder.svg?height=400&width=600'}
+                          alt={item.caption || `Slide ${index + 1}`}
+                          fill
+                          className="object-cover"
+                        />
+                      </Link>
                     )}
                     {item.caption && (
                       <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2">
@@ -143,13 +164,13 @@ function CustomCarousel({ title, items, icon: Icon }: {
             </CarouselContent>
 
             <button
-              onClick={goToPrevious}
+              onClick={() => api?.scrollPrev()}
               className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-gray-100"
             >
               <ArrowLeftIcon className="w-5 h-5" />
             </button>
             <button
-              onClick={goToNext}
+              onClick={() => api?.scrollNext()}
               className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow hover:bg-gray-100"
             >
               <ArrowRightIcon className="w-5 h-5" />
@@ -178,93 +199,102 @@ function CustomCarousel({ title, items, icon: Icon }: {
 }
 
 export default function Section7() {
-  const { videos, loading, error } = YouTubeVideoFetcher();
+  const { videos, loading: videoLoading, error: videoError } = YouTubeVideoFetcher();
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  // Fallback videos in case API fails or during loading
-  const fallbackVideos = [
+  useEffect(() => {
+    const fetchPosts = async () => {
+      setLoading(true);
+      const wisp = createWispClient('clys59v8l001jm4u10m0eryw0');
+
+      try {
+        const result = await wisp.getPosts({
+          page: 1,
+          limit: 5,
+        });
+        console.log('Fetched posts:', result.posts);
+        setPosts(result.posts as Post[]);
+      } catch (err) {
+        console.error("Error fetching posts:", err);
+        setError(err instanceof Error ? err.message : 'Failed to fetch posts');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
+  const defaultStudentItems = [
     {
-      videoUrl: "gJ8VF3YRqEM",
-      caption: "Test Fallback",
-      thumbnail: "/img/logo.png"
+      image: "/placeholder.svg?height=400&width=600",
+      caption: "Loading student highlights...",
+      thumbnail: "/placeholder.svg?height=400&width=600",
+      slug: "#",
     },
   ];
 
-  const carouselData: {
-    title: string;
-    items: CarouselItemType[];
-    icon: React.ElementType;
-  }[] = [
-      {
-        title: "THƯ VIỆN VIDEO",
-        icon: VideoIcon,
-        items: loading || error ? fallbackVideos : videos.map(video => ({
-          videoUrl: video.id,
-          caption: video.title,
-          thumbnail: video.thumbnail,
-        })),
-      },
-      {
-        title: "THƯ VIỆN HÌNH",
-        icon: ImageIcon,
-        items: [
-          {
-            image: "/images/gallery/campus-life-1.jpg",
-            caption: "Lễ tốt nghiệp khoa CNTT năm 2024",
-            thumbnail: "/images/gallery/campus-life-1.jpg"
-          },
-          {
-            image: "/images/gallery/campus-life-2.jpg",
-            caption: "Hoạt động nghiên cứu tại phòng lab",
-            thumbnail: "/images/gallery/campus-life-2.jpg"
-          },
-        ],
-      },
-      {
-        title: "SINH VIÊN TIÊU BIỂU",
-        icon: SunIcon,
-        items: [
-          {
-            image: "/images/students/student-1.jpg",
-            caption: "Nguyễn Văn An - Giải nhất Olympic Tin học SV 2024",
-            thumbnail: "/images/students/student-1.jpg"
-          },
-          {
-            image: "/img/sondh.png",
-            caption: "Đỗ Hữu Sơn",
-            thumbnail: "/img/sondh.png"
-          },
-          {
-            image: "/",
-            caption: "Lê Hoàng Cường - Quán quân Hackathon 2024",
-            thumbnail: "/images/students/student-3.jpg"
-          },
-          {
-            image: "/images/students/student-4.jpg",
-            caption: "Phạm Thị Dung - Học bổng toàn phần tại Stanford",
-            thumbnail: "/images/students/student-4.jpg"
-          },
-          {
-            image: "/images/students/student-5.jpg",
-            caption: "Hoàng Minh Em - Giải nhất cuộc thi AI Challenge",
-            thumbnail: "/images/students/student-5.jpg"
-          }
-        ],
-      },
-    ];
+  const carouselData = [
+    {
+      title: "THƯ VIỆN VIDEO",
+      icon: VideoIcon,
+      items: videoLoading || videoError ? [
+        {
+          videoUrl: "gJ8VF3YRqEM",
+          caption: "Loading videos...",
+          thumbnail: "/placeholder.svg?height=400&width=600"
+        }
+      ] : videos.map(video => ({
+        videoUrl: video.id,
+        caption: video.title,
+        thumbnail: video.thumbnail,
+      })),
+    },
+    {
+      title: "THƯ VIỆN HÌNH",
+      icon: ImageIcon,
+      items: [
+        {
+          image: "/images/gallery/campus-life-1.jpg",
+          caption: "Lễ tốt nghiệp khoa CNTT năm 2024",
+          thumbnail: "/images/gallery/campus-life-1.jpg",
+          slug: "le-tot-nghiep-2024",
+        },
+        {
+          image: "/images/gallery/campus-life-2.jpg",
+          caption: "Hoạt động nghiên cứu tại phòng lab",
+          thumbnail: "/images/gallery/campus-life-2.jpg",
+          slug: "hoat-dong-nghien-cuu",
+        },
+      ],
+    },
+    {
+      title: "SINH VIÊN TIÊU BIỂU",
+      icon: SunIcon,
+      items: loading || error ? defaultStudentItems : posts.map(post => ({
+        image: post.image || '/placeholder.svg?height=400&width=600',
+        caption: post.title,
+        thumbnail: post.image || '/placeholder.svg?height=400&width=600',
+        slug: post.slug,
+      })),
+    },
+  ];
 
   return (
     <div className="container mx-auto py-8">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {carouselData.map((data, index) => (
-          <CustomCarousel
-            key={index}
-            title={data.title}
-            items={data.items}
-            icon={data.icon}
-          />
+          <div key={index} className="flex flex-col">
+            <CustomCarousel
+              title={data.title}
+              items={data.items}
+              icon={data.icon}
+            />
+          </div>
         ))}
       </div>
-
     </div>
   );
 }
