@@ -18,3 +18,10 @@ export default function Khoa() {
     </>
   )
 }
+
+
+g2oa
+Client ID
+876455555849-vahuc2litotleraocnj31vfgqr5j54g9.apps.googleusercontent.com
+Client secret
+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

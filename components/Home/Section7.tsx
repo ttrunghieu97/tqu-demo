@@ -4,20 +4,26 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardContent } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import { type CarouselApi } from "@/components/ui/carousel";
-import { ArrowLeftIcon, ArrowRightIcon, PlayIcon } from '@radix-ui/react-icons';
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
+import { ArrowLeftIcon, ArrowRightIcon } from '@radix-ui/react-icons';
 import VideoPopUp from '@/components/VideoPopup';
 import Autoplay from "embla-carousel-autoplay";
-import { VideoIcon, ImageIcon, SunIcon } from 'lucide-react';
+import { VideoIcon, ImageIcon, SunIcon, PlayIcon } from 'lucide-react';
 import { createWispClient } from "@/lib/wisp";
 import type { Author as WispAuthor } from "@wisp-cms/client";
 
-interface YouTubeVideo {
-  id: string;
-  title: string;
-  thumbnail: string;
-}
+type Video = {
+  id: { videoId: string };
+  snippet: {
+    title: string;
+    description: string;
+    thumbnails: {
+      default: { url: string, width: number, height: number };
+      medium: { url: string, width: number, height: number };
+      high: { url: string, width: number, height: number };
+    };
+  };
+};
 
 interface CarouselItemType {
   thumbnail: string;
@@ -44,48 +50,6 @@ interface Post {
     name: string;
   }[];
 }
-
-const YouTubeVideoFetcher = () => {
-  const [videos, setVideos] = useState<YouTubeVideo[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchLatestVideos = async () => {
-      const channelId = 'UCLtll0roAIliWEQkb9JC-gA';
-      const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
-
-      try {
-        const response = await fetch(
-          `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&order=date&part=snippet,id&maxResults=5`
-        );
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch videos');
-        }
-
-        const data = await response.json();
-        const videoItems: YouTubeVideo[] = data.items
-          .filter((item: { id: { kind: string } }) => item.id.kind === 'youtube#video')
-          .map((item: { id: { videoId: string }; snippet: { title: string; thumbnails: { high: { url: string } } } }) => ({
-            id: item.id.videoId,
-            title: item.snippet.title,
-            thumbnail: item.snippet.thumbnails.high.url,
-          }));
-
-        setVideos(videoItems);
-      } catch (error) {
-        setError(error instanceof Error ? error.message : 'Unknown error');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchLatestVideos();
-  }, []);
-
-  return { videos, loading, error };
-};
 
 function CustomCarousel({ title, items, icon: Icon }: {
   title: string;
@@ -132,7 +96,7 @@ function CustomCarousel({ title, items, icon: Icon }: {
                         setModalVideoUrl(`https://www.youtube.com/embed/${item.videoUrl}`);
                       }}>
                         <Image
-                          src={item.thumbnail || '/placeholder.svg?height=400&width=600'}
+                          src={item.thumbnail}
                           alt={item.caption || `Video ${index + 1}`}
                           fill
                           className="object-cover"
@@ -199,12 +163,27 @@ function CustomCarousel({ title, items, icon: Icon }: {
 }
 
 export default function Section7() {
-  const { videos, loading: videoLoading, error: videoError } = YouTubeVideoFetcher();
+  const [videos, setVideos] = useState<Video[]>([]);
+  const [videoLoading, setVideoLoading] = useState(true);
+  const [videoError, setVideoError] = useState<string | null>(null);
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        const res = await fetch('/api/videos');
+        const data = await res.json();
+        setVideos(data.videos);
+        setVideoLoading(false);
+      } catch (error) {
+        console.error('Error fetching videos:', error);
+        setVideoError('Failed to fetch videos');
+        setVideoLoading(false);
+      }
+    };
+
     const fetchPosts = async () => {
       setLoading(true);
       const wisp = createWispClient('clys59v8l001jm4u10m0eryw0');
@@ -224,6 +203,7 @@ export default function Section7() {
       }
     };
 
+    fetchVideos();
     fetchPosts();
   }, []);
 
@@ -247,9 +227,9 @@ export default function Section7() {
           thumbnail: "/placeholder.svg?height=400&width=600"
         }
       ] : videos.map(video => ({
-        videoUrl: video.id,
-        caption: video.title,
-        thumbnail: video.thumbnail,
+        videoUrl: video.id.videoId,
+        caption: video.snippet.title,
+        thumbnail: video.snippet.thumbnails.high.url, // Sử dụng thumbnail chất lượng cao
       })),
     },
     {

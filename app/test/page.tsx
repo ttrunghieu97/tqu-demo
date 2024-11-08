@@ -1,62 +1,59 @@
-'use client'
+// app/videos/page.tsx
+"use client";
+
 import { useEffect, useState } from 'react';
 
-interface Post {
-  id: string;
-  title: string;
-  content: string;
-  // Thêm các thuộc tính khác nếu có
-}
+// Định nghĩa kiểu Video cho dữ liệu nhận được từ API
+type Video = {
+  id: { videoId: string };
+  snippet: {
+    title: string;
+    description: string;
+    thumbnails: { default: { url: string } };
+  };
+};
 
-const Page = () => {
-  const [posts, setPosts] = useState<Post[]>([]); // Sử dụng kiểu dữ liệu Post[]
-  const [loading, setLoading] = useState<boolean>(true); // Trạng thái tải
+export default function VideosPage() {
+  const [videos, setVideos] = useState<Video[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [fromCache, setFromCache] = useState(false);
 
-  // Fetch dữ liệu bài viết từ API
   useEffect(() => {
-    const fetchPosts = async () => {
+    const fetchVideos = async () => {
       try {
-        // Fetch API từ server của bạn, thay 'your-api-endpoint' bằng API thực tế
-        const response = await fetch('/api/photos/albums');
-        const data = await response.json();
+        const res = await fetch('/api/videos');
+        const data = await res.json();
 
-        // Kiểm tra kiểu dữ liệu trả về và set vào state
-        setPosts(data);
-        setLoading(false);
+        setVideos(data.videos);
+        setFromCache(data.fromCache);
+        setIsLoading(false);
       } catch (error) {
-        console.error('Error fetching posts:', error);
-        setLoading(false);
+        console.error('Error fetching videos:', error);
       }
     };
 
-    fetchPosts();
+    fetchVideos();
   }, []);
-
-  // Hiển thị loading nếu đang tải
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div>
-      <h1>Recent Posts</h1>
-      <div>
-        {posts.length === 0 ? (
-          <p>No posts available</p>
-        ) : (
+      <h1>YouTube Videos</h1>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <div>
+          {fromCache && <p>Fetched from cache (less than 2 hours ago)</p>}
           <ul>
-            {posts.map((post) => (
-              <li key={post.id}>
-                <h2>{post.title}</h2>
-                <p>{post.content}</p>
-                {/* Thêm thông tin khác nếu cần */}
+            {videos.map((video) => (
+              <li key={video.id.videoId}>
+                <h2>{video.snippet.title}</h2>
+                <img src={video.snippet.thumbnails.default.url} alt={video.snippet.title} />
+                <p>{video.snippet.description}</p>
               </li>
             ))}
           </ul>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
-};
-
-export default Page;
+}
