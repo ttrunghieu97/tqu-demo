@@ -17,6 +17,11 @@ const segmentTitles: Record<string, string> = {
   'supham': 'Sư Phạm',
   'khoa': 'Khoa',
   'tuyen-sinh': 'Thông tin tuyển sinh',
+  'gioi-thieu': 'Giới thiệu',
+  'gioi-thieu-chung': "Giới thiệu chung",
+  'ban-giam-hieu': "Ban giám hiệu",
+  'hoi-dong-truong': "Hội Đồng trường",
+  'triet-li-giao-duc': "Triết lí giáo dục"
   // Add more mappings as needed
 }
 
