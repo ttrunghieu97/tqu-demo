@@ -11,7 +11,15 @@ const nextConfig = {
       "scontent.fhph1-1.fna.fbcdn.net",
       "lh3.googleusercontent.com",
       "daihoctantrao.edu.vn",
+      "res.cloudinary.com",
+      "tqu-demo.vercel.app",
     ],
+  },
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.externals.push("sharp");
+    }
+    return config;
   },
 };
 
