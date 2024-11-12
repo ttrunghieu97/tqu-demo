@@ -13,6 +13,7 @@ const nextConfig = {
       "daihoctantrao.edu.vn",
       "res.cloudinary.com",
       "tqu-demo.vercel.app",
+      "100.100.10.103",
     ],
   },
   webpack: (config, { isServer }) => {
