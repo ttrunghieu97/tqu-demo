@@ -3,7 +3,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import ThemeProvider from "@/components/theme-provider"
 import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -33,7 +32,6 @@ export default function RootLayout({
       >
         <ThemeProvider        >
           {children}
-          <SpeedInsights />
           <Analytics />
         </ThemeProvider>
       </body>
