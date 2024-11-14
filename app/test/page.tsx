@@ -1,12 +1,8 @@
-import ImageLibrary from '@/components/thuvien/thuvienhinh';
 
-
-export default function Sukien() {
-
+export default function CoursesPage() {
   return (
-    <>
-      <ImageLibrary />
-    </>
-  );
+    <div>
+      asdasd
+    </div>
+  )
 }
-

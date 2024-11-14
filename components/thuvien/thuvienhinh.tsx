@@ -1,10 +1,9 @@
-// components/ImageLibrary.tsx
 'use client'
 
 import React, { useState, useEffect } from 'react';
 import { readItems } from '@directus/sdk';
 import directus from '@/lib/directus';
-import CustomCarousel from '@/components/CustomCarousel';
+import CustomCarousel from '@/components/thuvien/CustomCarousel';
 import { ImageIcon } from 'lucide-react';
 
 interface ImageSet {
@@ -35,7 +34,6 @@ const ImageLibrary: React.FC = () => {
             fields: ['id', 'title', 'img.id', 'img.img_id', 'img.directus_files_id'],
             limit: 1,
           })
-
         ) as ImageSet[];
         setImageSets(response);
         setLoading(false);
@@ -54,16 +52,16 @@ const ImageLibrary: React.FC = () => {
 
   const carouselItems: CarouselItem[] = imageSets.flatMap((imageSet) =>
     imageSet.img.map((image) => ({
-      thumbnail: `http://100.100.10.103:8055/assets/${image.directus_files_id}?width=400&height=300`,
+      thumbnail: `${process.env.NEXT_PUBLIC_API_URL}assets/${image.directus_files_id}?width=400&height=300`,
       caption: imageSet.title,
-      image: `http://100.100.10.103:8055/assets/${image.directus_files_id}`,
+      image: `${process.env.NEXT_PUBLIC_API_URL}assets/${image.directus_files_id}`,
     }))
   );
 
   return (
     <>
       <CustomCarousel
-        title="THƯ VIỆN HÌNH"
+        title="THƯ VIỆN ẢNH"
         icon={ImageIcon}
         items={carouselItems}
       />

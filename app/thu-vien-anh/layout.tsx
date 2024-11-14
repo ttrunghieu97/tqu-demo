@@ -1,6 +1,6 @@
+import AutoBreadcrumbs from "@/components/AutoBreadcrumb";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import AutoBreadcrumb from '@/components/AutoBreadcrumb';
 
 export default function RootLayout({
   children,
@@ -9,9 +9,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi">
-      <body className="bg-gray-100 dark:bg-gray-900">
+      <body>
         <Header department="Home" />
-        <AutoBreadcrumb />
+        <AutoBreadcrumbs />
         {children}
         <Footer />
       </body>

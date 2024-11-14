@@ -1,11 +1,10 @@
-// components/CustomCarousel.tsx
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from "@/components/ui/carousel";
 import { ArrowLeftIcon, ArrowRightIcon } from '@radix-ui/react-icons';
-import VideoPopUp from './VideoPopup';
+import VideoPopUp from '@/components/VideoPopup';
 import Autoplay from "embla-carousel-autoplay";
 import { PlayIcon } from 'lucide-react';
 
@@ -21,9 +20,10 @@ interface CustomCarouselProps {
   title: string;
   items: CarouselItemType[];
   icon: React.ElementType;
+  linkPrefix?: string;  // Optional link prefix
 }
 
-const CustomCarousel: React.FC<CustomCarouselProps> = ({ title, items, icon: Icon }) => {
+const CustomCarousel: React.FC<CustomCarouselProps> = ({ title, items, icon: Icon, linkPrefix = '/thu-vien-anh' }) => {
   const [api, setApi] = useState<CarouselApi | null>(null);
   const [current, setCurrent] = useState(0);
   const [isModalOpen, setModalOpen] = useState(false);
@@ -73,7 +73,7 @@ const CustomCarousel: React.FC<CustomCarouselProps> = ({ title, items, icon: Ico
                         </div>
                       </div>
                     ) : (
-                      <Link href={item.slug ? `/sinh-vien-tieu-bieu/${item.slug}` : '#'} className="block h-full">
+                      <Link href={item.slug ? `${linkPrefix}/${item.slug}` : linkPrefix} className="block h-full">
                         <Image
                           src={item.image || '/placeholder.svg'}
                           alt={item.caption || `Slide ${index + 1}`}

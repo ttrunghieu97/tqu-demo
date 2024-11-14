@@ -48,10 +48,13 @@ export default function Partner() {
   }
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 py-12">
-      <h2 className="text-2xl font-bold text-center mb-8 relative flex items-center justify-center">
-        <div className="absolute inset-x-20 top-1/2 h-1 bg-green-500 -z-10" />
-        <span className="bg-white px-4 z-10">ĐƠN VỊ HỢP TÁC</span>
+    <div className="w-full max-w-6xl mx-auto px-4 py-12 bg-white dark:bg-gray-900 transition-colors duration-300">
+      <h2 className="text-2xl font-bold text-center mb-8 flex items-center justify-center relative">
+        <div className="w-1/3 h-1 bg-gradient-to-r from-transparent via-green-500 dark:via-green-600 to-transparent" />
+        <span className="px-4 z-10 text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-900 transition-colors duration-300">
+          ĐƠN VỊ HỢP TÁC
+        </span>
+        <div className="w-1/3 h-1 bg-gradient-to-l from-transparent via-green-500 dark:via-green-600 to-transparent" />
       </h2>
 
       <Carousel
@@ -87,13 +90,13 @@ export default function Partner() {
       >
         {partners.map((partner, index) => (
           <div key={index} className="p-4">
-            <div className="bg-white rounded-lg shadow-sm p-6 h-32 flex items-center justify-center">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-gray-700 p-6 h-32 flex items-center justify-center transition-colors duration-300">
               <Image
                 src={partner}
                 alt={`Partner ${index + 1}`}
                 width={85}
                 height={85}
-                className="object-contain"
+                className="object-contain dark:filter dark:brightness-90"
               />
             </div>
           </div>

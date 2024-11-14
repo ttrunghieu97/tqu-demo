@@ -4,7 +4,9 @@ import remarkHtml from 'remark-html'
 import directus from "@/lib/directus"
 import { readItems } from '@directus/sdk'
 import { CalendarDays } from "lucide-react"
-import RelatedPosts from '@/components/getpost/RelatedPosts'
+import React, { Suspense } from 'react';
+
+const RelatedPosts = React.lazy(() => import('@/components/post/RelatedPosts'));
 
 interface Params extends ParsedUrlQuery {
   slug: string
@@ -22,6 +24,7 @@ interface Post {
   content: string
   created_at: string
   description: string | null
+  category: string // Added category field
 }
 
 export async function generateStaticParams() {
@@ -57,7 +60,7 @@ export default async function BlogPost({ params }: { params: Promise<Params> }) 
     readItems('posts', {
       filter: { slug: { _eq: slug } },
       limit: 1,
-      fields: ['title', 'content', 'created_at', 'description'],
+      fields: ['id', 'title', 'content', 'created_at', 'description', 'category'], // Include 'id' and 'category'
     })
   ) as Post[]
 
@@ -67,7 +70,7 @@ export default async function BlogPost({ params }: { params: Promise<Params> }) 
     return <div>Không tìm thấy bài viết.</div>
   }
 
-  const { title, content, created_at, description } = post
+  const { id, title, content, created_at, description, category } = post
   const htmlContent = await remark()
     .use(remarkHtml)
     .process(content)
@@ -76,29 +79,29 @@ export default async function BlogPost({ params }: { params: Promise<Params> }) 
   const date = formatDate(created_at)
 
   return (
-    <>
-      <article className="container prose lg:prose-xl dark:prose-invert mx-auto lg:prose-h1:text-4xl mb-10 lg:mt-20 break-words [&_img]:mx-auto">
-        <h1 className="text-4xl font-bold text-center mb-2">{title}</h1>
-        <div className="flex items-center justify-end text-sm opacity-60 mt-4">
-          {date && (
-            <div className="flex items-center space-x-2">
-              <CalendarDays className="h-4 w-4" aria-hidden="true" />
-              <time dateTime={date.iso}>{date.localized}</time>
-            </div>
-          )}
-        </div>
-        {description && (
-          <p className="text-lg opacity-80">{description}</p>
+    <article className="container prose lg:prose-xl dark:prose-invert mx-auto lg:prose-h1:text-4xl mb-10 lg:mt-20 break-words [&_img]:mx-auto">
+      <h1 className="text-4xl font-bold text-center mb-2">{title}</h1>
+      <div className="flex items-center justify-end text-sm opacity-60 mt-4">
+        {date && (
+          <div className="flex items-center space-x-2 mb-5">
+            <CalendarDays className="h-4 w-4" aria-hidden="true" />
+            <time dateTime={date.iso}>{date.localized}</time>
+          </div>
         )}
-        <div
-          className="mt-8 text-2xl text-justify [&_img]:mx-auto [&_img]:block [&_img]:max-h-[1000px] [&_img]:object-contain"
-          dangerouslySetInnerHTML={{
-            __html: htmlContent,
-          }}
-        />
-        <RelatedPosts currentPostId={post.id} />
+      </div>
+      {description && (
+        <p className="text-2xl opacity-80 font-bold text-justify">{description}</p>
+      )}
+      <div
+        className="mt-8 text-2xl text-justify [&_img]:mx-auto [&_img]:block [&_img]:max-h-[1000px] [&_img]:object-contain"
+        dangerouslySetInnerHTML={{
+          __html: htmlContent,
+        }}
+      />
 
-      </article>
-    </>
+      <Suspense>
+        <RelatedPosts currentPostId={id} category={category} slug='tin-tuc' />
+      </Suspense>
+    </article>
   )
 }

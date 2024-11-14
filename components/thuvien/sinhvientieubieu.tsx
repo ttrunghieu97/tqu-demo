@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { readItems } from '@directus/sdk';
 import directus from '@/lib/directus';
-import CustomCarousel from '@/components/CustomCarousel';
+import CustomCarousel from '@/components/thuvien/CustomCarousel';
 import { SunIcon } from 'lucide-react';
 
 interface Post {
@@ -20,30 +20,31 @@ interface CarouselItem {
   thumbnail: string;
   caption: string;
   image: string;
+  slug: string;
 }
 
 const StudentHighlights: React.FC = () => {
-  const [posts, setPosts] = useState<Post[]>([]); // Initialize state for posts
-  const [loading, setLoading] = useState(true); // State for loading status
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchInitialPosts = async () => {
       try {
         const result = await directus.request(
           readItems('sinh_vien_tieu_bieu', {
-            limit: 10, // Specify the number of posts per page
-            fields: ['id', 'title', 'image', 'content ', 'description', 'slug', 'create_at'],
+            limit: 10,
+            fields: ['id', 'title', 'image', 'description', 'slug', 'create_at'],
           })
         );
-        setPosts(result as Post[]); // Store the fetched posts in the state
+        setPosts(result as Post[]);
       } catch (error) {
         console.error("Error fetching initial posts:", error);
       } finally {
-        setLoading(false); // Set loading to false once the data is fetched
+        setLoading(false);
       }
     };
 
-    fetchInitialPosts(); // Fetch posts when the component is mounted
+    fetchInitialPosts();
   }, []);
 
   if (loading) {
@@ -55,6 +56,7 @@ const StudentHighlights: React.FC = () => {
     thumbnail: `${process.env.NEXT_PUBLIC_API_URL}assets/${post.image}?width=400&height=300`,
     caption: post.title,
     image: `${process.env.NEXT_PUBLIC_API_URL}assets/${post.image}`,
+    slug: post.slug, // Include the slug here
   }));
 
   return (
@@ -63,10 +65,10 @@ const StudentHighlights: React.FC = () => {
         title="SINH VIÊN TIÊU BIỂU"
         icon={SunIcon}
         items={postItems}
+        linkPrefix="/sinh-vien-tieu-bieu/" // Specify the link prefix for individual items
       />
     </>
   );
 };
 
 export default StudentHighlights;
-

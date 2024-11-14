@@ -1,6 +1,7 @@
-// components/VideoLibrary.tsx
+'use client'
+
 import React, { useState, useEffect } from 'react';
-import CustomCarousel from '@/components/CustomCarousel';
+import CustomCarousel from '@/components/thuvien/CustomCarousel';
 import { VideoIcon } from 'lucide-react';
 
 type Video = {
