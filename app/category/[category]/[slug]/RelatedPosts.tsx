@@ -89,10 +89,9 @@ export default function RelatedPosts({ currentPostId, category, slug, limit = 6 
         {relatedPosts.map((post) => {
           const date = formatDate(post.created_at)
           return (
-            // Use both `slug` and post.slug to build the URL
             <Link href={`/category/${slug}/${post.slug}`} key={post.id}>
-              <Card className="group hover:shadow-lg transition-shadow duration-300 dark:bg-gray-800 dark:border-gray-700">
-                <div className="relative aspect-[16/9] overflow-hidden rounded-t-lg">
+              <Card className="group hover:shadow-lg transition-shadow duration-300 dark:bg-gray-800 dark:border-gray-700 flex flex-col h-full">
+                <div className="relative aspect-[16/9] overflow-hidden rounded-t-lg h-48">
                   {post.image ? (
                     <Image
                       alt={post.title}
@@ -113,7 +112,7 @@ export default function RelatedPosts({ currentPostId, category, slug, limit = 6 
                     </div>
                   )}
                 </div>
-                <CardContent className="p-4 dark:text-gray-300">
+                <CardContent className="p-4 dark:text-gray-300 flex-grow">
                   {date && (
                     <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-1 dark:text-gray-400">
                       <CalendarDays className="h-4 w-4" />

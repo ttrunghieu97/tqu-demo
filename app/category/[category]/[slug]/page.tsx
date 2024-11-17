@@ -1,30 +1,30 @@
-import { ParsedUrlQuery } from 'querystring'
-import { remark } from 'remark'
-import remarkHtml from 'remark-html'
-import directus from "@/lib/directus"
-import { readItems } from '@directus/sdk'
-import { CalendarDays } from "lucide-react"
+import { ParsedUrlQuery } from 'querystring';
+import { remark } from 'remark';
+import remarkHtml from 'remark-html';
+import directus from "@/lib/directus";
+import { readItems } from '@directus/sdk';
+import { CalendarDays } from "lucide-react";
 import React, { Suspense } from 'react';
 
-const RelatedPosts = React.lazy(() => import('@/components/post/RelatedPosts'));
+const RelatedPosts = React.lazy(() => import('./RelatedPosts'));
 
 interface Params extends ParsedUrlQuery {
-  slug: string
+  slug: string;
 }
 
 interface DateFormat {
-  iso: string
-  localized: string
+  iso: string;
+  localized: string;
 }
 
 interface Post {
-  id: string
-  slug: string
-  title: string
-  content: string
-  created_at: string
-  description: string | null
-  category: string // Added category field
+  id: string;
+  slug: string;
+  title: string;
+  content: string;
+  created_at: string;
+  description: string | null;
+  category: string;
 }
 
 export async function generateStaticParams() {
@@ -32,11 +32,11 @@ export async function generateStaticParams() {
     readItems('posts', {
       fields: ['slug'],
     })
-  ) as Post[]
+  ) as Post[];
 
   return posts.map((post: Post) => ({
     slug: post.slug,
-  }))
+  }));
 }
 
 const formatDate = (date: string | undefined): DateFormat | null => {
@@ -53,30 +53,30 @@ const formatDate = (date: string | undefined): DateFormat | null => {
 };
 
 export default async function BlogPost({ params }: { params: Promise<Params> }) {
-  const resolvedParams = await params
-  const { slug } = resolvedParams
+  const resolvedParams = await params;
+  const { slug } = resolvedParams;
 
   const posts = await directus.request(
     readItems('posts', {
       filter: { slug: { _eq: slug } },
       limit: 1,
-      fields: ['id', 'title', 'content', 'created_at', 'description', 'category'], // Include 'id' and 'category'
+      fields: ['id', 'title', 'content', 'created_at', 'description', 'category'],
     })
-  ) as Post[]
+  ) as Post[];
 
-  const post = posts && posts.length > 0 ? posts[0] : null
+  const post = posts && posts.length > 0 ? posts[0] : null;
 
   if (!post) {
-    return <div>Không tìm thấy bài viết.</div>
+    return <div>Không tìm thấy bài viết.</div>;
   }
 
-  const { id, title, content, created_at, description, category } = post
+  const { id, title, content, created_at, description, category } = post;
   const htmlContent = await remark()
     .use(remarkHtml)
     .process(content)
-    .then((file) => String(file))
+    .then((file) => String(file));
 
-  const date = formatDate(created_at)
+  const date = formatDate(created_at);
 
   return (
     <article className="container prose lg:prose-xl dark:prose-invert mx-auto lg:prose-h1:text-4xl mb-10 lg:mt-20 break-words [&_img]:mx-auto">
@@ -100,8 +100,8 @@ export default async function BlogPost({ params }: { params: Promise<Params> }) 
       />
 
       <Suspense>
-        <RelatedPosts currentPostId={id} category={category} slug='tin-tuc' />
+        <RelatedPosts currentPostId={id} category={category} slug={category} />
       </Suspense>
     </article>
-  )
+  );
 }

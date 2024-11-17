@@ -50,7 +50,7 @@ export default function TinTuc() {
             limit: postsPerPage,
             page: 1,
             fields: ['id', 'title', 'created_at', 'description', 'slug', 'image', 'category', 'content'],
-            filter: { category: { _eq: 'Tin tức' } },
+            filter: { category: { _eq: 'tin-tuc' } },
             sort: ['-created_at'],
           })
         );

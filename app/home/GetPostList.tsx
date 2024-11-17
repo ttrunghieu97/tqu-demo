@@ -1,16 +1,29 @@
 import PostList from "@/components/post/PostList";
 
 export default function GetPostList() {
+  // Sử dụng 'as const' để chỉ định rằng categories là một mảng với các giá trị cố định
   const categories = [
-    "Sự kiện",
-    "Hoạt động",
-    "Hội nghị - Hội thảo",
-    "Các cuộc thi",
-    "Nhà Trường",
-    "Đảng Bộ",
-    "Đoàn Trường",
-    "Công Đoàn"
-  ];
+    "su-kien",
+    "hoat-dong",
+    "hoi-nghi-hoi-thao",
+    "cuoc-thi",
+    "nha-truong",
+    "dang-bo",
+    "dong-truong",
+    "cong-doan",
+  ] as const; // 'as const' giúp TypeScript hiểu rằng các giá trị trong mảng là cố định
+
+  // Định nghĩa đối tượng ánh xạ category sang tên hiển thị
+  const categoryNames: { [key in typeof categories[number]]: string } = {
+    "su-kien": "Sự kiện",
+    "hoat-dong": "Hoạt động",
+    "hoi-nghi-hoi-thao": "Hội nghị - Hội thảo",
+    "cuoc-thi": "Các cuộc thi",
+    "nha-truong": "Nhà trường",
+    "dang-bo": "Đảng bộ",
+    "dong-truong": "Hội đồng trường",
+    "cong-doan": "Công đoàn",
+  };
 
   return (
     <div className="bg-gray-100 dark:bg-gray-900 min-h-screen py-12 transition-colors duration-200">
@@ -20,13 +33,13 @@ export default function GetPostList() {
             {categories.map((category) => (
               <section key={category} className="bg-white dark:bg-gray-800 rounded-lg shadow-md dark:shadow-gray-700 overflow-hidden transition-colors duration-200">
                 <h2 className="text-2xl font-bold bg-red-800 dark:bg-red-900 text-white p-4 text-center transition-colors duration-200">
-                  ► {category} ◄
+                  ► {categoryNames[category] || category} ◄
                 </h2>
                 <div className="p-4">
                   <PostList
                     category={category}
-                    linkPrefix="/tin-tuc-su-kien"
-                    viewMoreLink="/tin-tuc-su-kien/dang-bo"
+                    linkPrefix={`/category/${category}`}
+                    viewMoreLink={`/category/${category}`}
                   />
                 </div>
               </section>

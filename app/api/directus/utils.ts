@@ -28,11 +28,27 @@ export const getPostsForCategory = async (category: string, page: number) => {
 // Hàm lấy tên danh mục
 export const getCategoryTitle = (category: string) => {
   const titles: { [key: string]: string } = {
-    "su-kien": "Sự kiện",
-    "hoat-dong": "Hoạt động",
-    "tin-tuc": "Tin tức",
-    // Thêm các danh mục khác ở đây
+    "tin-tuc": "TIN TỨC",
+    "su-kien": "SỰ KIỆN",
+    "hoat-dong": "HOẠT ĐỘNG",
+    "hoi-nghi-hoi-thao": "HỘI NGHỊ - HỘI THẢO",
+    "cuoc-thi": "CÁC CUỘC THI",
+    "nha-truong": "NHÀ TRƯỜNG",
+    "dang-bo": "ĐẢNG BỘ",
+    "dong-truong": "HỘI ĐỒNG TRƯỜNG",
+    "cong-doan": "CÔNG ĐOÀN",
   };
 
   return titles[category] || category;
 };
+
+export const categories = [
+  "su-kien",
+  "hoat-dong",
+  "hoi-nghi-hoi-thao",
+  "cac-cuoc-thi",
+  "nha-truong",
+  "dang-bo",
+  "dong-truong",
+  "cong-doan",
+];

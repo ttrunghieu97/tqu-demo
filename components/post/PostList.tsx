@@ -76,9 +76,9 @@ export default function PostList({ category, linkPrefix, viewMoreLink, viewMoreT
           const date = formatDate(post.created_at);
           return (
             <Link href={`${linkPrefix}/${post.slug}`} key={post.id}>
-              <Card className="group hover:shadow-lg dark:hover:shadow-primary/25 transition-shadow duration-300 overflow-hidden bg-background dark:bg-gray-800">
-                <div className="flex flex-col md:flex-row">
-                  <div className="md:w-1/3 relative aspect-[4/3] md:aspect-auto">
+              <Card className="group hover:shadow-lg dark:hover:shadow-primary/25 transition-shadow duration-300 overflow-hidden bg-background dark:bg-gray-800 flex flex-col h-full">
+                <div className="flex flex-col md:flex-row h-full">
+                  <div className="md:w-1/3 relative aspect-[4/3] md:aspect-auto h-40">
                     {post.image ? (
                       <Image
                         alt={post.title}
@@ -100,7 +100,7 @@ export default function PostList({ category, linkPrefix, viewMoreLink, viewMoreT
                     )}
                   </div>
 
-                  <CardContent className="p-6 md:w-2/3 flex flex-col justify-between">
+                  <CardContent className="p-6 md:w-2/3 flex flex-col justify-between h-full">
                     <div>
                       <h2 className="font-bold text-xl mb-2 line-clamp-2 group-hover:text-primary transition-colors dark:text-gray-100">
                         {post.title}
