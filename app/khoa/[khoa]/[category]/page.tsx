@@ -1,3 +1,4 @@
+// app/khoa/[khoa]/[category]/page.tsx
 'use client';
 
 import * as React from 'react';
@@ -13,6 +14,7 @@ import { readItems } from '@directus/sdk';
 type Params = {
   params: Promise<{
     khoa: string;
+    category: string;  // Added category param
   }>;
 };
 
@@ -34,7 +36,7 @@ interface DateFormat {
 
 export default function KhoaPage({ params }: Params) {
   const resolvedParams = React.use(params);
-  const { khoa } = resolvedParams;
+  const { khoa, category } = resolvedParams;
 
   const [posts, setPosts] = useState<Post[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -63,6 +65,7 @@ export default function KhoaPage({ params }: Params) {
           limit: postsPerPage,
           page,
           fields: ['id', 'title', 'created_at', 'description', 'slug', 'image', 'category', 'content'],
+          filter: { category: { _eq: category } },  // Dynamic category filter
           sort: ['-created_at'],
         })
       );
@@ -83,7 +86,7 @@ export default function KhoaPage({ params }: Params) {
     } finally {
       setIsLoading(false);
     }
-  }, [khoa, postsPerPage]);
+  }, [khoa, category, postsPerPage]);
 
   useEffect(() => {
     fetchPosts(1);
@@ -95,15 +98,18 @@ export default function KhoaPage({ params }: Params) {
     fetchPosts(nextPage);
   };
 
+  // Dynamic heading based on category
+  const getCategoryTitle = () => {
+    if (category === 'tuyen-sinh') return 'Thông tin tuyển sinh';
+    if (category === 'nckh') return 'Nghiên cứu khoa học';
+    return 'Danh mục';
+  };
+
   return (
-    <>
-
-
-
-
+    <div>
       <div className="bg-gradient-to-r from-red-900 to-white dark:from-gray-800 dark:to-gray-900 p-2 font-extrabold font-sans flex items-center mt-5 transition-colors duration-300">
         <div className="container mx-auto flex items-center">
-          <h2 className="text-3xl font-bold text-red-100 dark:text-gray-100">HOẠT ĐỘNG</h2>
+          <h2 className="text-3xl font-bold text-red-100 dark:text-gray-100 uppercase">{getCategoryTitle()}</h2>
         </div>
       </div>
 
@@ -168,6 +174,6 @@ export default function KhoaPage({ params }: Params) {
           </Button>
         </div>
       )}
-    </>
+    </div>
   );
 }

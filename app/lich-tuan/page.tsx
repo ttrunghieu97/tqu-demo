@@ -6,7 +6,9 @@ export default function Home() {
   return (
     <>
       <Header department="Home" />
-
+      <div>
+        aksdjlaksjdlkj
+      </div>
       <Footer />
     </>
   );

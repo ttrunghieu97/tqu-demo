@@ -99,7 +99,7 @@ export default async function BlogPost({ params }: { params: Promise<Params> }) 
       />
 
       <Suspense>
-        <RelatedPosts currentPostId={id} category={category} slug='tin-tuc' />
+        <RelatedPosts currentPostId={id} category={category} slug='' />
       </Suspense>
     </article>
   )

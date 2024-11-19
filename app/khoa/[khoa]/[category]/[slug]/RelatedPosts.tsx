@@ -10,7 +10,7 @@ import { readItems } from '@directus/sdk'
 
 interface Post {
   id: string
-  create_at: string
+  created_at: string
   description: string | null
   title: string
   slug: string
@@ -27,11 +27,12 @@ interface DateFormat {
 interface RelatedPostsProps {
   currentPostId: string
   category: string
-  slug: string // Only pass the slug (e.g., 'tin-tuc')
+  khoa: string
+  slug: string
   limit?: number
 }
 
-export default function RelatedPosts({ currentPostId, category, limit = 6 }: RelatedPostsProps) {
+export default function RelatedPosts({ currentPostId, category, khoa, slug, limit = 6 }: RelatedPostsProps) {
   const [relatedPosts, setRelatedPosts] = useState<Post[]>([])
 
   const formatDate = (date: string | undefined): DateFormat | null => {
@@ -51,16 +52,16 @@ export default function RelatedPosts({ currentPostId, category, limit = 6 }: Rel
     const fetchRelatedPosts = async () => {
       try {
         const result = await directus.request(
-          readItems('sinh_vien_tieu_bieu', {
+          readItems(khoa, {
             limit: limit,
-            fields: ['id', 'title', 'create_at', 'description', 'slug', 'image', 'category'],
+            fields: ['id', 'title', 'created_at', 'description', 'slug', 'image', 'category'],
             filter: {
               _and: [
                 { category: { _eq: category } },
                 { id: { _neq: currentPostId } }
               ]
             },
-            sort: ['-create_at'],
+            sort: ['-created_at'],
           })
         )
         setRelatedPosts(result as Post[])
@@ -70,7 +71,7 @@ export default function RelatedPosts({ currentPostId, category, limit = 6 }: Rel
     }
 
     fetchRelatedPosts()
-  }, [currentPostId, category, limit])
+  }, [currentPostId, category, khoa, limit])
 
   if (relatedPosts.length === 0) {
     return null
@@ -87,12 +88,11 @@ export default function RelatedPosts({ currentPostId, category, limit = 6 }: Rel
       </h2>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
         {relatedPosts.map((post) => {
-          const date = formatDate(post.create_at)
+          const date = formatDate(post.created_at)
           return (
-            // Use both `slug` and post.slug to build the URL
-            <Link href={`/sinh-vien-tieu-bieu/${post.slug}`} key={post.id}>
-              <Card className="group hover:shadow-lg transition-shadow duration-300 dark:bg-gray-800 dark:border-gray-700">
-                <div className="relative aspect-[16/9] overflow-hidden rounded-t-lg">
+            <Link href={`/khoa/${khoa}/${slug}/${post.slug}`} key={post.id}>
+              <Card className="group hover:shadow-lg transition-shadow duration-300 dark:bg-gray-800 dark:border-gray-700 flex flex-col h-full">
+                <div className="relative aspect-[16/9] overflow-hidden rounded-t-lg h-48">
                   {post.image ? (
                     <Image
                       alt={post.title}
@@ -113,7 +113,7 @@ export default function RelatedPosts({ currentPostId, category, limit = 6 }: Rel
                     </div>
                   )}
                 </div>
-                <CardContent className="p-4 dark:text-gray-300">
+                <CardContent className="p-4 dark:text-gray-300 flex-grow">
                   {date && (
                     <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-1 dark:text-gray-400">
                       <CalendarDays className="h-4 w-4" />

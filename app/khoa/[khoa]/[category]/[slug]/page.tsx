@@ -11,7 +11,7 @@ const RelatedPosts = React.lazy(() => import('./RelatedPosts'));
 
 interface Params extends ParsedUrlQuery {
   slug: string;
-  category: string;
+  khoa: string;
 }
 
 interface DateFormat {
@@ -45,10 +45,10 @@ const formatDate = (date: string | undefined): DateFormat | null => {
 
 export default async function BlogPost({ params }: { params: Promise<Params> }) {
   const resolvedParams = await params;
-  const { slug } = resolvedParams;
+  const { slug, khoa } = resolvedParams;
 
   const posts = await directus.request(
-    readItems('posts', {
+    readItems(khoa, {
       filter: { slug: { _eq: slug } },
       limit: 18,
       fields: ['id', 'title', 'content', 'created_at', 'description', 'category'],
@@ -90,7 +90,7 @@ export default async function BlogPost({ params }: { params: Promise<Params> }) 
         }}
       />
       <Suspense fallback={<p>Đang tải bài viết liên quan...</p>}>
-        <RelatedPosts currentPostId={id} category={category} slug={category} />
+        <RelatedPosts currentPostId={id} category={category} slug={category} khoa={khoa} />
       </Suspense>
     </article>
   );
