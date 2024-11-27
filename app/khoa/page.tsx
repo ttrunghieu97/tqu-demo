@@ -4,6 +4,16 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { GraduationCap, Plane, Stethoscope, Brain, Briefcase, Leaf } from "lucide-react";
 import Link from "next/link";
 
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Khoa - Trường Đại Học Tân Trào',
+  description: 'Demo For Learning',
+  icons: {
+    icon: "/img/logo.png",
+  },
+};
+
 const categories = [
   {
     name: "Khoa Sư Phạm",

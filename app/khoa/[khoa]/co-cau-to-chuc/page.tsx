@@ -19,7 +19,7 @@ type Params = {
 
 // Fetch data for the given khoa
 async function getData(khoa: string) {
-  const res = await fetch(`http://100.100.10.103:8055/items/co_cau_to_chuc?filter[title][_eq]=${khoa}`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}items/co_cau_to_chuc?filter[title][_eq]=${khoa}`);
 
   if (!res.ok) {
     throw new Error('Failed to fetch data');

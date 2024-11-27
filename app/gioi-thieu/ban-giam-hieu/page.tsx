@@ -1,11 +1,6 @@
-'use client'
-
 import { Card, CardContent } from "@/components/ui/card"
-import { Mail, Phone } from "lucide-react"
+import { Mail, Phone } from 'lucide-react'
 import Image from "next/image"
-import Header from '@/components/Header'
-import Footer from "@/components/Footer"
-import AutoBreadcrumbs from '@/components/AutoBreadcrumb'
 
 const leaders = [
   {
@@ -32,14 +27,10 @@ const leaders = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
-      <Header department="Home" />
+    <div className="min-h-screen bg-background dark:bg-gray-900">
       <div className="container mx-auto px-4 py-6">
-        <nav className="flex items-center space-x-2 text-sm mb-8">
-          <AutoBreadcrumbs />
-        </nav>
-        <h1 className="text-3xl md:text-4xl font-bold text-center mb-12 ">
-          <span> BAN GIÁM HIỆU </span>
+        <h1 className="text-3xl md:text-4xl font-bold text-center mb-12 text-foreground dark:text-white">
+          <span>BAN GIÁM HIỆU</span>
         </h1>
 
         <div className="grid gap-8 max-w-5xl mx-auto">
@@ -47,8 +38,8 @@ export default function Home() {
             <Card
               key={index}
               className="transition-all duration-300 ease-in-out 
-                hover:shadow-lg hover:bg-accent
-                bg-white p-4 rounded-md"
+                hover:shadow-lg hover:bg-accent hover:dark:bg-gray-700
+                bg-white dark:bg-gray-800 p-4 rounded-md"
             >
               <CardContent className="p-10">
                 <div className="flex flex-col md:flex-row gap-12 items-center md:items-start">
@@ -63,30 +54,30 @@ export default function Home() {
                     />
                   </div>
                   <div className="flex-1 text-center md:text-left">
-                    <h2 className="text-3xl font-bold mb-3">{leader.name}</h2>
-                    <p className="text-xl text-muted-foreground mb-6">{leader.position}</p>
+                    <h2 className="text-3xl font-bold mb-3 text-foreground dark:text-white">{leader.name}</h2>
+                    <p className="text-xl text-muted-foreground dark:text-gray-300 mb-6">{leader.position}</p>
                     <div className="space-y-4">
                       <div className="flex items-center justify-center md:justify-start gap-3">
-                        <span className="font-semibold">Ngạch viên chức:</span>
-                        <span className="text-lg">{leader.rank}</span>
+                        <span className="font-semibold text-foreground dark:text-white">Ngạch viên chức:</span>
+                        <span className="text-lg text-muted-foreground dark:text-gray-300">{leader.rank}</span>
                       </div>
                       <div className="flex items-center justify-center md:justify-start gap-3">
-                        <span className="font-semibold">Lý luận chính trị:</span>
-                        <span className="text-lg">{leader.politicalTheory}</span>
+                        <span className="font-semibold text-foreground dark:text-white">Lý luận chính trị:</span>
+                        <span className="text-lg text-muted-foreground dark:text-gray-300">{leader.politicalTheory}</span>
                       </div>
                       <div className="flex items-center justify-center md:justify-start gap-3">
-                        <span className="font-semibold">Trình độ chuyên môn:</span>
-                        <span className="text-lg">{leader.education}</span>
+                        <span className="font-semibold text-foreground dark:text-white">Trình độ chuyên môn:</span>
+                        <span className="text-lg text-muted-foreground dark:text-gray-300">{leader.education}</span>
                       </div>
                       <div className="flex items-center justify-center md:justify-start gap-3">
-                        <Phone className="h-5 w-5 text-muted-foreground" />
-                        <span className="text-lg">{leader.phone}</span>
+                        <Phone className="h-5 w-5 text-muted-foreground dark:text-gray-400" />
+                        <span className="text-lg text-muted-foreground dark:text-gray-300">{leader.phone}</span>
                       </div>
                       <div className="flex items-center justify-center md:justify-start gap-3">
-                        <Mail className="h-5 w-5 text-muted-foreground" />
+                        <Mail className="h-5 w-5 text-muted-foreground dark:text-gray-400" />
                         <a
                           href={`mailto:${leader.email}`}
-                          className="text-lg text-primary hover:underline"
+                          className="text-lg text-primary hover:underline dark:text-blue-400 dark:hover:text-blue-300"
                         >
                           {leader.email}
                         </a>
@@ -99,8 +90,7 @@ export default function Home() {
           ))}
         </div>
       </div>
-
-      <Footer />
     </div>
   )
 }
+

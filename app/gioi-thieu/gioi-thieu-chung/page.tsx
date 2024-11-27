@@ -3,9 +3,6 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Mail, Phone } from "lucide-react"
 import Image from "next/image"
-import Header from '@/components/Header'
-import Footer from "@/components/Footer"
-import AutoBreadcrumbs from '@/components/AutoBreadcrumb'
 
 
 const leaders = [
@@ -34,11 +31,7 @@ const leaders = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-background">
-      <Header department='Home' />
       <div className="container mx-auto px-4 py-6">
-        <nav className="flex items-center space-x-2 text-sm mb-8">
-          <AutoBreadcrumbs />
-        </nav>
         <h1 className="text-3xl md:text-4xl font-bold text-center mb-12 ">
           <span> TRƯỜNG ĐẠI HỌC TÂN TRÀO - TAN TRAO UNIVERSITY (TTrU) </span>
         </h1>
@@ -179,7 +172,6 @@ export default function Home() {
         </div>
       </div>
 
-      <Footer />
     </div>
   )
 }

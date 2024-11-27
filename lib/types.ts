@@ -1,9 +1,24 @@
-export type Post = {
-  id: string;
-  title: string;
-  slug: string;
-  featured_image: { id: string };
-  body: string;
+// types.ts (new file for type definitions)
+export type MainMenuItem = {
+  universityName: string;
+  items: Array<{
+    type: "dropdown" | "title";
+    label: string;
+    columns?: number;
+    items?: Array<{
+      title: string;
+      links: Array<{
+        label: string;
+        href: string;
+      }>;
+    }>;
+    href?: string;
+  }>;
 };
 
-export default Post;
+export type DepartmentMenuItem = {
+  name?: string;
+  type: "simple";
+  label: string;
+  href: string;
+};

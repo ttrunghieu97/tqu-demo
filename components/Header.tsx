@@ -3,7 +3,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Moon, Sun, Menu, X } from 'lucide-react'
-import menuData, { DepartmentName } from '../data/Header'
+import menuData, { DepartmentName } from '../lib/Header'
 
 // Props and Types
 interface NavigationProps {

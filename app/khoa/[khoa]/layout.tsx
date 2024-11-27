@@ -2,7 +2,15 @@ import * as React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { notFound } from 'next/navigation';
-import AutoBreadcrumbs from '@/components/AutoBreadcrumb';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Trường Đại Học Tân Trào',
+  description: 'Demo For Learning',
+  icons: {
+    icon: "/img/logo.png",
+  },
+};
 
 const VALID_DEPARTMENTS = ['supham', 'vanhoadulich', 'yduoc', 'chinhtritamli', 'kinhtequantri', 'nonglamngu'] as const;
 type ValidDepartment = typeof VALID_DEPARTMENTS[number];
@@ -31,9 +39,6 @@ export default async function KhoaLayout({
     <>
       <div className='dark:bg-gray-900 white:bg-gray-100' >
         <Header department={resolvedParams.khoa} />
-
-        <AutoBreadcrumbs />
-
         <main>{children}</main>
       </div>
       <Footer />

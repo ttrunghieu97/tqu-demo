@@ -97,10 +97,6 @@ export default function KhoaPage({ params }: Params) {
 
   return (
     <>
-
-
-
-
       <div className="bg-gradient-to-r from-red-900 to-white dark:from-gray-800 dark:to-gray-900 p-2 font-extrabold font-sans flex items-center mt-5 transition-colors duration-300">
         <div className="container mx-auto flex items-center">
           <h2 className="text-3xl font-bold text-red-100 dark:text-gray-100">HOẠT ĐỘNG</h2>

@@ -8,9 +8,14 @@ import ImageLibrary from '@/components/thuvien/thuvienhinh';
 import StudentHighlights from '@/components/thuvien/sinhvientieubieu';
 import { UndergraduateCourses, PostgraduateCourses } from './nganhdaotao'
 
+
+
 export const metadata: Metadata = {
   title: 'Trường Đại Học Tân Trào',
   description: 'Demo For Learning',
+  icons: {
+    icon: "/img/logo.png",
+  },
   openGraph: {
     title: 'Demo TQU Website by TTH',
     description: 'Demo For Learning',

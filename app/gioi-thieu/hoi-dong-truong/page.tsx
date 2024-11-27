@@ -6,9 +6,6 @@ import {
   CardContent,
 } from "@/components/ui/card"
 import Image from "next/image"
-import Header from "@/components/Header"
-import Footer from '@/components/Footer'
-import AutoBreadcrumbs from '@/components/AutoBreadcrumb'
 
 
 const lecturers = [
@@ -94,12 +91,7 @@ const lecturers = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-background dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-      <Header department='Home' />
       <div className="container mx-auto px-4 py-6">
-        <nav className="flex items-center space-x-2 text-sm mb-8">
-          <AutoBreadcrumbs />
-        </nav>
-
         <h1 className="text-3xl md:text-4xl font-bold text-center mb-12 uppercase dark:text-white">
           Hội đồng trường
         </h1>
@@ -149,7 +141,6 @@ export default function Home() {
           ))}
         </div>
       </div>
-      <Footer />
     </div>
   )
 }
