@@ -8,6 +8,7 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
+  BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 
@@ -21,25 +22,21 @@ const segmentTitles: Record<string, string> = {
   'ban-giam-hieu': "Ban giám hiệu",
   'hoi-dong-truong': "Hội Đồng trường",
   'triet-li-giao-duc': "Triết lí giáo dục",
-  'tin-tuc': "Tin Tức",
-  'category': 'Danh mục',
+  "Sinh-vien-tieu-bieu": "Sinh viên tiêu biểu",
+  "he-dai-hoc": "Hệ Đại học",
+  "category": "Danh mục",
+  "tin-tuc": "Tin tức",
+
   // Add more mappings as needed
 }
 
 export default function AutoBreadcrumbs() {
   const pathname = usePathname()
-
-  // Filter out dynamic segments (like [id], [slug]) and empty segments
-  const segments = pathname
-    .split('/')
-    .filter(segment => segment !== '' && !segment.startsWith('[') && !segment.endsWith(']'))
-
-  // Get breadcrumb minus one by removing the last segment
-  const breadcrumbMinusOne = segments.slice(0, -1)
+  const segments = pathname.split('/').filter(segment => segment !== '')
 
   const getSegmentTitle = (segment: string) => {
     return segmentTitles[segment.toLowerCase()] ||
-      segment.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+      segment.charAt(0).toUpperCase() + segment.slice(1)
   }
 
   const renderBreadcrumbItems = () => {
@@ -57,22 +54,27 @@ export default function AutoBreadcrumbs() {
       </BreadcrumbItem>
     )
 
-    // Add segment items for breadcrumb -1
-    breadcrumbMinusOne.forEach((segment, index) => {
-      const href = `/${breadcrumbMinusOne.slice(0, index + 1).join('/')}`
+    // Add segment items
+    segments.forEach((segment, index) => {
+      const href = `/${segments.slice(0, index + 1).join('/')}`
+      const isLast = index === segments.length - 1
       const title = getSegmentTitle(segment)
 
-      // Add separator first for all items except the first one
+      // Add separator first
       items.push(
         <BreadcrumbSeparator key={`sep-${href}`} />
       )
 
-      // Add the segment item (all segments will have a link)
+      // Add the segment item
       items.push(
         <BreadcrumbItem key={href}>
-          <BreadcrumbLink asChild>
-            <Link href={href}>{title}</Link>
-          </BreadcrumbLink>
+          {isLast ? (
+            <BreadcrumbPage>{title}</BreadcrumbPage>
+          ) : (
+            <BreadcrumbLink asChild>
+              <Link href={href}>{title}</Link>
+            </BreadcrumbLink>
+          )}
         </BreadcrumbItem>
       )
     })
@@ -81,7 +83,7 @@ export default function AutoBreadcrumbs() {
   }
 
   return (
-    <div className="container mx-auto mt-5 font-bold text-2xl ">
+    <div className="container mx-auto mt-5 font-bold text-2xl">
       <Breadcrumb>
         <BreadcrumbList>
           {renderBreadcrumbItems()}

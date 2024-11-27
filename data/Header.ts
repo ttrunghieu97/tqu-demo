@@ -63,7 +63,7 @@ const menuData: Record<DepartmentName, MenuData> = {
                 href: "/gioi-thieu/triet-li-giao-duc",
               },
               { label: "Ban giám hiệu", href: "/gioi-thieu/ban-giam-hieu" },
-              { label: "Hội Đồng Trường", href: "/gioi-thieu/ban-giam-hieu" },
+              { label: "Hội Đồng Trường", href: "/gioi-thieu/hoi-dong-truong" },
             ],
           },
         ],
@@ -77,13 +77,13 @@ const menuData: Record<DepartmentName, MenuData> = {
           {
             title: "Tuyển sinh",
             links: [
-              { label: "Hệ Đại học", href: "/gioi-thieu/thong-tin-chung" },
-              { label: "Sau Đại học", href: "/gioi-thieu/thong-tin-chung" },
+              { label: "Hệ Đại học", href: "/tuyen-sinh/he-dai-hoc" },
+              { label: "Sau Đại học", href: "/tuyen-sinh/sau-dai-hoc" },
               {
                 label: "Tại chức - VLVH - Liên kết",
-                href: "/gioi-thieu/thong-tin-chung",
+                href: "/tuyen-sinh/tai-chuc",
               },
-              { label: "Hệ Cao đẳng", href: "/gioi-thieu/thong-tin-chung" },
+              { label: "Hệ Cao đẳng", href: "/tuyen-sinh/cao-dang" },
             ],
           },
           {
@@ -91,22 +91,22 @@ const menuData: Record<DepartmentName, MenuData> = {
             links: [
               {
                 label: "Đăng ký học tín chỉ",
-                href: "/gioi-thieu/gioi-thieu-chung",
+                href: "/dao-tao/dang-ki-hoc-tin-chi",
               },
               {
                 label: "Kế hoạch chuyên môn",
-                href: "/gioi-thieu/gioi-thieu-chung",
+                href: "/dao-tao/ke-hoach-chuyen-mon",
               },
 
               {
                 label: "Mã ngành và VB liên quan",
-                href: "/gioi-thieu/gioi-thieu-chung",
+                href: "/dao-tao/ma-nganh-va-vb-lien-quan",
               },
               {
                 label: "Chương trình đào tạo",
-                href: "/gioi-thieu/triet-li-giao-duc",
+                href: "/dao-tao/chuong-trinh-dao-tao",
               },
-              { label: "Thời khóa biểu", href: "/gioi-thieu/ban-giam-hieu" },
+              { label: "Thời khóa biểu", href: "/dao-tao/thoi-khoa-bieu" },
             ],
           },
         ],
