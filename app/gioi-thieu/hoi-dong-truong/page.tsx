@@ -1,5 +1,3 @@
-'use client'
-
 import { Mail, Phone } from "lucide-react"
 import {
   Card,
@@ -7,6 +5,15 @@ import {
 } from "@/components/ui/card"
 import Image from "next/image"
 
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Hội đồng trường - Trường Đại Học Tân Trào',
+  description: 'Demo For Learning',
+  icons: {
+    icon: "/img/logo.png",
+  },
+};
 
 const lecturers = [
   {

@@ -173,15 +173,15 @@ const menuData: Record<DepartmentName, MenuData> = {
             links: [
               {
                 label: "Công khai hàng năm",
-                href: "/ql-chat-luong-thanh-tra/cong-khao-clgd/cong-khai-hang-nam",
+                href: "/ql-chat-luong-thanh-tra/cong-khai-clgd/cong-khai-hang-nam",
               },
               {
                 label: "Văn bản pháp quy",
-                href: "/ql-chat-luong-thanh-tra/cong-khao-clgd/van-ban-phap-quy",
+                href: "/ql-chat-luong-thanh-tra/cong-khai-clgd/van-ban-phap-quy",
               },
               {
                 label: "Văn bằng - Chứng chỉ",
-                href: "/ql-chat-luong-thanh-tra/cong-khao-clgd/van-bang-chung-chi",
+                href: "/ql-chat-luong-thanh-tra/cong-khai-clgd/van-bang-chung-chi",
               },
             ],
           },
@@ -255,13 +255,16 @@ const menuData: Record<DepartmentName, MenuData> = {
             title: "Khoa chuyên môn",
             links: [
               { label: "Khoa Sư Phạm", href: "/khoa/supham" },
-              { label: "Khoa Văn hóa - Du lịch", href: "/khoa/vhdl" },
+              { label: "Khoa Văn hóa - Du lịch", href: "/khoa/vanhoadulich" },
               { label: "Khoa Y - Dược", href: "/khoa/yduoc" },
-              { label: "Khoa Chính trị và TLGD", href: "/khoa/cttl" },
-              { label: "Khoa Kinh tế & Quản trị KD", href: "/khoa/ktqt" },
+              { label: "Khoa Chính trị và TLGD", href: "/khoa/chinhtritamli" },
+              {
+                label: "Khoa Kinh tế & Quản trị KD",
+                href: "/khoa/kinhtequantri",
+              },
               {
                 label: "Khoa Nông - Lâm - Ngư nghiệp",
-                href: "/khoa/nln",
+                href: "/khoa/nonglamngu",
               },
             ],
           },
@@ -308,6 +311,68 @@ const menuData: Record<DepartmentName, MenuData> = {
               },
             ],
           },
+        ],
+      },
+      //////////////////////////////
+      {
+        type: "dropdown",
+        label: "NCKH",
+        columns: 1,
+        items: [
+          {
+            // title: "Khoa học công nghệ",
+            links: [
+              {
+                label: "Biểu mẫu NCKH",
+                href: "/nckh/bieu-mau-nckh",
+              },
+              {
+                label: "Bài báo ISI/Scopus",
+                href: "/nckh/bai_bao_isi_scopus",
+              },
+              {
+                label: "Bài báo trong nước và quốc tế",
+                href: "/nckh/bai_bao_trong_nuoc_va_quoc_te",
+              },
+              {
+                label: "Hội nghị - Hội thảo",
+                href: "/category/hoi-nghi-hoi-thao",
+              },
+              {
+                label: "Đề tài - Dự án",
+                href: "/nckh/de_tai_du_an",
+              },
+              {
+                label: "GT/TLTK/Sách chuyên khảo",
+                href: "/nckh/gt_tltk_sach_chuyen_khao",
+              },
+              {
+                label: "Thông báo khoa học",
+                href: "/nckh/thong_bao_khoa_hoc",
+              },
+            ],
+          },
+          // {
+          //   title: "Hợp tác quốc tế",
+          //   links: [
+          //     {
+          //       label: "Hoạt động hợp tác Quốc tế",
+          //       href: "/category/cong-doan",
+          //     },
+          //     {
+          //       label: "Các chương trình liên kết",
+          //       href: "/category/ban-vi-su-tien-bo-phu-nu",
+          //     },
+          //     {
+          //       label: "Khảo sát các đoàn vào",
+          //       href: "/category/doan-thanh-nien-hoi-sinh-vien",
+          //     },
+          //     {
+          //       label: "Hội thảo khoa học quốc tế",
+          //       href: "/category/doan-thanh-nien-hoi-sinh-vien",
+          //     },
+          //   ],
+          // },
         ],
       },
       //////////////////////////////
@@ -434,17 +499,17 @@ const menuData: Record<DepartmentName, MenuData> = {
       {
         type: "simple",
         label: "Cơ cấu tổ chức",
-        href: "/khoa/nong-lam/co-cau-to-chuc",
+        href: "/khoa/vanhoadulich/co-cau-to-chuc",
       },
       {
         type: "simple",
         label: "Tuyển sinh",
-        href: "/khoa/nong-lam/tuyen-sinh",
+        href: "/khoa/vanhoadulich/tuyen-sinh",
       },
       {
         type: "simple",
         label: "NCKH",
-        href: "/khoa/nong-lam/nckh",
+        href: "/khoa/vanhoadulich/nckh",
       },
     ],
   },
@@ -460,17 +525,17 @@ const menuData: Record<DepartmentName, MenuData> = {
       {
         type: "simple",
         label: "Cơ cấu tổ chức",
-        href: "/khoa/nong-lam/co-cau-to-chuc",
+        href: "/khoa/yduoc/co-cau-to-chuc",
       },
       {
         type: "simple",
         label: "Tuyển sinh",
-        href: "/khoa/nong-lam/tuyen-sinh",
+        href: "/khoa/yduoc/tuyen-sinh",
       },
       {
         type: "simple",
         label: "NCKH",
-        href: "/khoa/nong-lam/nckh",
+        href: "/khoa/yduoc/nckh",
       },
     ],
   },
@@ -485,17 +550,17 @@ const menuData: Record<DepartmentName, MenuData> = {
       {
         type: "simple",
         label: "Cơ cấu tổ chức",
-        href: "/khoa/nong-lam/co-cau-to-chuc",
+        href: "/khoa/chinhtritamli/co-cau-to-chuc",
       },
       {
         type: "simple",
         label: "Tuyển sinh",
-        href: "/khoa/nong-lam/tuyen-sinh",
+        href: "/khoa/chinhtritamli/tuyen-sinh",
       },
       {
         type: "simple",
         label: "NCKH",
-        href: "/khoa/nong-lam/nckh",
+        href: "/khoa/chinhtritamli/nckh",
       },
     ],
   },
@@ -510,17 +575,17 @@ const menuData: Record<DepartmentName, MenuData> = {
       {
         type: "simple",
         label: "Cơ cấu tổ chức",
-        href: "/khoa/nong-lam/co-cau-to-chuc",
+        href: "/khoa/kinhtequantri/co-cau-to-chuc",
       },
       {
         type: "simple",
         label: "Tuyển sinh",
-        href: "/khoa/nong-lam/tuyen-sinh",
+        href: "/khoa/kinhtequantri/tuyen-sinh",
       },
       {
         type: "simple",
         label: "NCKH",
-        href: "/khoa/nong-lam/nckh",
+        href: "/khoa/kinhtequantri/nckh",
       },
     ],
   },
@@ -534,17 +599,17 @@ const menuData: Record<DepartmentName, MenuData> = {
       {
         type: "simple",
         label: "Cơ cấu tổ chức",
-        href: "/khoa/nong-lam/co-cau-to-chuc",
+        href: "/khoa/nonglamngu/co-cau-to-chuc",
       },
       {
         type: "simple",
         label: "Tuyển sinh",
-        href: "/khoa/nong-lam/tuyen-sinh",
+        href: "/khoa/nonglamngu/tuyen-sinh",
       },
       {
         type: "simple",
         label: "NCKH",
-        href: "/khoa/nong-lam/nckh",
+        href: "/khoa/nonglamngu/nckh",
       },
     ],
   },

@@ -40,7 +40,7 @@ export default function KhoaPage({ params }: Params) {
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [hasMorePosts, setHasMorePosts] = useState(true);
-  const postsPerPage = 3;
+  const postsPerPage = 10;
 
   const formatDate = (date: string | undefined): DateFormat | null => {
     if (!date) return null;

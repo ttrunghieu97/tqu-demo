@@ -3,13 +3,12 @@ import Header from "@/components/Header";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Tin tức - Trường Đại Học Tân Trào',
+  title: 'Tài nguyên - Trường Đại Học Tân Trào',
   description: 'Demo For Learning',
   icons: {
     icon: "/img/logo.png",
   },
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{

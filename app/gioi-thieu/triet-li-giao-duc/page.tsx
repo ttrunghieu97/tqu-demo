@@ -1,4 +1,12 @@
-'use client'
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Triết lí giáo dục - Trường Đại Học Tân Trào',
+  description: 'Demo For Learning',
+  icons: {
+    icon: "/img/logo.png",
+  },
+};
 
 export default function Home() {
   return (

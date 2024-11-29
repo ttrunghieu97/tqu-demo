@@ -9,6 +9,7 @@ import { CalendarDays } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import directus from "@/lib/directus";
 import { readItems } from '@directus/sdk';
+import AutoBreadcrumbs from '@/components/AutoBreadcrumb';
 
 type Params = {
   params: Promise<{
@@ -99,6 +100,7 @@ export default function KhoaPage({ params }: Params) {
 
   return (
     <div>
+      <AutoBreadcrumbs />
       <div className="container mx-auto px-4 mt-5 mb-5">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post) => {

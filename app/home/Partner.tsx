@@ -6,33 +6,18 @@ import Image from "next/image"
 
 export default function Partner() {
   const partners = [
-    "/img/1.png",
-    "/img/2.png",
-    "/img/3.png",
-    "/img/4.png",
-    "/img/5.png",
-    "/img/6.png",
-    "/img/7.png",
-    "/img/1.png",
-    "/img/2.png",
-    "/img/3.png",
-    "/img/4.png",
-    "/img/5.png",
-    "/img/6.png",
-    "/img/7.png",
-    "/img/1.png",
-    "/img/2.png",
-    "/img/3.png",
-    "/img/4.png",
-    "/img/5.png",
-    "/img/6.png",
-    "/img/7.png",
-  ]
+    { src: "/img/partner/1.png", alt: "Trung tâm kết nối Tri thức số", title: "Trung tâm kết nối Tri thức số", link: "https://hub.idk.org.vn/" },
+    { src: "/img/partner/2.png", alt: "Sở GD-ĐT Tuyên Quang", title: "Sở GD-ĐT Tuyên Quang", link: "http://tuyenquang.edu.vn/" },
+    { src: "/img/partner/3.png", alt: "Study Smart Read anytime, anywhere", title: "Study Smart Read anytime, anywhere", link: "https://bookshelf.vitalsource.com/" },
+    { src: "/img/partner/4.png", alt: "Thư Viện Số", title: "Trường Đại học sư phạm kỹ thuật TP.HCM", link: "https://thuvienso.hcmute.edu.vn/" },
+    { src: "/img/partner/5.png", alt: "Thư viện Trường Đại học Hùng Vương", title: "Thư viện Trường Đại học Hùng Vương", link: "https://thuvien.hvu.edu.vn/" },
+    { src: "/img/partner/6.png", alt: "Trung Tâm Số - Đại học Thái Nguyên", title: "Trung Tâm Số - Đại học Thái Nguyên", link: "https://lrc.tnu.edu.vn/" },
+  ];
 
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 7,
+      items: 6,
       partialVisibilityGutter: 40
     },
     tablet: {
@@ -91,13 +76,15 @@ export default function Partner() {
         {partners.map((partner, index) => (
           <div key={index} className="p-4">
             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-gray-700 p-6 h-32 flex items-center justify-center transition-colors duration-300">
-              <Image
-                src={partner}
-                alt={`Partner ${index + 1}`}
-                width={85}
-                height={85}
-                className="object-contain dark:filter dark:brightness-90"
-              />
+              <a href={partner.link} target="_blank" rel="noopener noreferrer">
+                <Image
+                  src={partner.src}
+                  alt={partner.alt}
+                  width={150}
+                  height={150}
+                  className="object-contain dark:filter dark:brightness-90"
+                />
+              </a>
             </div>
           </div>
         ))}

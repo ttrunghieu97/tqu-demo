@@ -1,5 +1,4 @@
 import Partner from './Partner';
-import type { Metadata } from 'next';
 import Image from 'next/image';
 import GetPostList from '@/app/home/GetPostList';
 import TinTuc from '@/components/post/tintuc';
@@ -7,41 +6,6 @@ import VideoLibrary from '@/components/thuvien/thuvienvideo';
 import ImageLibrary from '@/components/thuvien/thuvienhinh';
 import StudentHighlights from '@/components/thuvien/sinhvientieubieu';
 import { UndergraduateCourses, PostgraduateCourses } from './nganhdaotao'
-
-
-
-export const metadata: Metadata = {
-  title: 'Trường Đại Học Tân Trào',
-  description: 'Demo For Learning',
-  icons: {
-    icon: "/img/logo.png",
-  },
-  openGraph: {
-    title: 'Demo TQU Website by TTH',
-    description: 'Demo For Learning',
-    images: [
-      {
-        url: '/img/logo.png',
-        width: 800,
-        height: 600,
-        alt: 'Demo TQU Website Logo',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Demo TQU Website by TTH',
-    description: 'Demo For Learning',
-    images: [
-      {
-        url: '/img/logo.png',
-        width: 800,
-        height: 600,
-        alt: 'Demo TQU Website Logo',
-      },
-    ],
-  },
-};
 
 export default function Home() {
   return (

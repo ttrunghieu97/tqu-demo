@@ -1,3 +1,13 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Thông tin chung - Trường Đại Học Tân Trào',
+  description: 'Demo For Learning',
+  icons: {
+    icon: "/img/logo.png",
+  },
+};
+
 export default function ThongTinChung() {
   return (
     <>

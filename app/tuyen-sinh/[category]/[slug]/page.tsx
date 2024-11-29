@@ -1,4 +1,4 @@
-//app/khoa/[khoa]/tuyensinh/[slug]/page.tsx
+
 import { ParsedUrlQuery } from 'querystring';
 import { remark } from 'remark';
 import remarkHtml from 'remark-html';

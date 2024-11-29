@@ -2,6 +2,16 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Mail, Phone } from 'lucide-react'
 import Image from "next/image"
 
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Ban Giám hiệu - Trường Đại Học Tân Trào',
+  description: 'Demo For Learning',
+  icons: {
+    icon: "/img/logo.png",
+  },
+};
+
 const leaders = [
   {
     name: "NGUYỄN MINH ANH TUẤN",
