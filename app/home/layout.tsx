@@ -1,6 +1,4 @@
 // app/home/layout.tsx
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -43,9 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <>
-      <Header department="Home" />
       {children}
-      <Footer />
     </>
   );
 }
