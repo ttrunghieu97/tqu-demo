@@ -4,9 +4,11 @@ import Header from "@/components/Header";
 import Image from "next/image";
 import Partner from "@/components/Home/Partner";
 import { UndergraduateCourses, PostgraduateCourses } from '@/components/Home/nganhdaotao'
-import VideoLibrary from '@/components/thuvien/thuvienvideo';
-import ImageLibrary from '@/components/thuvien/thuvienhinh';
-import StudentHighlights from '@/components/thuvien/sinhvientieubieu';
+// import VideoLibrary from '@/components/thuvien/thuvienvideo';
+// import ImageLibrary from '@/components/thuvien/thuvienhinh';
+// import StudentHighlights from '@/components/thuvien/sinhvientieubieu';
+import GetPostList from '@/components/Home/GetPostList';
+import TinTuc from '@/components/post/tintuc';
 
 export default function Home() {
   return (
@@ -31,14 +33,14 @@ export default function Home() {
             <h2 className="text-4xl font-extrabold uppercase text-red-600 dark:text-red-400">Tin tức</h2>
           </div>
         </div>
-        {/* <TinTuc /> */}
-        {/* <GetPostList /> */}
+        <TinTuc />
+        <GetPostList />
         <UndergraduateCourses />
         <PostgraduateCourses />
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 mt-5 dark:bg-gray-900">
-          <VideoLibrary />
+          {/* <VideoLibrary />
           <ImageLibrary />
-          <StudentHighlights />
+          <StudentHighlights /> */}
         </div>
         <Partner />
       </div>
