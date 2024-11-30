@@ -4,6 +4,9 @@ import Header from "@/components/Header";
 import Image from "next/image";
 import Partner from "@/components/Home/Partner";
 import { UndergraduateCourses, PostgraduateCourses } from '@/components/Home/nganhdaotao'
+import VideoLibrary from '@/components/thuvien/thuvienvideo';
+import ImageLibrary from '@/components/thuvien/thuvienhinh';
+import StudentHighlights from '@/components/thuvien/sinhvientieubieu';
 
 export default function Home() {
   return (
@@ -33,9 +36,9 @@ export default function Home() {
         <UndergraduateCourses />
         <PostgraduateCourses />
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 mt-5 dark:bg-gray-900">
-          {/* <VideoLibrary />
-        <ImageLibrary />
-        <StudentHighlights /> */}
+          <VideoLibrary />
+          <ImageLibrary />
+          <StudentHighlights />
         </div>
         <Partner />
       </div>
