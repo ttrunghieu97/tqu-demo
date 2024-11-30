@@ -72,7 +72,7 @@ export default function SinhVienTieuBieu() {
     () =>
       posts.length > 0 ? (
         posts.map((post) => (
-          <Link href={`/sinh-vien-tieu-bieu/${post.slug}`} key={post.id}>
+          <Link href={`/category/${post.category}/${post.slug}`} key={post.id}>
             <Card className="group hover:shadow-lg dark:hover:shadow-primary/25 transition-shadow duration-300 bg-background dark:bg-gray-900">
               <div className="relative aspect-[16/9] overflow-hidden rounded-t-lg">
                 {post.image ? (
