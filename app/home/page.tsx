@@ -1,11 +1,11 @@
-import Partner from './Partner';
+import Partner from '../../components/Home/Partner';
 import Image from 'next/image';
-import GetPostList from '@/app/home/GetPostList';
+import GetPostList from '@/components/Home/GetPostList';
 import TinTuc from '@/components/post/tintuc';
 import VideoLibrary from '@/components/thuvien/thuvienvideo';
 import ImageLibrary from '@/components/thuvien/thuvienhinh';
 import StudentHighlights from '@/components/thuvien/sinhvientieubieu';
-import { UndergraduateCourses, PostgraduateCourses } from './nganhdaotao'
+import { UndergraduateCourses, PostgraduateCourses } from '../../components/Home/nganhdaotao'
 
 export default function Home() {
   return (

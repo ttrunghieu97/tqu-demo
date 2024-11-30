@@ -33,9 +33,7 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider>
           <Suspense fallback={<Loading />}>
-            <div className="dark:bg-gray-900">
-              {children}
-            </div>
+            {children}
           </Suspense>
           <Analytics />
         </ThemeProvider>
