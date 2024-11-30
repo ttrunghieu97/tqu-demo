@@ -130,7 +130,7 @@ function CustomCarousel({ title, items, icon: Icon }: {
                         setModalVideoUrl(`https://www.youtube.com/embed/${item.videoUrl}`);
                       }}>
                         <Image
-                          src={item.thumbnail || '/placeholder.svg?height=400&width=600'}
+                          src={item.thumbnail || '/img/logo.png?height=400&width=600'}
                           alt={item.caption || `Video ${index + 1}`}
                           fill
                           className="object-cover"
@@ -144,7 +144,7 @@ function CustomCarousel({ title, items, icon: Icon }: {
                     ) : (
                       <Link href={item.slug ? item.slug : '#'} className="block h-full">
                         <Image
-                          src={item.image || '/placeholder.svg?height=400&width=600'}
+                          src={item.image || '/img/logo.png?height=400&width=600'}
                           alt={item.caption || `Slide ${index + 1}`}
                           fill
                           className="object-cover"
@@ -257,7 +257,7 @@ export default function Section7() {
           {
             videoUrl: "gJ8VF3YRqEM",
             caption: "Loading videos...",
-            thumbnail: "/placeholder.svg?height=400&width=600",
+            thumbnail: "/img/logo.png?height=400&width=600",
           },
         ]
         : videos.map(video => ({
@@ -272,7 +272,7 @@ export default function Section7() {
       items: loading
         ? [
           {
-            image: "/placeholder.svg?height=400&width=600",
+            image: "/img/logo.png?height=400&width=600",
             caption: "Loading images...",
             slug: "/thu-vien-anh"
           },
@@ -285,7 +285,7 @@ export default function Section7() {
       items: loading
         ? [
           {
-            image: "/placeholder.svg?height=400&width=600",
+            image: "/img/logo.png?height=400&width=600",
             caption: "Loading students...",
             slug: "#"
           },
