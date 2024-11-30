@@ -1,9 +1,9 @@
-import VideoLibrary from '@/components/thuvien/thuvienvideo';
+import Section7 from '@/components/thuvien/Section7';
 
 export default function VideoLibraryPage() {
   return (
     <>
-      <VideoLibrary />
+      <Section7 />
     </>
   )
 }

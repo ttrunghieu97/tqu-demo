@@ -2,10 +2,8 @@ import Partner from '../../components/Home/Partner';
 import Image from 'next/image';
 import GetPostList from '@/components/Home/GetPostList';
 import TinTuc from '@/components/post/tintuc';
-import VideoLibrary from '@/components/thuvien/thuvienvideo';
-import ImageLibrary from '@/components/thuvien/thuvienhinh';
-import StudentHighlights from '@/components/thuvien/sinhvientieubieu';
 import { UndergraduateCourses, PostgraduateCourses } from '../../components/Home/nganhdaotao'
+import ThuVien from '@/components/thuvien/ThuVien';
 
 export default function HomeComponent() {
   return (
@@ -32,11 +30,7 @@ export default function HomeComponent() {
       <GetPostList />
       <UndergraduateCourses />
       <PostgraduateCourses />
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 mt-5 dark:bg-gray-900">
-        <VideoLibrary />
-        <ImageLibrary />
-        <StudentHighlights />
-      </div>
+      <ThuVien />
       <Partner />
     </div>
   );

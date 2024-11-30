@@ -51,12 +51,10 @@ const YouTubeVideoFetcher = () => {
 
   useEffect(() => {
     const fetchLatestVideos = async () => {
-      const channelId = process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID;
-      const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
 
       try {
         const response = await fetch(
-          `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&order=date&part=snippet,id&maxResults=5`
+          '/api/youtube-videos'
         );
 
         if (!response.ok) {
@@ -64,15 +62,8 @@ const YouTubeVideoFetcher = () => {
         }
 
         const data = await response.json();
-        const videoItems: YouTubeVideo[] = data.items
-          .filter((item: { id: { kind: string } }) => item.id.kind === 'youtube#video')
-          .map((item: { id: { videoId: string }; snippet: { title: string; thumbnails: { high: { url: string } } } }) => ({
-            id: item.id.videoId,
-            title: item.snippet.title,
-            thumbnail: item.snippet.thumbnails.high.url,
-          }));
+        setVideos(data); // Lưu danh sách video vào state
 
-        setVideos(videoItems);
       } catch (error) {
         setError(error instanceof Error ? error.message : 'Unknown error');
       } finally {
@@ -130,7 +121,7 @@ function CustomCarousel({ title, items, icon: Icon }: {
                         setModalVideoUrl(`https://www.youtube.com/embed/${item.videoUrl}`);
                       }}>
                         <Image
-                          src={item.thumbnail || '/placeholder.svg?height=400&width=600'}
+                          src={item.thumbnail || '/img/logo.png?height=400&width=600'}
                           alt={item.caption || `Video ${index + 1}`}
                           fill
                           className="object-cover"
@@ -144,7 +135,7 @@ function CustomCarousel({ title, items, icon: Icon }: {
                     ) : (
                       <Link href={item.slug ? item.slug : '#'} className="block h-full">
                         <Image
-                          src={item.image || '/placeholder.svg?height=400&width=600'}
+                          src={item.thumbnail || '/img/logo.png?height=400&width=600'}
                           alt={item.caption || `Slide ${index + 1}`}
                           fill
                           className="object-cover"
@@ -257,7 +248,7 @@ export default function Section7() {
           {
             videoUrl: "gJ8VF3YRqEM",
             caption: "Loading videos...",
-            thumbnail: "/placeholder.svg?height=400&width=600",
+            thumbnail: "/img/logo.png?height=400&width=600",
           },
         ]
         : videos.map(video => ({
@@ -272,7 +263,7 @@ export default function Section7() {
       items: loading
         ? [
           {
-            image: "/placeholder.svg?height=400&width=600",
+            image: "/img/logo.png?height=400&width=600",
             caption: "Loading images...",
             slug: "/thu-vien-anh"
           },
@@ -285,7 +276,7 @@ export default function Section7() {
       items: loading
         ? [
           {
-            image: "/placeholder.svg?height=400&width=600",
+            image: "/img/logo.png?height=400&width=600",
             caption: "Loading students...",
             slug: "#"
           },
