@@ -78,62 +78,62 @@ export function UndergraduateCourses() {
   const undergraduateItems: CarouselItemProps[] = [
     {
       headline: "Giáo dục Mầm non",
-      image: "/img/nganhdaotao/Giáo dục Mầm non.jpg",
+      image: "/img/nganhdaotao/1.jpg",
       link: ""
     },
     {
       headline: "Giáo dục Tiểu học",
-      image: "/img/nganhdaotao/Giáo dục Tiểu học.jpg",
+      image: "/img/nganhdaotao/2.jpg",
       link: ""
     },
     {
       headline: "Sư phạm Toán học",
-      image: "/img/nganhdaotao/Sư phạm Toán học.jpg",
+      image: "/img/nganhdaotao/3.jpg",
       link: ""
     },
     {
       headline: "Sư phạm ngữ văn",
-      image: "/img/nganhdaotao/Sư phạm ngữ văn.jpg",
+      image: "/img/nganhdaotao/4.jpg",
       link: ""
     },
     {
       headline: "Sư phạm Khoa học tự nhiên",
-      image: "/img/nganhdaotao/Sư phạm Khoa học tự nhiên.jpg",
+      image: "/img/nganhdaotao/5.jpg",
       link: ""
     },
     {
       headline: "Quản lý văn hoá ",
-      image: "/img/nganhdaotao/Quản lý văn hoá.jpg",
+      image: "/img/nganhdaotao/6.jpg",
       link: ""
     },
     {
       headline: "Kế toán ",
-      image: "/img/nganhdaotao/Kế toán.jpg",
+      image: "/img/nganhdaotao/7.jpg",
       link: ""
     },
     {
       headline: "Công nghệ thông tin",
-      image: "/img/nganhdaotao/Công nghệ thông tin.jpg",
+      image: "/img/nganhdaotao/8.jpg",
       link: ""
     },
     {
       headline: "Dược học",
-      image: "/img/nganhdaotao/Dược học.jpg",
+      image: "/img/nganhdaotao/9.jpg",
       link: ""
     },
     {
       headline: "Điều dưỡng ",
-      image: "/img/nganhdaotao/Điều dưỡng.jpg",
+      image: "/img/nganhdaotao/10.jpg",
       link: ""
     },
     {
       headline: "Công tác xã hội ",
-      image: "/img/nganhdaotao/Công tác xã hội.jpg",
+      image: "/img/nganhdaotao/11.jpg",
       link: ""
     },
     {
       headline: "Quản trị dịch vụ du lịch và lữ hành",
-      image: "/img/nganhdaotao/Quản trị dịch vụ du lịch và lữ hành.jpg",
+      image: "/img/nganhdaotao/12.jpg",
       link: ""
     },
   ]
@@ -150,32 +150,32 @@ export function PostgraduateCourses() {
   const postgraduateItems: CarouselItemProps[] = [
     {
       headline: "Quản lý Kinh tế",
-      image: "/img/saudaihoc/Quản lý Kinh tế.jpg",
+      image: "/img/saudaihoc/1.jpg",
       link: ""
     },
     {
       headline: "Lý luận bộ môn Toán",
-      image: "/img/saudaihoc/Toán học.jpeg",
+      image: "/img/saudaihoc/2.png",
       link: ""
     },
     {
       headline: "Giáo dục học (Tiểu học)",
-      image: "/img/saudaihoc/Giáo dục học (Tiểu học).jpg",
+      image: "/img/saudaihoc/3.jpg",
       link: ""
     },
     {
       headline: "Sinh học",
-      image: "/img/saudaihoc/Sinh học.jpg",
+      image: "/img/saudaihoc/4.jpg",
       link: ""
     },
     {
       headline: "Lý luận văn học",
-      image: "/img/saudaihoc/Lý luận văn học.jpg",
+      image: "/img/saudaihoc/5.jpg",
       link: ""
     },
     {
       headline: "Khoa học cây trồng",
-      image: "/img/saudaihoc/Khoa học cây trồng.jpg",
+      image: "/img/saudaihoc/6.png",
       link: ""
     },
   ]
