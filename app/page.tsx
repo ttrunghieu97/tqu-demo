@@ -31,8 +31,12 @@ export const metadata: Metadata = {
 };
 
 
-import { redirect } from 'next/navigation';
+// import { redirect } from 'next/navigation';
 
 export default function Home() {
-  redirect('/home');
+  return (
+    <>
+      ádkjasdkjlkj
+    </>
+  )
 }
