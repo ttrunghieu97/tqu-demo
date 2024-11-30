@@ -1,3 +1,4 @@
+// app/home/layout.tsx
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import type { Metadata } from 'next';
@@ -41,12 +42,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi">
-      <body>
-        <Header department="Home" />
-        {children}
-        <Footer />
-      </body>
-    </html>
+    <>
+      <Header department="Home" />
+      {children}
+      <Footer />
+    </>
   );
 }

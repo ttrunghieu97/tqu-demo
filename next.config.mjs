@@ -14,6 +14,8 @@ const nextConfig = {
       "res.cloudinary.com",
       "tqu-demo.vercel.app",
       "100.100.10.103",
+      "tqu-demo.directus.app",
+      "https://tqu-demo.directus.app",
     ],
   },
   webpack: (config, { isServer }) => {

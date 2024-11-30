@@ -1,12 +1,13 @@
+// app/layout.tsx
 'use client'
 
 import localFont from "next/font/local";
 import "./globals.css";
-import ThemeProvider from "@/components/theme-provider"
-import { Analytics } from "@vercel/analytics/react"
-import Loading from './loading'
-import Head from 'next/head'
-import { Suspense } from 'react'
+import ThemeProvider from "@/components/theme-provider";
+import { Analytics } from "@vercel/analytics/react";
+import Loading from './loading';
+import Head from 'next/head';
+import { Suspense } from 'react';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,7 +25,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang="vi">
       <Head>
@@ -34,7 +34,6 @@ export default function RootLayout({
         <ThemeProvider>
           <Suspense fallback={<Loading />}>
             <div className="dark:bg-gray-900">
-
               {children}
             </div>
           </Suspense>
@@ -42,5 +41,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }
