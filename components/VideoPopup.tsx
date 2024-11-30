@@ -8,10 +8,7 @@ interface ModalProps {
 
 const VideoPopUp: React.FC<ModalProps> = ({ isOpen, onClose, videoUrl }) => {
   if (!isOpen) return null;
-
-  // Close modal when clicking outside the modal content
   const handleBackdropClick = (e: React.MouseEvent) => {
-    // Check if the click is outside of the modal content
     const target = e.target as HTMLElement;
     if (target.classList.contains('modal-backdrop')) {
       onClose();
