@@ -6,7 +6,6 @@ import { readItems } from '@directus/sdk'
 import { CalendarDays } from "lucide-react"
 import React, { Suspense } from 'react';
 const RelatedPosts = React.lazy(() => import('./RelatedPosts'));
-
 interface Params extends ParsedUrlQuery {
   slug: string
 }
@@ -79,6 +78,7 @@ export default async function BlogPost({ params }: { params: Promise<Params> }) 
 
   return (
     <article className="container prose lg:prose-xl dark:prose-invert mx-auto lg:prose-h1:text-4xl mb-10 lg:mt-20 break-words [&_img]:mx-auto">
+
       <h1 className="text-4xl font-bold text-center mb-2">{title}</h1>
       <div className="flex items-center justify-end text-sm opacity-60 mt-4">
         {date && (

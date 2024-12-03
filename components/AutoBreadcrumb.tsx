@@ -84,7 +84,14 @@ const segmentTitles: Record<string, string> = {
   "tt-thuc-nghiem-chuyen-giao-cong-nghe": "TT Thực nghiệm & Chuyển giao Công nghệ",
   "tt-the-duc-the-thao": "TT Thể dục - Thể thao",
   "co-cau-to-chuc": "Cơ cấu tổ chức",
-
+  "thu-vien-anh": "Thư viện ảnh",
+  "tai-nguyen": "Tài nguyên",
+  "thu-tuc-hanh-chinh": "Thủ tục hành chính",
+  "van-ban": "Văn bản",
+  "van-ban-dao-tao": "Văn bản đào tạo",
+  "pho-bien-giao-duc-phap-luat": "Phổ biến giáo dục pháp luật",
+  "tai-lieu": "Tài liệu",
+  "bai-bao-khoa-hoc": "Bài báo khoa học",
   // Add more mappings as needed
 }
 

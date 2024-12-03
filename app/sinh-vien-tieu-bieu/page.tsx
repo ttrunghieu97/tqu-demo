@@ -14,6 +14,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import AutoBreadcrumb from '@/components/AutoBreadcrumb';
 
 interface Post {
   id: string;
@@ -189,15 +190,18 @@ export default function SinhVienTieuBieu() {
   }, [currentPage, totalPages]);
 
   return (
-    <div className="px-4 mt-5 dark:bg-gray-900">
-      <div className="container mx-auto mb-5">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Sinh viên tiêu biểu</h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300"></p>
+    <>
+      <AutoBreadcrumb />
+      <div className="px-4 mt-5 dark:bg-gray-900">
+        <div className="container mx-auto mb-5">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Sinh viên tiêu biểu</h1>
+            <p className="text-xl text-gray-600 dark:text-gray-300"></p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-5">{renderPosts}</div>
+          {renderPagination}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-5">{renderPosts}</div>
-        {renderPagination}
       </div>
-    </div>
+    </>
   );
 }

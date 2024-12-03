@@ -66,15 +66,15 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <h3 className="font-bold text-red-600 dark:text-red-400 mb-4">THÔNG TIN CHUNG</h3>
             <ul className="space-y-2">
-              <li><Link href="#" className="hover:text-red-200 dark:hover:text-red-300">Lịch sử hình thành</Link></li>
-              <li><Link href="#" className="hover:text-red-200 dark:hover:text-red-300">Sứ mệnh - Tầm nhìn - Giá trị cốt lõi</Link></li>
-              <li><Link href="#" className="hover:text-red-200 dark:hover:text-red-300">Triết lý giáo dục</Link></li>
+              <li><Link href="/gioi-thieu/thong-tin-chung" className="hover:text-green-800 dark:hover:text-red-300">Thông tin chung</Link></li>
+              <li><Link href="/gioi-thieu/gioi-thieu-chung" className="hover:text-green-800 dark:hover:text-red-300">Giới thiệu chung</Link></li>
+              <li><Link href="/gioi-thieu/triet-li-giao-duc" className="hover:text-green-800 dark:hover:text-red-300">Triết lí giáo dục</Link></li>
             </ul>
             <h3 className="font-bold text-red-500 dark:text-red-300 mt-8 mb-4 uppercase">đảng - đoàn thể</h3>
             <ul className="space-y-2">
-              <li><Link href="#" className="hover:text-red-200 dark:hover:text-red-300">Đảng bộ TTrU</Link></li>
-              <li><Link href="#" className="hover:text-red-200 dark:hover:text-red-300">Công đoàn TTrU</Link></li>
-              <li><Link href="#" className="hover:text-red-200 dark:hover:text-red-300">Đoàn trườngTTrU</Link></li>
+              <li><Link href="#" className="hover:text-green-800 dark:hover:text-red-300">Đảng bộ TTrU</Link></li>
+              <li><Link href="#" className="hover:text-green-800 dark:hover:text-red-300">Công đoàn TTrU</Link></li>
+              <li><Link href="#" className="hover:text-green-800 dark:hover:text-red-300">Đoàn trườngTTrU</Link></li>
             </ul>
           </div>
 
@@ -82,16 +82,16 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <h3 className="font-bold text-red-500 dark:text-red-300 mb-4">TUYỂN SINH</h3>
             <ul className="space-y-2">
-              <li><Link href="#" className="hover:text-red-200 dark:hover:text-red-300">Thông tin tuyển sinh</Link></li>
-              <li><Link href="#" className="hover:text-red-200 dark:hover:text-red-300">Đăng ký tuyển sinh</Link></li>
-              <li><Link href="#" className="hover:text-red-200 dark:hover:text-red-300">Tư vấn tuyển sinh</Link></li>
-              <li><Link href="#" className="hover:text-red-200 dark:hover:text-red-300">Tư vấn tuyển sinh</Link></li>
+              <li><Link href="#" className="hover:text-green-800 dark:hover:text-red-300">Thông tin tuyển sinh</Link></li>
+              <li><Link href="#" className="hover:text-green-800 dark:hover:text-red-300">Đăng ký tuyển sinh</Link></li>
+              <li><Link href="#" className="hover:text-green-800 dark:hover:text-red-300">Tư vấn tuyển sinh</Link></li>
+              <li><Link href="#" className="hover:text-green-800 dark:hover:text-red-300">Tư vấn tuyển sinh</Link></li>
             </ul>
             <h3 className="font-bold text-red-500 dark:text-red-300 mt-8 mb-4 uppercase">Hệ đào tạo</h3>
             <ul className="space-y-2">
-              <li><Link href="#" className="hover:text-red-200 dark:hover:text-red-300">Cao đẳng</Link></li>
-              <li><Link href="#" className="hover:text-red-200 dark:hover:text-red-300">Đại học</Link></li>
-              <li><Link href="#" className="hover:text-red-200 dark:hover:text-red-300">Sau Đại học</Link></li>
+              <li><Link href="#" className="hover:text-green-800 dark:hover:text-red-300">Cao đẳng</Link></li>
+              <li><Link href="#" className="hover:text-green-800 dark:hover:text-red-300">Đại học</Link></li>
+              <li><Link href="#" className="hover:text-green-800 dark:hover:text-red-300">Sau Đại học</Link></li>
             </ul>
           </div>
 

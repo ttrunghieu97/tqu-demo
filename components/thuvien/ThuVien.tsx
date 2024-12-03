@@ -245,7 +245,7 @@ export default function Section7() {
     thumbnail: `${process.env.NEXT_PUBLIC_API_URL}assets/${post.image}?width=400&height=300`,
     caption: post.title,
     image: `${process.env.NEXT_PUBLIC_API_URL}assets/${post.image}`,
-    slug: post.slug,
+    slug: `sinh-vien-tieu-bieu/${post.slug}`,
   }));
 
   const carouselData = [
@@ -287,7 +287,7 @@ export default function Section7() {
           {
             image: "/img/logo.png?height=400&width=600",
             caption: "Loading students...",
-            slug: "#"
+            slug: "/sinh-vien-tieu-bieu"
           },
         ]
         : studentItems,

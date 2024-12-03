@@ -411,20 +411,20 @@ const menuData: Record<DepartmentName, MenuData> = {
             links: [
               {
                 label: "Hoạt động ngoại khóa",
-                href: "/gioi-thieu/thong-tin-chung",
+                href: "/category/hoat-dong",
               },
               {
                 label: "Học bổng - Trợ cấp XH",
-                href: "/gioi-thieu/thong-tin-chung",
+                href: "/cong-tac-hssv/hoc-bong-tro-cap-xh",
               },
-              { label: "Giải đáp", href: "/gioi-thieu/thong-tin-chung" },
+              { label: "Giải đáp", href: "/cong-tac-hssv/giai-dap" },
               {
                 label: "Nội quy - Quy chế",
-                href: "/gioi-thieu/thong-tin-chung",
+                href: "/cong-tac-hssv/noi-quy-quy-che",
               },
               {
                 label: "Phản hồi sinh viên",
-                href: "/gioi-thieu/thong-tin-chung",
+                href: "/cong-tac-hssv/phan-hoi-sinh-vien",
               },
             ],
           },
