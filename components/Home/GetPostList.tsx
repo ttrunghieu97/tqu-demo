@@ -9,7 +9,7 @@ export default function GetPostList() {
     "cuoc-thi",
     "nha-truong",
     "dang-bo",
-    "dong-truong",
+    "hoi-dong-truong",
     "cong-doan",
   ] as const; // 'as const' giúp TypeScript hiểu rằng các giá trị trong mảng là cố định
 
@@ -21,7 +21,7 @@ export default function GetPostList() {
     "cuoc-thi": "Các cuộc thi",
     "nha-truong": "Nhà trường",
     "dang-bo": "Đảng bộ",
-    "dong-truong": "Hội đồng trường",
+    "hoi-dong-truong": "Hội đồng trường",
     "cong-doan": "Công đoàn",
   };
 
