@@ -15,7 +15,7 @@ export default function ThuTucHanhChinh() {
   const fetchProcedures = useCallback(async () => {
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}items/gt-tltk-sach-chuyen-khao?limit=60&sort=title`
+        `${process.env.NEXT_PUBLIC_API_URL}items/thu_tuc_hanh_chinh?limit=60&sort=title`
       );
       const result = await response.json();
       if (result.data) {

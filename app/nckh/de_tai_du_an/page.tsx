@@ -30,7 +30,7 @@ export default function SinhVienTieuBieu() {
   const fetchPosts = useCallback(async (page: number) => {
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}items/van_ban?limit=${postsPerPage}&page=${page}&sort=-created_at&meta=total_count`
+        `${process.env.NEXT_PUBLIC_API_URL}items/de-tai-du-an?limit=${postsPerPage}&page=${page}&sort=-created_at&meta=total_count`
       );
       const result = await response.json();
 

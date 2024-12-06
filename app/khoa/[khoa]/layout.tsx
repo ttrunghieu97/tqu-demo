@@ -3,6 +3,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
+import AutoBreadcrumbs from '@/components/AutoBreadcrumb';
 
 export const metadata: Metadata = {
   title: 'Trường Đại Học Tân Trào',
@@ -39,7 +40,8 @@ export default async function KhoaLayout({
     <>
       <div className='dark:bg-gray-900 white:bg-gray-100' >
         <Header department={resolvedParams.khoa} />
-        <main>{children}</main>
+        <AutoBreadcrumbs />
+        {children}
       </div>
       <Footer />
     </>

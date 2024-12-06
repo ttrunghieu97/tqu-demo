@@ -1,7 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Newspaper, Book, Globe, Microscope } from "lucide-react"
 import Link from "next/link"
-import AutoBreadcrumb from '@/components/AutoBreadcrumb';
 
 const categories = [
   {
@@ -33,7 +32,6 @@ const categories = [
 export default function Category() {
   return (
     <>
-      <AutoBreadcrumb />
       <div className="container mx-auto min-h-screen bg-gray-100 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">

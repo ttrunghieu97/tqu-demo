@@ -63,15 +63,15 @@ export default function TinTuc() {
   }, []);
 
   return (
-    <div className=" px-4 mt-5 dark:bg-gray-900">
+    <div className="px-4 mt-5 dark:bg-gray-900">
       <div className="container mx-auto" >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post) => {
             const date = formatDate(post.created_at);
             return (
-              <Link href={`/category/tin-tuc/${post.slug}`} key={post.id}>
-                <Card className="group hover:shadow-lg dark:hover:shadow-primary/25 transition-shadow duration-300 bg-background dark:bg-gray-900">
-                  <div className="relative aspect-[16/9] overflow-hidden rounded-t-lg flex items-center justify-center">
+              <Link href={`/category/tin-tuc/${post.slug}`} key={post.id} className="block h-full">
+                <Card className="group hover:shadow-lg dark:hover:shadow-primary/25 transition-shadow duration-300 bg-background dark:bg-gray-900 h-full flex flex-col">
+                  <div className="relative aspect-[16/9] overflow-hidden rounded-t-lg">
                     {post.image ? (
                       <Image
                         alt={post.title}
@@ -93,17 +93,17 @@ export default function TinTuc() {
                     )}
                   </div>
 
-                  <CardContent className="p-6">
+                  <CardContent className="p-6 flex flex-col flex-grow">
                     {date && (
                       <div className="flex items-center space-x-2 text-sm text-muted-foreground dark:text-gray-400 mb-1">
                         <CalendarDays className="h-4 w-4" />
                         <time dateTime={date.iso}>{date.localized}</time>
                       </div>
                     )}
-                    <h2 className="font-bold text-xl mb-1 line-clamp-2 group-hover:text-primary transition-colors dark:text-gray-100">
+                    <h2 className="font-bold text-xl mb-2 line-clamp-2 group-hover:text-primary transition-colors dark:text-gray-100">
                       {post.title}
                     </h2>
-                    <p className="text-muted-foreground dark:text-gray-300 line-clamp-3 text-sm">
+                    <p className="text-muted-foreground dark:text-gray-300 line-clamp-3 text-sm flex-grow">
                       {post.description}
                     </p>
                   </CardContent>
@@ -124,3 +124,4 @@ export default function TinTuc() {
     </div>
   );
 }
+

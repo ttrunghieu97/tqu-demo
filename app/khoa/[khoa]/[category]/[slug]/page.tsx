@@ -70,28 +70,30 @@ export default async function BlogPost({ params }: { params: Promise<Params> }) 
   const date = formatDate(created_at);
 
   return (
-    <article className="container prose lg:prose-xl dark:prose-invert mx-auto lg:prose-h1:text-4xl mb-10 lg:mt-20 break-words [&_img]:mx-auto">
-      <h1 className="text-4xl font-bold text-center mb-2">{title}</h1>
-      <div className="flex items-center justify-end text-sm opacity-60 mt-4">
-        {date && (
-          <div className="flex items-center space-x-2 mb-5">
-            <CalendarDays className="h-4 w-4" aria-hidden="true" />
-            <time dateTime={date.iso}>{date.localized}</time>
-          </div>
+    <>
+      <article className="container prose lg:prose-xl dark:prose-invert mx-auto lg:prose-h1:text-4xl mb-10 lg:mt-10 break-words [&_img]:mx-auto">
+        <h1 className="text-4xl font-bold mb-2 text-justify">{title}</h1>
+        <div className="flex items-center justify-end text-sm opacity-60 mt-4">
+          {date && (
+            <div className="flex items-center space-x-2 mb-5">
+              <CalendarDays className="h-4 w-4" aria-hidden="true" />
+              <time dateTime={date.iso}>{date.localized}</time>
+            </div>
+          )}
+        </div>
+        {description && (
+          <p className="text-2xl opacity-80 font-bold text-justify">{description}</p>
         )}
-      </div>
-      {description && (
-        <p className="text-2xl opacity-80 font-bold text-justify">{description}</p>
-      )}
-      <div
-        className="mt-8 text-2xl text-justify [&_img]:mx-auto [&_img]:block [&_img]:max-h-[1000px] [&_img]:object-contain"
-        dangerouslySetInnerHTML={{
-          __html: htmlContent,
-        }}
-      />
-      <Suspense fallback={<p>Đang tải bài viết liên quan...</p>}>
-        <RelatedPosts currentPostId={id} category={category} slug={category} khoa={khoa} />
-      </Suspense>
-    </article>
+        <div
+          className="mt-8 text-2xl text-justify [&_img]:mx-auto [&_img]:block [&_img]:max-h-[1000px] [&_img]:object-contain"
+          dangerouslySetInnerHTML={{
+            __html: htmlContent,
+          }}
+        />
+        <Suspense fallback={<p>Đang tải bài viết liên quan...</p>}>
+          <RelatedPosts currentPostId={id} category={category} slug={category} khoa={khoa} />
+        </Suspense>
+      </article>
+    </>
   );
 }

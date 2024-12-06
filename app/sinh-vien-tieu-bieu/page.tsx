@@ -14,7 +14,6 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import AutoBreadcrumb from '@/components/AutoBreadcrumb';
 
 interface Post {
   id: string;
@@ -191,7 +190,6 @@ export default function SinhVienTieuBieu() {
 
   return (
     <>
-      <AutoBreadcrumb />
       <div className="px-4 mt-5 dark:bg-gray-900">
         <div className="container mx-auto mb-5">
           <div className="text-center mb-12">

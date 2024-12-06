@@ -42,7 +42,7 @@ export default async function BlogPost({ params }: { params: Promise<Params> }) 
   const { slug } = resolvedParams;
 
   const posts = await directus.request(
-    readItems('thu_tuc_hanh_chinh', {
+    readItems('gt-tltk-sach-chuyen-khao', {
       filter: { slug: { _eq: slug } },
       limit: 1,
       fields: ['id', 'title', 'content', 'created_at', 'description', 'category'],

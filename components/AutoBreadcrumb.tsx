@@ -8,10 +8,10 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbList,
-  BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 
+// Map segment to titles
 const segmentTitles: Record<string, string> = {
   'khoa': 'Khoa',
   'tuyen-sinh': 'Thông tin tuyển sinh',
@@ -92,12 +92,18 @@ const segmentTitles: Record<string, string> = {
   "pho-bien-giao-duc-phap-luat": "Phổ biến giáo dục pháp luật",
   "tai-lieu": "Tài liệu",
   "bai-bao-khoa-hoc": "Bài báo khoa học",
-  // Add more mappings as needed
+  "hoat-dong": "Hoạt động",
+  "gioi-thieu-dbcl": "Giới thiệu ĐBCL",
+  "nckh": "Nghiên cứu khoa học",
+  // Add more mappings as needed  // Add more mappings as needed
 }
 
 export default function AutoBreadcrumbs() {
   const pathname = usePathname()
   const segments = pathname.split('/').filter(segment => segment !== '')
+
+  // Loại bỏ phần cuối (slug)
+  const filteredSegments = segments.slice(0, -1)
 
   const getSegmentTitle = (segment: string) => {
     return segmentTitles[segment.toLowerCase()] ||
@@ -120,9 +126,8 @@ export default function AutoBreadcrumbs() {
     )
 
     // Add segment items
-    segments.forEach((segment, index) => {
-      const href = `/${segments.slice(0, index + 1).join('/')}`
-      const isLast = index === segments.length - 1
+    filteredSegments.forEach((segment, index) => {
+      const href = `/${filteredSegments.slice(0, index + 1).join('/')}`
       const title = getSegmentTitle(segment)
 
       // Add separator first
@@ -133,13 +138,9 @@ export default function AutoBreadcrumbs() {
       // Add the segment item
       items.push(
         <BreadcrumbItem key={href}>
-          {isLast ? (
-            <BreadcrumbPage>{title}</BreadcrumbPage>
-          ) : (
-            <BreadcrumbLink asChild>
-              <Link href={href}>{title}</Link>
-            </BreadcrumbLink>
-          )}
+          <BreadcrumbLink asChild>
+            <Link href={href}>{title}</Link>
+          </BreadcrumbLink>
         </BreadcrumbItem>
       )
     })

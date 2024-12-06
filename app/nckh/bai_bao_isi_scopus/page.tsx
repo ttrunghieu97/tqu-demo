@@ -14,7 +14,7 @@ export default function SinhVienTieuBieu() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const postsPerPage = 10; // Change posts per page as needed
+  const postsPerPage = 6; // Change posts per page as needed
 
   // Format the date
   const formatDate = useCallback((date: string): string | null => {
@@ -30,7 +30,7 @@ export default function SinhVienTieuBieu() {
   const fetchPosts = useCallback(async (page: number) => {
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}items/pho_bien_giao_duc_phap_luat?limit=${postsPerPage}&page=${page}&sort=-created_at&meta=total_count`
+        `${process.env.NEXT_PUBLIC_API_URL}items/bai-bao-isi-scopus?limit=${postsPerPage}&page=${page}&sort=-created_at&meta=total_count`
       );
       const result = await response.json();
 

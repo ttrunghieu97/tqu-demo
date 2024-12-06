@@ -1,7 +1,6 @@
 import { Mail, Phone } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
-import AutoBreadcrumbs from '@/components/AutoBreadcrumb';
 
 interface Lecturer {
   name: string;
@@ -48,7 +47,6 @@ export default async function Page({ params }: Params) {
 
   return (
     <>
-      <AutoBreadcrumbs />
       <div className="min-h-screen bg-background dark:bg-gray-900 text-black dark:text-white">
         <div className="container mx-auto px-4 py-6">
           <h1 className="text-3xl md:text-4xl font-bold text-center mb-12 uppercase">

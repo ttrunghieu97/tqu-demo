@@ -5,9 +5,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import ThemeProvider from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
-import Loading from './loading';
 import Head from 'next/head';
-import { Suspense } from 'react';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -32,9 +30,7 @@ export default function RootLayout({
       </Head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ThemeProvider>
-          <Suspense fallback={<Loading />}>
-            {children}
-          </Suspense>
+          {children}
           <Analytics />
         </ThemeProvider>
       </body>

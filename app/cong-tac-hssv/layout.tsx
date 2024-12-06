@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Tài nguyên - Trường Đại Học Tân Trào',
+  title: 'Công tác HSSV - Trường Đại Học Tân Trào',
   description: 'Demo For Learning',
   icons: {
     icon: "/img/logo.png",

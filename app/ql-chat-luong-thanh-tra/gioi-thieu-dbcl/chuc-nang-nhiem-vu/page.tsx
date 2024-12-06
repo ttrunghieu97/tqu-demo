@@ -54,7 +54,6 @@ export default async function BlogPost() {
     .process(content)
     .then((file) => String(file));
 
-  // const createdDate = formatDate(date_created);
   const updatedDate = formatDate(date_updated);
 
   return (
