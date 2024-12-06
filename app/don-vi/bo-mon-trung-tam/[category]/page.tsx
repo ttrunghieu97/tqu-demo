@@ -40,7 +40,7 @@ export default function KhoaPage({ params }: Params) {
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [hasMorePosts, setHasMorePosts] = useState(true);
-  const postsPerPage = 3;
+  const postsPerPage = 6;
 
   const formatDate = (date: string | undefined): DateFormat | null => {
     if (!date) return null;
@@ -59,7 +59,7 @@ export default function KhoaPage({ params }: Params) {
     setIsLoading(true);
     try {
       const result = await directus.request(
-        readItems('dam_bao_clgd', {
+        readItems('bo_mon_trung_tam', {
           limit: postsPerPage,
           page,
           filter: { category },
@@ -99,12 +99,18 @@ export default function KhoaPage({ params }: Params) {
 
   return (
     <div>
+      <div className="bg-gradient-to-r from-yellow-500 to-white dark:from-yellow-700 dark:to-gray-800 text-white dark:text-gray-200 p-2 font-extrabold font-sans flex items-center mt-5 transition-colors duration-300">
+        <div className='container mx-auto flex items-center'>
+          <h2 className="text-4xl font-extrabold uppercase text-red-600 dark:text-red-400">Hoạt động</h2>
+        </div>
+      </div>
+
       <div className="container mx-auto px-4 mt-5 mb-5">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post) => {
             const date = formatDate(post.created_at);
             return (
-              <Link href={`/ql-chat-luong-thanh-tra/dam-bao-clgd/${post.category}/${post.slug}`} key={post.id}>
+              <Link href={`${post.category}/${post.slug}`} key={post.id}>
                 <Card className="group hover:shadow-lg dark:hover:shadow-primary/25 transition-shadow duration-300 bg-background dark:bg-gray-900">
                   <div className="relative aspect-[16/9] overflow-hidden rounded-t-lg flex items-center justify-center">
                     {post.image ? (

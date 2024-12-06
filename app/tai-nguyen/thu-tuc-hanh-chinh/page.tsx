@@ -49,7 +49,7 @@ export default function ThuTucHanhChinh() {
               <li key={procedure.id} className="text-lg">
                 <Link
                   href={procedure.slug ? `/tai-nguyen/thu-tuc-hanh-chinh/${procedure.slug}` : "#"}
-                  className="hover:text-primary dark:hover:text-blue-400"
+                  className="hover:text-green-600 dark:hover:text-blue-400"
                 >
                   {procedure.title}
                 </Link>

@@ -14,7 +14,7 @@ export default function SinhVienTieuBieu() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const postsPerPage = 10; // Change posts per page as needed
+  const postsPerPage = 6; // Change posts per page as needed
 
   // Format the date
   const formatDate = useCallback((date: string): string | null => {
@@ -30,7 +30,7 @@ export default function SinhVienTieuBieu() {
   const fetchPosts = useCallback(async (page: number) => {
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}items/bai-bao-trong-nuoc-va-quoc-te?limit=${postsPerPage}&page=${page}&sort=-created_at&meta=total_count`
+        `${process.env.NEXT_PUBLIC_API_URL}items/thong_bao_khoa_hoc?limit=${postsPerPage}&page=${page}&sort=-created_at&meta=total_count`
       );
       const result = await response.json();
 
@@ -144,7 +144,7 @@ export default function SinhVienTieuBieu() {
     <div className="px-4 mt-5 dark:bg-gray-900">
       <div className="container mx-auto mb-5">
         <div className="text-center mb-5">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Tài liệu</h1>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Thông báo khoa học</h1>
         </div>
         <div>{renderPosts}</div>
         {renderPagination}

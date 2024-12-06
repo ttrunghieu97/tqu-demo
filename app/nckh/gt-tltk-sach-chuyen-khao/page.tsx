@@ -30,7 +30,7 @@ export default function SinhVienTieuBieu() {
   const fetchPosts = useCallback(async (page: number) => {
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}items/van_ban_dao_tao?limit=${postsPerPage}&page=${page}&sort=-created_at&meta=total_count`
+        `${process.env.NEXT_PUBLIC_API_URL}items/gt_tltk_sach_chuyen_khao?limit=${postsPerPage}&page=${page}&sort=-created_at&meta=total_count`
       );
       const result = await response.json();
 
@@ -144,7 +144,7 @@ export default function SinhVienTieuBieu() {
     <div className="px-4 mt-5 dark:bg-gray-900">
       <div className="container mx-auto mb-5">
         <div className="text-center mb-5">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Văn bản đào tạo</h1>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Giáo trình - Tài liệu thanm khảo - Sách chuyên khoa</h1>
         </div>
         <div>{renderPosts}</div>
         {renderPagination}

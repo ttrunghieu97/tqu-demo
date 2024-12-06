@@ -95,6 +95,11 @@ const segmentTitles: Record<string, string> = {
   "hoat-dong": "Hoạt động",
   "gioi-thieu-dbcl": "Giới thiệu ĐBCL",
   "nckh": "Nghiên cứu khoa học",
+  "tuyen-dung": "Tuyển dụng",
+  "cong-tac-hssv": "Công tác HSSV",
+  "thuc-nghiem-chuyen-giao-cong-nghe": "Trung tâm thực nghiệm và chuyển giao công nghệ",
+  "thnn-ptnn": "Trung tâm ngoại ngữ - phát triển nghề nghiệp",
+  "the-duc-the-thao": "Trung tâm thể dục thể thao",
   // Add more mappings as needed  // Add more mappings as needed
 }
 

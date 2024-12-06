@@ -72,7 +72,7 @@ const menuData: Record<DepartmentName, MenuData> = {
       {
         type: "dropdown",
         label: "Tuyển sinh - Đào Tạo",
-        columns: 2,
+        columns: 1,
         items: [
           {
             title: "Tuyển sinh",
@@ -83,32 +83,32 @@ const menuData: Record<DepartmentName, MenuData> = {
                 label: "Tại chức - VLVH - Liên kết",
                 href: "/tuyen-sinh/tai-chuc",
               },
-              { label: "Hệ Cao đẳng", href: "/tuyen-sinh/cao-dang" },
+              { label: "Hệ Cao đẳng", href: "/tuyen-sinh/he-cao-dang" },
             ],
           },
-          {
-            title: "Đào tạo",
-            links: [
-              {
-                label: "Đăng ký học tín chỉ",
-                href: "/dao-tao/dang-ki-hoc-tin-chi",
-              },
-              {
-                label: "Kế hoạch chuyên môn",
-                href: "/dao-tao/ke-hoach-chuyen-mon",
-              },
+          // {
+          //   title: "Đào tạo",
+          //   links: [
+          //     {
+          //       label: "Đăng ký học tín chỉ",
+          //       href: "/dao-tao/dang-ki-hoc-tin-chi",
+          //     },
+          //     {
+          //       label: "Kế hoạch chuyên môn",
+          //       href: "/dao-tao/ke-hoach-chuyen-mon",
+          //     },
 
-              {
-                label: "Mã ngành và VB liên quan",
-                href: "/dao-tao/ma-nganh-va-vb-lien-quan",
-              },
-              {
-                label: "Chương trình đào tạo",
-                href: "/dao-tao/chuong-trinh-dao-tao",
-              },
-              { label: "Thời khóa biểu", href: "/dao-tao/thoi-khoa-bieu" },
-            ],
-          },
+          //     {
+          //       label: "Mã ngành và VB liên quan",
+          //       href: "/dao-tao/ma-nganh-va-vb-lien-quan",
+          //     },
+          //     {
+          //       label: "Chương trình đào tạo",
+          //       href: "/dao-tao/chuong-trinh-dao-tao",
+          //     },
+          //     { label: "Thời khóa biểu", href: "/dao-tao/thoi-khoa-bieu" },
+          //   ],
+          // },
         ],
       },
       //////////////////////////////////////////
@@ -328,11 +328,11 @@ const menuData: Record<DepartmentName, MenuData> = {
               },
               {
                 label: "Bài báo ISI/Scopus",
-                href: "/nckh/bai_bao_isi_scopus",
+                href: "/nckh/bai-bao-isi-scopus",
               },
               {
                 label: "Bài báo trong nước và quốc tế",
-                href: "/nckh/bai_bao_trong_nuoc_va_quoc_te",
+                href: "/nckh/bai-bao-trong-nuoc-va-quoc-te",
               },
               {
                 label: "Hội nghị - Hội thảo",
@@ -340,15 +340,15 @@ const menuData: Record<DepartmentName, MenuData> = {
               },
               {
                 label: "Đề tài - Dự án",
-                href: "/nckh/de_tai_du_an",
+                href: "/nckh/de-tai-du-an",
               },
               {
                 label: "GT/TLTK/Sách chuyên khảo",
-                href: "/nckh/gt_tltk_sach_chuyen_khao",
+                href: "/nckh/gt-tltk-sach-chuyen-khao",
               },
               {
                 label: "Thông báo khoa học",
-                href: "/nckh/thong_bao_khoa_hoc",
+                href: "/nckh/thong-bao-khoa-hoc",
               },
             ],
           },
@@ -422,10 +422,10 @@ const menuData: Record<DepartmentName, MenuData> = {
                 label: "Nội quy - Quy chế",
                 href: "/cong-tac-hssv/noi-quy-quy-che",
               },
-              {
-                label: "Phản hồi sinh viên",
-                href: "/cong-tac-hssv/phan-hoi-sinh-vien",
-              },
+              // {
+              //   label: "Phản hồi sinh viên",
+              //   href: "/cong-tac-hssv/phan-hoi-sinh-vien",
+              // },
             ],
           },
         ],

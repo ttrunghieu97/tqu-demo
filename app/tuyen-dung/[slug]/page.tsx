@@ -1,9 +1,7 @@
-import Header from "@/components/Header";
 import directus from "@/lib/directus"
 import { readItems } from '@directus/sdk'
 import { CalendarDays } from "lucide-react"
 import React, { Suspense } from 'react';
-import Footer from '../../../components/Footer';
 const RelatedPosts = React.lazy(() => import('./RelatedPosts'));
 
 
@@ -23,7 +21,6 @@ interface Post {
   content: string; // Assume this is WYSIWYG HTML content
   created_at: string;
   description: string | null;
-  category: string;
 }
 
 const formatDate = (date: string | undefined): DateFormat | null => {
@@ -44,10 +41,10 @@ export default async function BlogPost({ params }: { params: Promise<Params> }) 
   const { slug } = resolvedParams;
 
   const posts = await directus.request(
-    readItems('lich_tuan', {
+    readItems('tuyen_dung', {
       filter: { slug: { _eq: slug } },
       limit: 1,
-      fields: ['id', 'title', 'content', 'created_at', 'description', 'category'],
+      fields: ['id', 'title', 'content', 'created_at', 'description'],
     })
   ) as Post[];
 
@@ -57,13 +54,12 @@ export default async function BlogPost({ params }: { params: Promise<Params> }) 
     return <div>Không tìm thấy bài viết.</div>;
   }
 
-  const { id, title, content, created_at, description, category } = post;
+  const { id, title, content, created_at, description } = post;
 
   const date = formatDate(created_at);
 
   return (
     <>
-      <Header department="Home" />
       <article className="container prose lg:prose-xl dark:prose-invert mx-auto lg:prose-h1:text-4xl mb-10 lg:mt-20 break-words [&_img]:mx-auto">
         <h1 className="text-4xl font-bold text-center mb-2">{title}</h1>
         <div className="flex items-center justify-end text-sm opacity-60 mt-4">
@@ -85,10 +81,9 @@ export default async function BlogPost({ params }: { params: Promise<Params> }) 
         />
 
         <Suspense>
-          <RelatedPosts currentPostId={id} category={category} slug='' />
+          <RelatedPosts currentPostId={id} slug='' />
         </Suspense>
       </article>
-      <Footer />
     </>
   );
 }

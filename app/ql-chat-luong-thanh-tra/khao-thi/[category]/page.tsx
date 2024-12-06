@@ -104,8 +104,8 @@ export default function KhoaPage({ params }: Params) {
           {posts.map((post) => {
             const date = formatDate(post.created_at);
             return (
-              <Link href={`/ql-chat-luong-thanh-tra/khao-thi/${post.category}/${post.slug}`} key={post.id}>
-                <Card className="group hover:shadow-lg dark:hover:shadow-primary/25 transition-shadow duration-300 bg-background dark:bg-gray-900">
+              <Link href={`/ql-chat-luong-thanh-tra/khao-thi/${post.category}/${post.slug}`} key={post.id} className="block h-full">
+                <Card className="group hover:shadow-lg dark:hover:shadow-primary/25 transition-shadow duration-300 bg-background dark:bg-gray-900 h-full flex flex-col">
                   <div className="relative aspect-[16/9] overflow-hidden rounded-t-lg flex items-center justify-center">
                     {post.image ? (
                       <Image
@@ -128,7 +128,7 @@ export default function KhoaPage({ params }: Params) {
                     )}
                   </div>
 
-                  <CardContent className="p-6">
+                  <CardContent className="p-6 flex flex-col flex-grow">
                     {date && (
                       <div className="flex items-center space-x-2 text-sm text-muted-foreground dark:text-gray-400 mb-1">
                         <CalendarDays className="h-4 w-4" />
@@ -138,7 +138,7 @@ export default function KhoaPage({ params }: Params) {
                     <h2 className="font-bold text-xl mb-1 line-clamp-2 group-hover:text-primary transition-colors dark:text-gray-100">
                       {post.title}
                     </h2>
-                    <p className="text-muted-foreground dark:text-gray-300 line-clamp-3 text-sm">
+                    <p className="text-muted-foreground dark:text-gray-300 line-clamp-3 text-sm flex-grow">
                       {post.description}
                     </p>
                   </CardContent>

@@ -12,7 +12,7 @@ import { readItems } from '@directus/sdk';
 
 type Params = {
   params: Promise<{
-    khoa: string;
+    category: string;
   }>;
 };
 
@@ -34,13 +34,13 @@ interface DateFormat {
 
 export default function KhoaPage({ params }: Params) {
   const resolvedParams = React.use(params);
-  const { khoa } = resolvedParams;
+  const { category } = resolvedParams;
 
   const [posts, setPosts] = useState<Post[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [hasMorePosts, setHasMorePosts] = useState(true);
-  const postsPerPage = 1;
+  const postsPerPage = 6;
 
   const formatDate = (date: string | undefined): DateFormat | null => {
     if (!date) return null;
@@ -59,9 +59,10 @@ export default function KhoaPage({ params }: Params) {
     setIsLoading(true);
     try {
       const result = await directus.request(
-        readItems(khoa, {
+        readItems('phong_ban', {
           limit: postsPerPage,
           page,
+          filter: { category },
           fields: ['id', 'title', 'created_at', 'description', 'slug', 'image', 'category', 'content'],
           sort: ['-created_at'],
         })
@@ -83,7 +84,7 @@ export default function KhoaPage({ params }: Params) {
     } finally {
       setIsLoading(false);
     }
-  }, [khoa, postsPerPage]);
+  }, [category, postsPerPage]);
 
   useEffect(() => {
     fetchPosts(1);
@@ -94,16 +95,13 @@ export default function KhoaPage({ params }: Params) {
     setCurrentPage(nextPage);
     fetchPosts(nextPage);
   };
+  console.log("Resolved category:", category);
 
   return (
-    <>
-
-
-
-
-      <div className="bg-gradient-to-r from-red-900 to-white dark:from-gray-800 dark:to-gray-900 p-2 font-extrabold font-sans flex items-center mt-5 transition-colors duration-300">
-        <div className="container mx-auto flex items-center">
-          <h2 className="text-3xl font-bold text-red-100 dark:text-gray-100">HOẠT ĐỘNG</h2>
+    <div>
+      <div className="bg-gradient-to-r from-yellow-500 to-white dark:from-yellow-700 dark:to-gray-800 text-white dark:text-gray-200 p-2 font-extrabold font-sans flex items-center mt-5 transition-colors duration-300">
+        <div className='container mx-auto flex items-center'>
+          <h2 className="text-4xl font-extrabold uppercase text-red-600 dark:text-red-400">Hoạt động</h2>
         </div>
       </div>
 
@@ -112,7 +110,7 @@ export default function KhoaPage({ params }: Params) {
           {posts.map((post) => {
             const date = formatDate(post.created_at);
             return (
-              <Link href={`/khoa/${khoa}/${post.category}/${post.slug}`} key={post.id}>
+              <Link href={`${post.category}/${post.slug}`} key={post.id}>
                 <Card className="group hover:shadow-lg dark:hover:shadow-primary/25 transition-shadow duration-300 bg-background dark:bg-gray-900">
                   <div className="relative aspect-[16/9] overflow-hidden rounded-t-lg flex items-center justify-center">
                     {post.image ? (
@@ -168,6 +166,6 @@ export default function KhoaPage({ params }: Params) {
           </Button>
         </div>
       )}
-    </>
+    </div>
   );
 }

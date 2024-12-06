@@ -15,7 +15,6 @@ interface Post {
   title: string
   slug: string
   image: string
-  category: string
   content: string
 }
 
@@ -26,12 +25,11 @@ interface DateFormat {
 
 interface RelatedPostsProps {
   currentPostId: string
-  category: string
   slug: string // Only pass the slug (e.g., 'tin-tuc')
   limit?: number
 }
 
-export default function RelatedPosts({ currentPostId, category, limit = 6 }: RelatedPostsProps) {
+export default function RelatedPosts({ currentPostId, limit = 6 }: RelatedPostsProps) {
   const [relatedPosts, setRelatedPosts] = useState<Post[]>([])
 
   const formatDate = (date: string | undefined): DateFormat | null => {
@@ -51,12 +49,11 @@ export default function RelatedPosts({ currentPostId, category, limit = 6 }: Rel
     const fetchRelatedPosts = async () => {
       try {
         const result = await directus.request(
-          readItems('lich_tuan', {
+          readItems('tuyen_dung', {
             limit: limit,
-            fields: ['id', 'title', 'created_at', 'description', 'slug', 'image', 'category'],
+            fields: ['id', 'title', 'created_at', 'description', 'slug', 'image'],
             filter: {
               _and: [
-                { category: { _eq: category } },
                 { id: { _neq: currentPostId } }
               ]
             },
@@ -70,7 +67,7 @@ export default function RelatedPosts({ currentPostId, category, limit = 6 }: Rel
     }
 
     fetchRelatedPosts()
-  }, [currentPostId, category, limit])
+  }, [currentPostId, limit])
 
   if (relatedPosts.length === 0) {
     return null
