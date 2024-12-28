@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Moon, Sun, Menu, X } from 'lucide-react'
 import menuData, { DepartmentName } from '../lib/Header'
+import SearchBar from "@/components/SearchBar";
 
 // Props and Types
 interface NavigationProps {
@@ -157,6 +158,8 @@ const Header: React.FC<NavigationProps> = ({ department }) => {
 						<Link href="#" className="hover:underline">Cán bộ giảng viên</Link>
 						<Link href="#" className="hover:underline">Cựu sinh viên</Link>
 						<Link href="#" className="hover:underline">Lịch tuần</Link>
+						<SearchBar />
+
 						<button
 							onClick={toggleDarkMode}
 							aria-label="Toggle dark mode"

@@ -16,6 +16,7 @@ const nextConfig = {
       "100.100.10.103",
       "tqu-demo.directus.app",
       "https://tqu-demo.directus.app",
+      "directus.tth-demo.icu",
     ],
   },
   webpack: (config, { isServer }) => {
